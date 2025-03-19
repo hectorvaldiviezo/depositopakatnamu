@@ -4,8 +4,8 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { ReactQueryClientProvider } from "@/components/Provider";
 import ButtonWhatsapp from "@/components/button-whatsapp";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
