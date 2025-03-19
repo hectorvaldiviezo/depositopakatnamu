@@ -1,8 +1,8 @@
 "use client";
 import ComplaintQuery from "@/components/complaints/components/ComplaintQuery";
 import { useComplaintStore } from "@/components/complaints/lib/complaint.store";
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import Footer from "@/components/falternativo";
+import Header from "@/components/halternativo";
 import Hero from "@/components/Hero";
 import { MILLA_BASE } from "@/lib/config";
 import { useSearchParams } from "next/navigation";

@@ -4,6 +4,9 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { ReactQueryClientProvider } from "@/components/Provider";
 import ButtonWhatsapp from "@/components/button-whatsapp";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: "Transportes Pakatnamu",
@@ -23,11 +26,20 @@ export default function RootLayout({
 }>) {
   return (
     <ReactQueryClientProvider>
-      <html lang="en">
+      <html lang="es" suppressHydrationWarning>
         <body className={`${roboto.variable}`}>
-          {children}
-          <Toaster />
-          <ButtonWhatsapp />
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem={false}
+            disableTransitionOnChange
+          >
+            <Header />
+            {children}
+            <Footer />
+            <Toaster />
+            <ButtonWhatsapp />
+          </ThemeProvider>
         </body>
       </html>
     </ReactQueryClientProvider>

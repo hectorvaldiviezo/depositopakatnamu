@@ -1,166 +1,161 @@
 "use client";
+
+import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { ModeToggle } from "./mode-toggle";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { buttonVariants } from "./ui/button";
-import { Menu } from "lucide-react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
-import { useEffect, useState } from "react";
-export default function Header({
-  heightToScroll = 500,
-  gradient = "bg-gradient-to-r from-navy via-navy to-danger",
-}: {
-  heightToScroll?: number;
-  gradient?: string;
-}) {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const routes = [
+    { name: "INICIO", path: "/" },
+    {
+      name: "ACERCA DE NOSOTROS",
+      path: "#",
+      dropdown: [
+        { name: "QUIENES SOMOS", path: "/quienes-somos" },
+        { name: "SEGURIDAD SALUD Y TRABAJO", path: "/seguridad-salud-trabajo" },
+      ],
+    },
+    { name: "PRODUCTOS", path: "/productos" },
+    { name: "NOVEDADES", path: "/novedades" },
+    { name: "CONTÁCTENOS", path: "/contactenos" },
+  ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > heightToScroll);
-    };
-
-    // Ejecutar al inicio para evitar que quede transparente tras la recarga
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [heightToScroll]);
+  const isActive = (path: string) => {
+    if (path === "/") return pathname === path;
+    return pathname.startsWith(path);
+  };
 
   return (
-    <header
-      className={`fixed top-0 z-50 w-full transition-colors bg-transparent duration-300 `}
-    >
-      <div
-        className={`container max-w-screen-xl mx-auto px-4 py-3 m-2 rounded-xl flex justify-between items-center ${
-          isScrolled
-            ? // ? "bg-gradient-to-r from-indigo-800 to-red-900"
-              // ? "bg-gradient-to-r from-indigo-800 to-blue-800"
-              // ? "bg-gradient-to-r from-navy to-indigo-800"
-              // ? ""
-              gradient
-            : "bg-transparent"
-        }`}
-      >
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container mx-auto max-w-screen-xl flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center justify-center gap-2">
           <Avatar className="rounded-xl">
-            <AvatarImage src="/tplogowhite.svg" alt="tp" />
+            <AvatarImage src="/dplogo.svg" alt="tp" />
             <AvatarFallback className="bg-transparent text-secondary">
-              TP
+              DP
             </AvatarFallback>
           </Avatar>
-          <div className="text-base sm:text-xl tracking-tight font-bold text-secondary flex flex-col">
-            TRANSPORTES PAKATNAMU
+          <div className="text-base sm:text-xl tracking-tight font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent flex flex-col">
+            DEPÓSITO PAKATNAMU
           </div>
         </Link>
-        <nav className="hidden md:block">
-          <ul className="flex space-x-4">
-            <li>
-              <Link
-                href="/nosotros"
-                className="text-secondary hover:text-secondary/80 text-xs font-bold tracking-tight"
-              >
-                NOSOTROS
-              </Link>
-            </li>
-            {/* <li>
-              <Link
-                href="#services"
-                className="text-secondary hover:text-secondary/80 text-xs font-bold tracking-tight"
-              >
-                SERVICIOS
-              </Link>
-            </li> */}
-            <li>
-              <Link
-                href="/cotizar"
-                className="text-secondary hover:text-secondary/80 text-xs font-bold tracking-tight"
-              >
-                COTIZAR
-              </Link>
-            </li>
-            <li>
-              <TooltipProvider>
-                <Tooltip delayDuration={50}>
-                  <Link
-                    href="https://www.nubefact.com/find_document?ruc=20480582561"
-                    target="_blank"
-                    className="text-secondary hover:text-secondary/80 text-xs font-bold tracking-tight"
+        <nav className="hidden md:flex gap-6 justify-end items-center">
+          {routes.map((route) =>
+            route.dropdown ? (
+              <DropdownMenu key={route.name}>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="link"
+                    className={`text-sm font-medium ${
+                      route.dropdown.some((item) => isActive(item.path))
+                        ? "text-primary"
+                        : "text-foreground"
+                    }`}
                   >
-                    <TooltipTrigger>COMPROBANTES</TooltipTrigger>
-                    <TooltipContent side="bottom" className="bg-navy">
-                      <p className="font-semibold">Consultar Comprobantes Electrónicos</p>
-                    </TooltipContent>
-                  </Link>
-                </Tooltip>
-              </TooltipProvider>
-            </li>
-          </ul>
+                    {route.name}
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  {route.dropdown.map((item) => (
+                    <DropdownMenuItem key={item.name} asChild>
+                      <Link
+                        href={item.path}
+                        className={isActive(item.path) ? "text-primary" : ""}
+                      >
+                        {item.name}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            ) : (
+              <Link
+                key={route.name}
+                href={route.path}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  isActive(route.path) ? "text-primary" : "text-foreground"
+                }`}
+              >
+                {route.name}
+              </Link>
+            )
+          )}
         </nav>
-        <div className="block md:hidden">
-          <Sheet>
-            <SheetTrigger
-              className={
-                buttonVariants({ variant: "ghost", size: "icon" }) +
-                " text-secondary"
-              }
-            >
-              <Menu size={24} />
-            </SheetTrigger>
-            <SheetContent className="bg-accent">
-              <SheetHeader>
-                <SheetTitle>
-                  <div className="flex items-center justify-center gap-1 pt-6">
-                    <Avatar>
-                      <AvatarImage src="/tplogo.svg" alt="tp" />
-                      <AvatarFallback>TP</AvatarFallback>
-                    </Avatar>
-                    <div className="text-base font-roboto font-bold flex flex-col bg-gradient-to-r from-navy to-danger bg-clip-text text-transparent">
-                      TRANSPORTES PAKATNAMU
-                    </div>
-                  </div>
-                </SheetTitle>
-                <SheetDescription></SheetDescription>
-                <nav className="grid place-items-start gap-2">
-                  <Link
-                    href="/nosotros"
-                    className="text-primary/85 hover:text-primary/80 text-sm font-roboto font-semibold"
-                  >
-                    NOSOTROS
-                  </Link>
-                  <Link
-                    href="/cotizar"
-                    className="text-primary/85 hover:text-primary/80 text-sm font-roboto font-semibold"
-                  >
-                    COTIZAR
-                  </Link>
-                  <Link
-                    href="https://www.nubefact.com/find_document?ruc=20480582561"
-                    target="_blank"
-                    className="text-primary/85 hover:text-primary/80 text-sm font-roboto font-semibold"
-                  >
-                    CONSULTAR COMPROBANTES
-                  </Link>
-                </nav>
-              </SheetHeader>
-            </SheetContent>
-          </Sheet>
+        <div className="flex items-center gap-2">
+          <ModeToggle />
+          <Button
+            variant="ghost"
+            size="icon"
+            className="md:hidden"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <Menu className="h-5 w-5" />
+            <span className="sr-only">Toggle menu</span>
+          </Button>
         </div>
       </div>
+      {isMenuOpen && (
+        <div className="fixed inset-0 top-16 z-50 grid h-[calc(100vh-4rem)] grid-flow-row auto-rows-max overflow-auto p-6 pb-32 shadow-md animate-in md:hidden bg-background">
+          <div className="relative z-20 grid gap-6 p-4 rounded-md">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute right-4 top-4"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <X className="h-5 w-5" />
+              <span className="sr-only">Close</span>
+            </Button>
+            <nav className="grid grid-flow-row auto-rows-max text-sm">
+              {routes.map((route) =>
+                route.dropdown ? (
+                  <div key={route.name} className="py-2">
+                    <h4 className="font-medium">{route.name}</h4>
+                    <div className="grid grid-flow-row auto-rows-max pl-4 text-sm">
+                      {route.dropdown.map((item) => (
+                        <Link
+                          key={item.name}
+                          href={item.path}
+                          className={`py-2 ${
+                            isActive(item.path) ? "text-primary" : ""
+                          }`}
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <Link
+                    key={route.name}
+                    href={route.path}
+                    className={`py-2 ${
+                      isActive(route.path) ? "text-primary" : ""
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {route.name}
+                  </Link>
+                )
+              )}
+            </nav>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

@@ -1,7 +1,7 @@
-import Header from "@/components/Header";
+import Header from "@/components/halternativo";
 import Hero from "@/components/Hero";
 import AboutUs from "@/components/AboutUs";
-import Footer from "@/components/Footer";
+import Footer from "@/components/falternativo";
 import { MILLA_BASE } from "@/lib/config";
 
 export default function Home() {

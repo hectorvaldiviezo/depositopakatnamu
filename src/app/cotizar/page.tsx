@@ -1,6 +1,6 @@
-import Header from "@/components/Header";
+import Header from "@/components/halternativo";
 import Hero from "@/components/Hero";
-import Footer from "@/components/Footer";
+import Footer from "@/components/falternativo";
 import ContactForm from "@/components/quotation/ContactForm";
 import { MILLA_BASE } from "@/lib/config";
 

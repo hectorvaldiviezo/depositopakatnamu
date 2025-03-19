@@ -1,170 +1,107 @@
-import {
-  Facebook,
-  Group,
-  Home,
-  Instagram,
-  Linkedin,
-  Mail,
-  MapPin,
-  Phone,
-  ReceiptText,
-  SquareChartGantt,
-  TextSelect,
-} from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { Button } from "./ui/button";
-import { BASE_PATH } from "@/lib/config";
+import Link from "next/link"
+import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react"
+import { ThemeToggleButton } from "./theme-toggle-button"
 
 export default function Footer() {
-  const year = new Date().getFullYear();
-
   return (
-    <footer className="bg-gray-800 text-white py-8">
-      <div className="container max-w-screen-xl flex flex-col gap-2 mx-auto px-4 text-start">
-        <div className="grid gap-4 grid-cols-2 md:grid-cols-3">
-          <div className="col-span-2 md:col-span-1 grid gap-2">
-            <p className="text-gray-500 font-bold">Contacto</p>
-            <div className="flex gap-4">
-              <div>
-                <Image
-                  src={BASE_PATH + "/lambayequemap.svg"}
-                  width={150}
-                  height={150}
-                  alt="Transportes Pakatnamu"
-                />
-              </div>
-              <div className="flex flex-col gap-3 p-3">
-                <div className="flex gap-2 items-center text-sm">
-                  <Mail className="fill-secondary w-4 h-4 stroke-gray-800" />{" "}
-                  info@transportespakatnamu.com
-                </div>
-                <div className="flex gap-2 items-center text-sm">
-                  <MapPin className="fill-secondary w-4 h-4 stroke-gray-800" />{" "}
-                  Carretera a Lambayeque Mza. A Lote. 6 Km 4.5
-                </div>
-                <div className="flex gap-2 items-start text-sm">
-                  <Phone className="fill-secondary w-4 h-4 stroke-gray-800" />
-                  <div>
-                    <p>944 474 284 </p>
-                    <p>924 040 350</p>
-                  </div>
-                </div>
+    <footer className="bg-secondary text-white w-full">
+      <div className="container py-12 px-4 md:px-6 mx-auto max-w-screen-xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div>
+            <h3 className="text-lg font-bold mb-4">Sucursales</h3>
+            <ul className="space-y-3">
+              <li className="flex items-start">
+                <MapPin className="h-5 w-5 mr-2 mt-0.5 text-primary" />
+                <span>Av. Principal 123, Lima, Perú</span>
+              </li>
+              <li className="flex items-start">
+                <MapPin className="h-5 w-5 mr-2 mt-0.5 text-primary" />
+                <span>Calle Comercial 456, Arequipa, Perú</span>
+              </li>
+              <li className="flex items-start">
+                <Phone className="h-5 w-5 mr-2 mt-0.5 text-primary" />
+                <span>(01) 123-4567</span>
+              </li>
+              <li className="flex items-start">
+                <Mail className="h-5 w-5 mr-2 mt-0.5 text-primary" />
+                <span>info@depositopaktnamu.com</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-bold mb-4">Novedades</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/novedades/nueva-sucursal" className="hover:text-primary transition-colors">
+                  Nueva sucursal en Trujillo
+                </Link>
+              </li>
+              <li>
+                <Link href="/novedades/promocion-verano" className="hover:text-primary transition-colors">
+                  Promociones de verano
+                </Link>
+              </li>
+              <li>
+                <Link href="/novedades/nuevos-productos" className="hover:text-primary transition-colors">
+                  Nuevos productos disponibles
+                </Link>
+              </li>
+              <li>
+                <Link href="/novedades" className="hover:text-primary transition-colors">
+                  Ver todas las novedades
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-bold mb-4">Contáctenos</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/contactenos" className="hover:text-primary transition-colors">
+                  Formulario de contacto
+                </Link>
+              </li>
+              <li>
+                <Link href="/quienes-somos" className="hover:text-primary transition-colors">
+                  Quiénes somos
+                </Link>
+              </li>
+              <li>
+                <Link href="/productos" className="hover:text-primary transition-colors">
+                  Catálogo de productos
+                </Link>
+              </li>
+              <li className="flex items-center space-x-3">
+                <Link href="https://facebook.com" className="hover:text-primary transition-colors">
+                  <Facebook className="h-5 w-5" />
+                </Link>
+                <Link href="https://instagram.com" className="hover:text-primary transition-colors">
+                  <Instagram className="h-5 w-5" />
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-bold mb-4">Síguenos en Facebook</h3>
+            <div className="bg-white p-2 rounded">
+              <div className="aspect-video bg-gray-200 rounded flex items-center justify-center">
+                <span className="text-gray-500 text-sm">Contenido de Facebook</span>
               </div>
             </div>
-          </div>
-          <div className="flex flex-col gap-2 items-center justify-start">
-            <div className="max-w-fit">
-              <p className="text-gray-500 font-bold">Enlaces</p>
-              <Link href="/">
-                <Button
-                  size="default"
-                  variant="link"
-                  className="flex items-center gap-2 text-secondary group"
-                >
-                  <Home className="min-w-5 min-h-6" /> Inicio
-                </Button>
-              </Link>
-              <Link href="/nosotros">
-                <Button
-                  size="default"
-                  variant="link"
-                  className="flex items-center gap-2 text-secondary group"
-                >
-                  <Group className="min-w-5 min-h-5" /> Nosotros
-                </Button>
-              </Link>
-              <Link href="/cotizar">
-                <Button
-                  size="default"
-                  variant="link"
-                  className="flex items-center gap-2 text-secondary group"
-                >
-                  <TextSelect className="min-w-5 min-h-5" /> Cotizar
-                </Button>
-              </Link>
-              <Link href="https://www.nubefact.com/find_document?ruc=20480582561">
-                <Button
-                  size="default"
-                  variant="link"
-                  className="flex items-start gap-2 text-secondary group text-wrap text-start"
-                >
-                  <ReceiptText className="min-w-5 min-h-5" /> Comprobantes
-                  Electrónicos
-                </Button>
-              </Link>
-            </div>
-          </div>
-          <div className="flex flex-col items-center justify-start">
-            <div className="max-w-fit">
-              <p className="text-gray-500 font-bold">Políticas</p>
-              <Link href="/docs/codigo_etica_TP.pdf" target="_blank">
-                <Button
-                  size="default"
-                  variant="link"
-                  className="flex items-center gap-2 text-secondary group"
-                >
-                  <SquareChartGantt className="min-w-6 min-h-5 group-hover:fill-muted group-hover:stroke-gray-800 transition-colors duration-200" />{" "}
-                  Código de Ética
-                </Button>
-              </Link>
-              <Link href="/libro-reclamaciones">
-                <Image
-                  src={BASE_PATH + "/logo-libro.svg"}
-                  width={150}
-                  height={60}
-                  alt="Transportes Pakatnamu"
-                  className="py-2 px-4"
-                />
-              </Link>
+            <div className="mt-6">
+              <ThemeToggleButton />
             </div>
           </div>
         </div>
-        <div className="w-full flex flex-wrap justify-center gap-4 pt-12">
-          <Link
-            href="https://www.facebook.com/transportespakatnamu"
-            target="_blank"
-          >
-            <Button
-              size="sm"
-              variant="secondary"
-              className="flex w-fit gap-2 px-2 items-center text-xs font-medium font-roboto text-gray-800 rounded-full"
-            >
-              <Facebook className="w-4 h-4 stroke-transparent fill-gray-800" />
-              @TransportesPakatnamu
-            </Button>
-          </Link>
-          <Link
-            href="https://www.instagram.com/transportespakatnamu/"
-            target="_blank"
-          >
-            <Button
-              size="sm"
-              variant="secondary"
-              className="flex w-fit gap-2 px-2 items-center text-xs font-medium font-roboto text-gray-800 rounded-full"
-            >
-              <Instagram className="w-4 h-4 fill-transparent stroke-gray-800" />
-              @transportespakatnamu
-            </Button>
-          </Link>
-          <Link
-            href="https://pe.linkedin.com/company/transportespakatnamu"
-            target="_blank"
-          >
-            <Button
-              size="sm"
-              variant="secondary"
-              className="flex w-fit gap-2 px-2 items-center text-xs font-medium font-roboto text-gray-800 rounded-full"
-            >
-              <Linkedin className="w-4 h-4 fill-transparent stroke-gray-800" />
-              @transportespakatnamu
-            </Button>
-          </Link>
+
+        <div className="mt-12 pt-8 border-t border-gray-700 text-center">
+          <p>&copy; {new Date().getFullYear()} Depósito Paktnamu. Todos los derechos reservados.</p>
         </div>
-        <p className="text-center pt-4 text-xs md:text-sm">
-          &copy; {year} Transportes Pakatnamu. Todos los derechos reservados.
-        </p>
       </div>
     </footer>
-  );
+  )
 }
+
