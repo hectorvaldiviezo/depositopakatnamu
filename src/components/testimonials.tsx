@@ -12,7 +12,7 @@ const testimonials = [
     company: "Constructora ABC",
     image: "/placeholder.svg?height=100&width=100",
     quote:
-      "Depósito Paktnamu ha sido un socio estratégico clave para nuestro crecimiento. La calidad de sus productos y la eficiencia en sus entregas nos han permitido cumplir con nuestros proyectos en tiempo récord.",
+      "Depósito Pakatnamú ha sido un socio estratégico clave para nuestro crecimiento. La calidad de sus productos y la eficiencia en sus entregas nos han permitido cumplir con nuestros proyectos en tiempo récord.",
     rating: 5,
   },
   {
@@ -21,7 +21,7 @@ const testimonials = [
     company: "Industrias XYZ",
     image: "/placeholder.svg?height=100&width=100",
     quote:
-      "Trabajar con Depósito Paktnamu ha transformado nuestra cadena de suministro. Su servicio personalizado y su amplio catálogo de productos nos han ayudado a optimizar nuestros procesos.",
+      "Trabajar con Depósito Pakatnamú ha transformado nuestra cadena de suministro. Su servicio personalizado y su amplio catálogo de productos nos han ayudado a optimizar nuestros procesos.",
     rating: 5,
   },
   {
@@ -30,7 +30,7 @@ const testimonials = [
     company: "Tecnología Innovadora",
     image: "/placeholder.svg?height=100&width=100",
     quote:
-      "La asesoría especializada que recibimos de Depósito Paktnamu fue fundamental para elegir los materiales adecuados para nuestro nuevo proyecto. Su equipo de expertos realmente marca la diferencia.",
+      "La asesoría especializada que recibimos de Depósito Pakatnamú fue fundamental para elegir los materiales adecuados para nuestro nuevo proyecto. Su equipo de expertos realmente marca la diferencia.",
     rating: 4,
   },
   {
@@ -39,7 +39,7 @@ const testimonials = [
     company: "Constructora Moderna",
     image: "/placeholder.svg?height=100&width=100",
     quote:
-      "La calidad y durabilidad de los productos de Depósito Paktnamu superan ampliamente a la competencia. Definitivamente son nuestra primera opción para cualquier proyecto.",
+      "La calidad y durabilidad de los productos de Depósito Pakatnamú superan ampliamente a la competencia. Definitivamente son nuestra primera opción para cualquier proyecto.",
     rating: 5,
   },
 ]

@@ -88,7 +88,7 @@ export default function NationwideMap() {
               </p>
             </div>
             <p className="mb-6 text-sm md:text-base text-muted-foreground text-justify font-roboto">
-              En Transportes Pakatnamu, nos enorgullece ofrecer nuestros
+              En Transportes Pakatnamú, nos enorgullece ofrecer nuestros
               servicios de transporte de carga en todos los departamentos del
               Perú. Nuestra extensa red logística nos permite llegar a cada
               rincón del país, garantizando entregas seguras y puntuales sin

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function ButtonWhatsapp() {
   const numero = "942953488";
-  const mensaje = "Hola, deseo información para transportar ";
+  const mensaje = "Hola, deseo información sobre sus servicios.";
   const link = `https://api.whatsapp.com/send?phone=51${numero}&text=${mensaje}`;
   return (
     <Link

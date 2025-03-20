@@ -48,7 +48,7 @@ export default function Header() {
               DP
             </AvatarFallback>
           </Avatar>
-          <div className="text-base sm:text-xl tracking-tight font-bold bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent flex flex-col">
+          <div className="text-base sm:text-xl tracking-tight font-bold bg-linear-to-r from-primary dark:from-primary to-secondary dark:to-blue-600 bg-clip-text text-transparent flex flex-col">
             DEPÓSITO PAKATNAMU
           </div>
         </Link>

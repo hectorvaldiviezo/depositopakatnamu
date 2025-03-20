@@ -14,7 +14,7 @@ export default function Contact() {
               src={BASE_PATH + "/tplogo.svg"}
               width={300}
               height={300}
-              alt="Transportes Pakatnamu"
+              alt="Transportes Pakatnamú"
             />
           </div>
           <div>

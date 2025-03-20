@@ -9,8 +9,8 @@ import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
-  title: "Depósito Pakatnamu",
-  description: "Página web de Depósito Pakatnamu",
+  title: "Depósito Pakatnamú",
+  description: "Página web de Depósito Pakatnamú",
 };
 
 const roboto = Roboto({

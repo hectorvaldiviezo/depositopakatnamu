@@ -181,7 +181,7 @@ export default function Contactenos() {
                   <Mail className="h-5 w-5 mr-3 text-primary mt-1" />
                   <div>
                     <h3 className="font-medium">Correo electrónico</h3>
-                    <p className="text-gray-600 dark:text-gray-400">info@depositopaktnamu.com</p>
+                    <p className="text-gray-600 dark:text-gray-400">info@depositopakatnamu.com</p>
                   </div>
                 </div>
 

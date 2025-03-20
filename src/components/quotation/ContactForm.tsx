@@ -229,7 +229,7 @@ export default function ContactForm() {
                     <FormControl>
                       <Input
                         disabled
-                        placeholder="Transportes Pakatnamu SAC"
+                        placeholder="Transportes Pakatnamú SAC"
                         {...field}
                       />
                     </FormControl>

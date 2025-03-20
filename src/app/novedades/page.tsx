@@ -29,7 +29,7 @@ const noticias = [
     titulo: "Reconocimiento a la excelencia empresarial",
     fecha: "10 de febrero de 2024",
     descripcion:
-      "Depósito Paktnamu ha sido galardonado con el premio a la excelencia empresarial por su destacada trayectoria y compromiso con la calidad.",
+      "Depósito Pakatnamú ha sido galardonado con el premio a la excelencia empresarial por su destacada trayectoria y compromiso con la calidad.",
     imagen: "/placeholder.svg?height=400&width=600",
     link: "/novedades/reconocimiento-excelencia",
   },
@@ -72,7 +72,7 @@ export default function Novedades() {
 
       <div className="max-w-4xl mx-auto mb-12">
         <p className="text-lg text-center">
-          Manténgase informado sobre las últimas noticias, eventos y novedades de Depósito Paktnamu.
+          Manténgase informado sobre las últimas noticias, eventos y novedades de Depósito Pakatnamú.
         </p>
       </div>
 

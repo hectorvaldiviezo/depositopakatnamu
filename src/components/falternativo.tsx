@@ -31,7 +31,7 @@ export default function Footer() {
                   src={BASE_PATH + "/lambayequemap.svg"}
                   width={150}
                   height={150}
-                  alt="Transportes Pakatnamu"
+                  alt="Transportes Pakatnamú"
                 />
               </div>
               <div className="flex flex-col gap-3 p-3">
@@ -113,7 +113,7 @@ export default function Footer() {
                   src={BASE_PATH + "/logo-libro.svg"}
                   width={150}
                   height={60}
-                  alt="Transportes Pakatnamu"
+                  alt="Transportes Pakatnamú"
                   className="py-2 px-4"
                 />
               </Link>
@@ -162,7 +162,7 @@ export default function Footer() {
           </Link>
         </div>
         <p className="text-center pt-4 text-xs md:text-sm">
-          &copy; {year} Transportes Pakatnamu. Todos los derechos reservados.
+          &copy; {year} Transportes Pakatnamú. Todos los derechos reservados.
         </p>
       </div>
     </footer>

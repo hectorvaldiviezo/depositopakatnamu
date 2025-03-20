@@ -300,7 +300,7 @@ export default function ComplaintForm() {
     }
   };
 
-  const sedes = useSedes(1);
+  const sedes = useSedes(2);
 
   return (
     <div className="w-full py-20 px-2 flex justify-center items-center bg-muted">
@@ -640,7 +640,7 @@ export default function ComplaintForm() {
                   </CardContent>
                   <CardFooter className="flex justify-end">
                     <Button
-                      className="bg-navy hover:bg-navy/95"
+                      variant="secondary"
                       disabled={!formComplaint.formState.isValid}
                       onClick={handleNext}
                     >
@@ -794,13 +794,13 @@ export default function ComplaintForm() {
                   </CardContent>
                   <CardFooter className="flex justify-between">
                     <Button
-                      className="bg-navy hover:bg-navy/95"
+                      variant="secondary"
                       onClick={handlePrev}
                     >
                       Atrás
                     </Button>
                     <Button
-                      className="bg-navy hover:bg-navy/95"
+                      variant="secondary"
                       disabled={!formWell.formState.isValid}
                       onClick={handleNext}
                     >
@@ -991,14 +991,14 @@ export default function ComplaintForm() {
                   </CardContent>
                   <CardFooter className="flex justify-between">
                     <Button
-                      className="bg-navy hover:bg-navy/95"
+                    variant="secondary"
                       onClick={handlePrev}
                     >
                       Atrás
                     </Button>
                     <Button
                       type="submit"
-                      className={`bg-navy hover:bg-navy/95`}
+                      variant="secondary"
                       disabled={
                         !formComplaint.formState.isValid ||
                         !formWell.formState.isValid ||

@@ -7,7 +7,6 @@ import { MILLA_BASE } from "@/lib/config";
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header heightToScroll={250} />
       <main>
         <Hero
           title="LIBRO DE RECLAMACIONES"
@@ -23,7 +22,6 @@ export default function Home() {
         />
         <ComplaintForm />
       </main>
-      <Footer />
     </div>
   );
 }

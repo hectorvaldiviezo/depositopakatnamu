@@ -8,11 +8,11 @@ export default function QuienesSomos() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16 items-center">
         <div className="relative aspect-4/3 rounded-lg overflow-hidden shadow-lg">
-          <Image src="/placeholder.svg?height=600&width=800" alt="Depósito Paktnamu" fill className="object-cover" />
+          <Image src="/placeholder.svg?height=600&width=800" alt="Depósito Pakatnamú" fill className="object-cover" />
         </div>
         <div>
           <p className="text-lg mb-6">
-            Depósito Paktnamu es una empresa líder en el mercado, dedicada a proporcionar soluciones integrales para
+            Depósito Pakatnamú es una empresa líder en el mercado, dedicada a proporcionar soluciones integrales para
             negocios de todos los tamaños. Desde nuestra fundación, hemos trabajado incansablemente para construir una
             reputación basada en la confianza, la calidad y la excelencia en el servicio.
           </p>
@@ -22,7 +22,7 @@ export default function QuienesSomos() {
             personalizadas que se adapten a sus necesidades específicas.
           </p>
           <p className="text-lg">
-            En Depósito Paktnamu, no solo vendemos productos; construimos relaciones duraderas con nuestros clientes,
+            En Depósito Pakatnamú, no solo vendemos productos; construimos relaciones duraderas con nuestros clientes,
             basadas en la confianza mutua y el compromiso con la excelencia.
           </p>
         </div>

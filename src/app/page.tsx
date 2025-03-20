@@ -7,6 +7,7 @@ import { FeaturedServices } from "@/components/featured-services";
 import { Testimonials } from "@/components/testimonials";
 import { AnimatedElement } from "@/components/animated-element";
 import { ArrowRight } from "lucide-react";
+import { InfiniteLogoScroll } from "@/components/infinite-logo-scroll";
 
 const carouselSlides = [
   {
@@ -47,7 +48,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <AnimatedElement animation="fade-right">
               <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
-                <iframe
+                {/* <iframe
                   width="100%"
                   height="100%"
                   src="https://www.youtube.com/embed/dQw4w9WgXcQ"
@@ -56,6 +57,16 @@ export default function Home() {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                   className="absolute inset-0"
+                ></iframe> */}
+                <iframe
+                  src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F331701614734139&width=500&show_text=false&height=500&appId"
+                  width="100%"
+                  height="100%"
+                  className="absolute inset-0 border-none overflow-hidden"
+                  frameBorder="0"
+                  // allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                  allow="autoplay; clipboard-write; encrypted-media; web-share"
+                  allowFullScreen
                 ></iframe>
               </div>
             </AnimatedElement>
@@ -66,16 +77,17 @@ export default function Home() {
                 DE ÉXITO
               </h2>
               <p className="text-lg mb-6">
-                En Depósito Paktnamu, nos dedicamos a proporcionar soluciones
-                integrales que transforman negocios. Con más de dos décadas de
-                experiencia en el mercado, hemos construido una reputación
-                basada en la confianza, calidad y excelencia en el servicio.
+                Nacida con el afán de proveer a nuestros clientes de los mejores
+                productos a los precios más accesibles,{" "}
+                <strong>DEPOSITO PAKATNAMU</strong>
+                {""} apuesta por la calidad, el buen hacer y por las nuevas
+                tecnologías.
               </p>
               <p className="text-lg mb-6">
-                Nuestro compromiso es ser su socio estratégico, entendiendo sus
-                necesidades específicas y ofreciendo productos y servicios
-                innovadores que superen sus expectativas y potencien su
-                crecimiento.
+                Brindamos productos que exceden las expectativas y
+                requerimientos establecidos por normas oficiales, con un fuerte
+                compromiso por el cuidado del medio ambiente y la
+                responsabilidad social.
               </p>
               <Button asChild className="bg-primary hover:bg-primary/90 group">
                 <Link href="/quienes-somos" className="flex items-center">
@@ -104,24 +116,7 @@ export default function Home() {
             </p>
           </AnimatedElement>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-            {partners.map((partner, index) => (
-              <AnimatedElement
-                key={index}
-                animation="fade-up"
-                delay={index * 100}
-                className="flex justify-center"
-              >
-                <Image
-                  src={partner.logo || "/placeholder.svg"}
-                  alt={partner.name}
-                  width={200}
-                  height={100}
-                  className="h-20 object-contain filter grayscale hover:grayscale-0 transition-all duration-500 hover:scale-110"
-                />
-              </AnimatedElement>
-            ))}
-          </div>
+          <InfiniteLogoScroll />
         </div>
       </section>
 

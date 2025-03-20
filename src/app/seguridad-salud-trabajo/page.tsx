@@ -10,7 +10,7 @@ export default function SeguridadSaludTrabajo() {
 
       <div className="max-w-3xl mx-auto mb-12">
         <p className="text-lg mb-6">
-          En Depósito Paktnamu, la seguridad y salud de nuestros colaboradores y clientes es nuestra prioridad. Nos
+          En Depósito Pakatnamú, la seguridad y salud de nuestros colaboradores y clientes es nuestra prioridad. Nos
           comprometemos a mantener un ambiente de trabajo seguro y saludable, cumpliendo con todas las normativas y
           estándares aplicables.
         </p>
