@@ -19,7 +19,7 @@ export function InfiniteLogoScroll() {
       <div className="relative">
         <div className="flex animate-scroll">
           {[...logos, ...logos].map((logo, index) => (
-            <div key={index} className="flex-shrink-0 w-36 md:w-[200px] p-6">
+            <div key={index} className="shrink-0 w-36 md:w-[200px] p-6">
               <Image
                 src={BASE_PATH + (logo || "/peru.svg")}
                 alt={`Logo ${index + 1}`}
@@ -30,8 +30,8 @@ export function InfiniteLogoScroll() {
             </div>
           ))}
         </div>
-        <div className="absolute top-0 left-0 w-20 h-full bg-gradient-to-r from-secondary to-transparent" />
-        <div className="absolute top-0 right-0 w-20 h-full bg-gradient-to-l from-secondary to-transparent" />
+        <div className="absolute top-0 left-0 w-20 h-full bg-linear-to-r from-secondary to-transparent" />
+        <div className="absolute top-0 right-0 w-20 h-full bg-linear-to-l from-secondary to-transparent" />
       </div>
     </div>
   );

@@ -34,7 +34,7 @@ export default function Security() {
             <ul className="space-y-6">
               {features.map((feature, index) => (
                 <li key={index} className="flex items-center">
-                  <CheckCircle className="text-green-500 mr-4 flex-shrink-0" />
+                  <CheckCircle className="text-green-500 mr-4 shrink-0" />
                   <span className="text-lg font-medium">{feature}</span>
                 </li>
               ))}

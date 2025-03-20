@@ -7,7 +7,7 @@ export default function QuienesSomos() {
       <h1 className="text-4xl font-bold mb-8 text-center text-secondary">Quiénes Somos</h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16 items-center">
-        <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+        <div className="relative aspect-4/3 rounded-lg overflow-hidden shadow-lg">
           <Image src="/placeholder.svg?height=600&width=800" alt="Depósito Paktnamu" fill className="object-cover" />
         </div>
         <div>

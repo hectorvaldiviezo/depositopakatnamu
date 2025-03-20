@@ -42,14 +42,14 @@ export default function Services() {
       id="services"
       className="py-clamp-10-20 text-2xl px-2 bg-secondary"
     >
-      <div className="container max-w-screen-xl mx-auto py-12 md:py-20 px-4 md:px-10 bg-background rounded shadow relative">
+      <div className="container max-w-(--breakpoint-xl) mx-auto py-12 md:py-20 px-4 md:px-10 bg-background rounded shadow-sm relative">
         <div className="absolute top-[-8px] left-1/2 transform -translate-x-1/2 w-24 h-4 bg-danger"></div>
 
         <div className="mb-8 md:mb-12 border-l-4 md:border-l-8 border-danger px-4">
           <h2 className="text-clamp-2xl-4xl mb-2 font-roboto text-start text-navy font-black">
             Soluciones en transporte
           </h2>
-          <p className="text-muted-foreground font-roboto font-bold text-xs md:text-base max-w-screen-md">
+          <p className="text-muted-foreground font-roboto font-bold text-xs md:text-base max-w-(--breakpoint-md)">
             NOS ADAPTAMOS A TUS NECESIDADES
           </p>
         </div>

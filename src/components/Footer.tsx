@@ -5,7 +5,7 @@ import { ThemeToggleButton } from "./theme-toggle-button"
 export default function Footer() {
   return (
     <footer className="bg-secondary text-white w-full">
-      <div className="container py-12 px-4 md:px-6 mx-auto max-w-screen-xl">
+      <div className="container py-12 px-4 md:px-6 mx-auto max-w-(--breakpoint-xl)">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <h3 className="text-lg font-bold mb-4">Sucursales</h3>

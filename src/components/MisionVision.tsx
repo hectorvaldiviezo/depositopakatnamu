@@ -22,7 +22,7 @@ export default function MisionVision() {
 
   return (
     <section className="pb-20 bg-muted">
-      <div className="container max-w-screen-md mx-auto px-4">
+      <div className="container max-w-(--breakpoint-md) mx-auto px-4">
         <div className="grid grid-cols-2 items-center gap-8">
           <div className="flex items-center justify-center h-full">
             <Card className="h-full justify-between flex flex-col">

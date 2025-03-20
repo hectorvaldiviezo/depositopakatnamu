@@ -15,7 +15,7 @@ export default function Quotation() {
       id="quotation"
       className="relative h-[300px] md:h-[450px] flex items-center bg-muted px-2"
     >
-      <div className="container max-w-screen-xl mx-auto relative h-full rounded">
+      <div className="container max-w-(--breakpoint-xl) mx-auto relative h-full rounded">
         <Image
           src={MILLA_BASE + "/transportes/administradorweb/inicio_cotizar.png"}
           alt="Transporte de carga"
@@ -24,8 +24,8 @@ export default function Quotation() {
           quality={100}
           className="rounded"
         />
-        <div className="absolute inset-0 bg-gradient-to-l from-transparent via-navy/80 via-50% to-navy/90 rounded"></div>
-        <div className="max-w-full px-4 relative h-full flex flex-col justify-center items-start shadow">
+        <div className="absolute inset-0 bg-linear-to-l from-transparent via-navy/80 via-50% to-navy/90 rounded"></div>
+        <div className="max-w-full px-4 relative h-full flex flex-col justify-center items-start shadow-sm">
           <div className="w-full mb-4 text-secondary flex flex-col items-start text-start">
             <h1 className="text-clamp-xl-6xl font-roboto font-bold text-secondary">
               SI ESTÁS LISTO PARA ENVIAR,

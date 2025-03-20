@@ -52,7 +52,7 @@ export default function AboutUs() {
   ];
   return (
     <section id="about" className="md:py-20 py-6 bg-muted">
-      <div className="container max-w-screen-xl mx-auto p-4">
+      <div className="container max-w-(--breakpoint-xl) mx-auto p-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="md:col-span-2 flex flex-col gap-8 md:gap-16">
             {" "}

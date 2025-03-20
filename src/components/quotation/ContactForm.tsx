@@ -167,10 +167,10 @@ export default function ContactForm() {
       <Form {...form}>
         <form
           action=""
-          className="container max-w-screen-xl flex items-center justify-center w-full"
+          className="container max-w-(--breakpoint-xl) flex items-center justify-center w-full"
           onSubmit={form.handleSubmit(onSubmit)}
         >
-          <div className="w-full flex flex-col justify-center max-w-screen-md bg-background p-6 rounded-xl shadow-lg">
+          <div className="w-full flex flex-col justify-center max-w-(--breakpoint-md) bg-background p-6 rounded-xl shadow-lg">
             <div className="border-l-4 border-danger px-2">
               <div className="text-2xl font-roboto uppercase font-bold text-danger">
                 Información de Contacto

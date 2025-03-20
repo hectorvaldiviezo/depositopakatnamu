@@ -20,7 +20,7 @@ const carouselSlides = [
     description: "Colaborando con el crecimiendo de nuestra gente",
   },
   {
-    image: "/slider3.jpg",
+    image: "/slider4.jpg",
     title: "ATENCIÓN PERSONALIZADA Y ESPECIALIZADA",
     description: "Nos comprometemos para hacer realidad tus sueños",
   },

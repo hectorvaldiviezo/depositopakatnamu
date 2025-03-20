@@ -39,8 +39,8 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container mx-auto max-w-screen-xl flex h-16 items-center justify-between">
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-sm supports-backdrop-filter:bg-background/60">
+      <div className="container mx-auto max-w-(--breakpoint-xl) flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center justify-center gap-2">
           <Avatar className="rounded-xl">
             <AvatarImage src="/dplogo.svg" alt="tp" />
@@ -48,7 +48,7 @@ export default function Header() {
               DP
             </AvatarFallback>
           </Avatar>
-          <div className="text-base sm:text-xl tracking-tight font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent flex flex-col">
+          <div className="text-base sm:text-xl tracking-tight font-bold bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent flex flex-col">
             DEPÓSITO PAKATNAMU
           </div>
         </Link>

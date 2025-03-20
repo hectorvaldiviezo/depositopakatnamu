@@ -4,7 +4,7 @@ import { Users, TrendingUp, Award, Building } from "lucide-react"
 
 export function StatsSection() {
   return (
-    <section className="py-20 bg-gradient-to-r from-secondary/10 to-primary/10">
+    <section className="py-20 bg-linear-to-r from-secondary/10 to-primary/10">
       <div className="container mx-auto px-4 md:px-6">
         <AnimatedElement animation="fade-up" className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-secondary">

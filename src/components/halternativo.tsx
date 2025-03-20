@@ -22,7 +22,7 @@ import {
 import { useEffect, useState } from "react";
 export default function Header({
   heightToScroll = 500,
-  gradient = "bg-gradient-to-r from-navy via-navy to-danger",
+  gradient = "bg-linear-to-r from-navy via-navy to-danger",
 }: {
   heightToScroll?: number;
   gradient?: string;
@@ -46,11 +46,11 @@ export default function Header({
       className={`fixed top-0 z-50 w-full transition-colors bg-transparent duration-300 `}
     >
       <div
-        className={`container max-w-screen-xl mx-auto px-4 py-3 m-2 rounded-xl flex justify-between items-center ${
+        className={`container max-w-(--breakpoint-xl) mx-auto px-4 py-3 m-2 rounded-xl flex justify-between items-center ${
           isScrolled
-            ? // ? "bg-gradient-to-r from-indigo-800 to-red-900"
-              // ? "bg-gradient-to-r from-indigo-800 to-blue-800"
-              // ? "bg-gradient-to-r from-navy to-indigo-800"
+            ? // ? "bg-linear-to-r from-indigo-800 to-red-900"
+              // ? "bg-linear-to-r from-indigo-800 to-blue-800"
+              // ? "bg-linear-to-r from-navy to-indigo-800"
               // ? ""
               gradient
             : "bg-transparent"
@@ -63,7 +63,7 @@ export default function Header({
               TP
             </AvatarFallback>
           </Avatar>
-          <div className="text-base sm:text-xl tracking-tight font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent flex flex-col">
+          <div className="text-base sm:text-xl tracking-tight font-bold bg-linear-to-r from-primary to-secondary bg-clip-text text-transparent flex flex-col">
             TRANSPORTES PAKATNAMU
           </div>
         </Link>
@@ -131,7 +131,7 @@ export default function Header({
                       <AvatarImage src="/tplogo.svg" alt="tp" />
                       <AvatarFallback>TP</AvatarFallback>
                     </Avatar>
-                    <div className="text-base font-roboto font-bold flex flex-col bg-gradient-to-r from-navy to-danger bg-clip-text text-transparent">
+                    <div className="text-base font-roboto font-bold flex flex-col bg-linear-to-r from-navy to-danger bg-clip-text text-transparent">
                       TRANSPORTES PAKATNAMU
                     </div>
                   </div>

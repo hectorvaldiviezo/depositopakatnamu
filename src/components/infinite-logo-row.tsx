@@ -19,8 +19,8 @@ export function InfiniteLogoRow({
 
   return (
     <div className="relative w-full overflow-hidden py-8">
-      <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-secondary to-transparent z-10" />
-      <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-secondary to-transparent z-10" />
+      <div className="absolute left-0 top-0 bottom-0 w-32 bg-linear-to-r from-secondary to-transparent z-10" />
+      <div className="absolute right-0 top-0 bottom-0 w-32 bg-linear-to-l from-secondary to-transparent z-10" />
       <div
         className={`flex gap-16 ${
           direction === "left" ? "animate-scroll-left" : "animate-scroll-right"
@@ -30,7 +30,7 @@ export function InfiniteLogoRow({
         {[...logos, ...logos].map((logo, index) => (
           <div
             key={index}
-            className="flex-shrink-0 transition-transform duration-300 ease-in-out hover:scale-110"
+            className="shrink-0 transition-transform duration-300 ease-in-out hover:scale-110"
           >
             <Image
               src={BASE_PATH + (logo || "/placeholder.svg")}

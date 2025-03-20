@@ -40,12 +40,12 @@ export default function Hero({
       <div
         className={`absolute inset-0 ${
           gradient
-            ? // ? "bg-gradient-to-r from-[#0d0e2ace] via-[#0d0e2a93] to-[#0d0e2a81]"
-              "bg-gradient-to-r from-darknavy/80 via-darknavy/75 to-red-800/40"
+            ? // ? "bg-linear-to-r from-[#0d0e2ace] via-[#0d0e2a93] to-[#0d0e2a81]"
+              "bg-linear-to-r from-darknavy/80 via-darknavy/75 to-red-800/40"
             : ""
         }`}
       ></div>
-      <div className="container max-w-screen-lg mx-auto px-4 relative z-10">
+      <div className="container max-w-(--breakpoint-lg) mx-auto px-4 relative z-10">
         <div className="max-w-full">
           <div className="w-full mb-4 text-secondary flex flex-col items-center text-center">
             <h1 className="text-4xl md:text-7xl font-bold font-roboto animate-fade-left animate-once animate-duration-1000 animate-delay-0 animate-ease-in animate-alternate animate-fill-forwards">

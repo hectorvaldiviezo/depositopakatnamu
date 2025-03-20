@@ -8,7 +8,7 @@ export default function Productos() {
           Explore nuestro catálogo completo de productos. Si necesita información adicional, no dude en contactarnos.
         </p>
 
-        <div className="w-full aspect-[1/1.4] md:aspect-[16/9] bg-white rounded-lg shadow-lg overflow-hidden">
+        <div className="w-full aspect-[1/1.4] md:aspect-16/9 bg-white rounded-lg shadow-lg overflow-hidden">
           <iframe
             src="/documentos/catalogo-productos.pdf"
             className="w-full h-full border-0"

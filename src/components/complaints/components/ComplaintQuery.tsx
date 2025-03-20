@@ -103,7 +103,7 @@ export default function ComplaintQuery({
               <Input
                 type="text"
                 placeholder="Ingrese el ID del reclamo"
-                className="flex-grow"
+                className="grow"
                 value={complaintCode}
                 onChange={(e) => setComplaintCode(e.target.value)}
               />
@@ -119,7 +119,7 @@ export default function ComplaintQuery({
             {reclamo && (
               <div className="grid grid-cols-1 gap-6  text-xs md:text-base">
                 {/* Información del reclamo */}
-                <div className="bg-white p-4 rounded-lg shadow">
+                <div className="bg-white p-4 rounded-lg shadow-sm">
                   <h2 className="text-xl font-semibold mb-2">{reclamo.type}</h2>
                   <div className="flex md:flex-row flex-col justify-between md:items-center">
                     <span className="text-danger font-bold md:text-lg">
@@ -137,7 +137,7 @@ export default function ComplaintQuery({
                 </div>
 
                 {/* Avance del reclamo */}
-                <div className="bg-white p-4 rounded-lg shadow">
+                <div className="bg-white p-4 rounded-lg shadow-sm">
                   <h3 className="font-semibold mb-2 text-base text-navy">
                     Avance
                   </h3>
@@ -219,7 +219,7 @@ export default function ComplaintQuery({
                 </div>
 
                 {/* Respuesta */}
-                <div className="bg-white p-4 rounded-lg shadow">
+                <div className="bg-white p-4 rounded-lg shadow-sm">
                   <h3 className="font-semibold mb-2 text-base text-navy">
                     Respuesta
                   </h3>
@@ -252,7 +252,7 @@ export default function ComplaintQuery({
                 </div>
 
                 {/* Hoja de Reclamo */}
-                <div className="bg-white p-4 rounded-lg shadow">
+                <div className="bg-white p-4 rounded-lg shadow-sm">
                   <h3 className="font-semibold mb-4 text-base text-navy">
                     Hoja de Reclamo
                   </h3>
