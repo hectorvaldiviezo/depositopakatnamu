@@ -10,17 +10,17 @@ import { ArrowRight } from "lucide-react";
 
 const carouselSlides = [
   {
-    image: "/pk_chiclayo.jpeg",
+    image: "/slider1.jpg",
     title: "SOLUCIONES INTEGRALES PARA TU NEGOCIO",
     description: "Innovación, calidad y servicio excepcional en cada producto",
   },
   {
-    image: "/pk_trujillo.jpeg",
+    image: "/slider2.jpg",
     title: "ESTAMOS EN TODO EL NORTE DEL PERÚ",
     description: "Colaborando con el crecimiendo de nuestra gente",
   },
   {
-    image: "/foto-pacasmayo-equipo2.jpeg",
+    image: "/slider3.jpg",
     title: "ATENCIÓN PERSONALIZADA Y ESPECIALIZADA",
     description: "Nos comprometemos para hacer realidad tus sueños",
   },
