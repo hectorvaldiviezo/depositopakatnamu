@@ -28,12 +28,12 @@ const carouselSlides = [
 ];
 
 const partners = [
-  { name: "Socio 1", logo: "/placeholder.svg?height=100&width=200" },
-  { name: "Socio 2", logo: "/placeholder.svg?height=100&width=200" },
-  { name: "Socio 3", logo: "/placeholder.svg?height=100&width=200" },
-  { name: "Socio 4", logo: "/placeholder.svg?height=100&width=200" },
-  { name: "Socio 5", logo: "/placeholder.svg?height=100&width=200" },
-  { name: "Socio 6", logo: "/placeholder.svg?height=100&width=200" },
+  { name: "Socio 1", logo: "/placeholder.svg" },
+  { name: "Socio 2", logo: "/placeholder.svg" },
+  { name: "Socio 3", logo: "/placeholder.svg" },
+  { name: "Socio 4", logo: "/placeholder.svg" },
+  { name: "Socio 5", logo: "/placeholder.svg" },
+  { name: "Socio 6", logo: "/placeholder.svg" },
 ];
 
 export default function Home() {

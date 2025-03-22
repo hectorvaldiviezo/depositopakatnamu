@@ -8,7 +8,7 @@ export default function QuienesSomos() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16 items-center">
         <div className="relative aspect-4/3 rounded-lg overflow-hidden shadow-lg">
-          <Image src="/placeholder.svg?height=600&width=800" alt="Depósito Pakatnamú" fill className="object-cover" />
+          <Image src="/placeholder.svg" alt="Depósito Pakatnamú" fill className="object-cover" />
         </div>
         <div>
           <p className="text-lg mb-6">

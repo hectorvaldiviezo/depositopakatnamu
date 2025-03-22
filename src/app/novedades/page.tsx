@@ -12,7 +12,7 @@ const noticias = [
     fecha: "15 de marzo de 2024",
     descripcion:
       "Nos complace anunciar la apertura de nuestra nueva sucursal en la ciudad de Trujillo, ampliando nuestra presencia en el norte del país.",
-    imagen: "/placeholder.svg?height=400&width=600",
+    imagen: "/placeholder.svg",
     link: "/novedades/nueva-sucursal",
   },
   {
@@ -21,7 +21,7 @@ const noticias = [
     fecha: "28 de febrero de 2024",
     descripcion:
       "Hemos ampliado nuestro catálogo con una nueva línea de productos innovadores que revolucionarán el mercado.",
-    imagen: "/placeholder.svg?height=400&width=600",
+    imagen: "/placeholder.svg",
     link: "/novedades/nueva-linea-productos",
   },
   {
@@ -30,7 +30,7 @@ const noticias = [
     fecha: "10 de febrero de 2024",
     descripcion:
       "Depósito Pakatnamú ha sido galardonado con el premio a la excelencia empresarial por su destacada trayectoria y compromiso con la calidad.",
-    imagen: "/placeholder.svg?height=400&width=600",
+    imagen: "/placeholder.svg",
     link: "/novedades/reconocimiento-excelencia",
   },
   {
@@ -39,7 +39,7 @@ const noticias = [
     fecha: "25 de enero de 2024",
     descripcion:
       "Tuvimos una destacada participación en la feria internacional del sector, presentando nuestras últimas innovaciones y estableciendo importantes contactos comerciales.",
-    imagen: "/placeholder.svg?height=400&width=600",
+    imagen: "/placeholder.svg",
     link: "/novedades/feria-internacional",
   },
   {
@@ -48,7 +48,7 @@ const noticias = [
     fecha: "15 de enero de 2024",
     descripcion:
       "Lanzamos nuestro nuevo programa de responsabilidad social empresarial, enfocado en el apoyo a comunidades locales y la protección del medio ambiente.",
-    imagen: "/placeholder.svg?height=400&width=600",
+    imagen: "/placeholder.svg",
     link: "/novedades/responsabilidad-social",
   },
   {
@@ -57,7 +57,7 @@ const noticias = [
     fecha: "5 de enero de 2024",
     descripcion:
       "Implementamos un nuevo programa de capacitación para nuestros colaboradores, con el objetivo de mejorar sus habilidades y conocimientos.",
-    imagen: "/placeholder.svg?height=400&width=600",
+    imagen: "/placeholder.svg",
     link: "/novedades/capacitacion-colaboradores",
   },
 ]

@@ -10,7 +10,7 @@ export default function Productos() {
 
         <div className="w-full aspect-[1/1.4] md:aspect-16/9 bg-white rounded-lg shadow-lg overflow-hidden">
           <iframe
-            src="/documentos/catalogo-productos.pdf"
+            src="https://e.issuu.com/embed.html#34799020/64920973"
             className="w-full h-full border-0"
             title="Catálogo de Productos"
           >
@@ -21,7 +21,7 @@ export default function Productos() {
         <div className="mt-6 text-center">
           <p className="text-sm text-gray-500">
             Si no puede visualizar el catálogo, puede
-            <a href="/documentos/catalogo-productos.pdf" download className="text-primary hover:underline ml-1">
+            <a href="https://e.issuu.com/embed.html#34799020/64920973" download className="text-primary hover:underline ml-1">
               descargarlo aquí
             </a>
             .

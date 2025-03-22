@@ -3,14 +3,14 @@ import { InfiniteLogoRow } from "./infinite-logo-row";
 
 // Ejemplo de logos (reemplaza con tus propios logos)
 const logos = [
-  "/placeholder.svg?height=60&width=120",
-  "/placeholder.svg?height=60&width=120",
-  "/placeholder.svg?height=60&width=120",
-  "/placeholder.svg?height=60&width=120",
-  "/placeholder.svg?height=60&width=120",
-  "/placeholder.svg?height=60&width=120",
-  "/placeholder.svg?height=60&width=120",
-  "/placeholder.svg?height=60&width=120",
+  "/placeholder.svg",
+  "/placeholder.svg",
+  "/placeholder.svg",
+  "/placeholder.svg",
+  "/placeholder.svg",
+  "/placeholder.svg",
+  "/placeholder.svg",
+  "/placeholder.svg",
 ];
 
 export function MultiRowInfiniteLogoScroll() {
