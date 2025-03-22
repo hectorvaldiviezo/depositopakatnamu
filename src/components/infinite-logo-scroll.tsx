@@ -31,7 +31,7 @@ export function InfiniteLogoScroll() {
                   alt={`Logo ${index + 1}`}
                   width={1200}
                   height={600}
-                  className="h-full max-h-8 md:max-h-14 w-full object-contain filter grayscale hover:grayscale-0 transition-transform duration-300 ease-in-out hover:scale-90"
+                  className="h-full max-h-8 md:max-h-14 w-full object-contain filter transition-transform duration-300 ease-in-out hover:scale-90"
                 />
               </AnimatedElement>
             </div>
