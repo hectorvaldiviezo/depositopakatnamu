@@ -11,6 +11,10 @@ import { ThemeProvider } from "@/components/theme-provider";
 export const metadata: Metadata = {
   title: "Depósito Pakatnamú",
   description: "Página web de Depósito Pakatnamú",
+  manifest: "/manifest.json",
+  icons: {
+    apple: "/icon.png",
+  },
 };
 
 const roboto = Roboto({
