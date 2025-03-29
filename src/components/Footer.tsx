@@ -214,9 +214,9 @@ export default function Footer() {
               <Button
                 size="sm"
                 variant="default"
-                className="flex w-fit gap-2 px-2 items-center text-xs font-medium font-roboto text-secondary rounded-full bg-muted hover:bg-muted/95"
+                className="cursor-pointer flex w-fit gap-2 px-2 items-center text-xs font-medium font-roboto text-secondary rounded-full bg-muted hover:bg-muted/95 dark:text-white"
               >
-                <Facebook className="w-4 h-4 stroke-transparent fill-secondary" />
+                <Facebook className="w-4 h-4 stroke-transparent fill-secondary dark:fill-white dark:stroke-trannsparent" />
                 @depositopakatnamuadm
               </Button>
             </Link>
@@ -227,9 +227,9 @@ export default function Footer() {
               <Button
                 size="sm"
                 variant="default"
-                className="flex w-fit gap-2 px-2 items-center text-xs font-medium font-roboto text-secondary rounded-full bg-muted hover:bg-muted/95"
+                className="cursor-pointer flex w-fit gap-2 px-2 items-center text-xs font-medium font-roboto text-secondary rounded-full bg-muted hover:bg-muted/95 dark:text-white"
               >
-                <Instagram className="w-4 h-4 fill-transparent stroke-secondary" />
+                <Instagram className="w-4 h-4 fill-transparent stroke-secondary dark:fill-transparent dark:stroke-white" />
                 @depositopakatnamu
               </Button>
             </Link>
@@ -240,9 +240,9 @@ export default function Footer() {
               <Button
                 size="sm"
                 variant="default"
-                className="flex w-fit gap-2 px-2 items-center text-xs font-medium font-roboto text-secondary rounded-full bg-muted hover:bg-muted/95"
+                className="cursor-pointer flex w-fit gap-2 px-2 items-center text-xs font-medium font-roboto text-secondary rounded-full bg-muted hover:bg-muted/95 dark:text-white"
               >
-                <Linkedin className="w-4 h-4 fill-transparent stroke-secondary" />
+                <Linkedin className="w-4 h-4 fill-secondary stroke-transparent dark:fill-white dark:stroke-transparent" />
                 @depositopakatnamu
               </Button>
             </Link>

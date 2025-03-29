@@ -14,7 +14,7 @@ const nextConfig = {
                 protocol: 'https',
                 hostname: 'milla.grupopakatnamu.com',
                 pathname: '**'
-            }
+            },
         ]
     },
 };
