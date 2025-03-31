@@ -1,38 +1,35 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { MILLA_BASE } from "@/lib/config";
-import {
-  Truck,
-  Globe,
-  FlaskRoundIcon as Flask,
-  AlertTriangle,
-} from "lucide-react";
+import * as LucideReact from "lucide-react";
 import Image from "next/image";
 
 export default function Services() {
+  const icon = ["Truck", "Globe", "FlaskRoundIcon", "AlertTriangle"];
+
   const services = [
     {
       title: "Nacional",
       description: "Transporte de carga a nivel nacional",
-      icon: Truck,
+      icon: LucideReact + ".Truck",
       image: MILLA_BASE + "/transportes/administradorweb/inicio_nacional.png",
     },
     {
       title: "Internacional",
       description: "Soluciones para carga internacional",
-      icon: Globe,
+      icon: LucideReact + ".Globe",
       image:
         MILLA_BASE + "/transportes/administradorweb/inicio_internacional.png",
     },
     {
       title: "IQBF",
       description: "Transporte de Insumos Químicos y Bienes Fiscalizados",
-      icon: Flask,
+      icon: LucideReact.FlaskRoundIcon,
       image: MILLA_BASE + "/transportes/administradorweb/inicio_IQBF.png",
     },
     {
       title: "MATPEL",
       description: "Transporte seguro de Materiales Peligrosos",
-      icon: AlertTriangle,
+      icon: LucideReact.AlertTriangle,
       image: MILLA_BASE + "/transportes/administradorweb/inicio_matpel.png",
     },
   ];

@@ -4,22 +4,18 @@ import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { getNews } from "@/components/novedades/lib/novedades.actions";
+import TitleComponent from "@/components/title";
 
 export default async function Novedades() {
   const noticias = await getNews();
 
   return (
     <div className="container mx-auto py-12 px-4 md:px-6">
-      <h1 className="text-4xl font-bold mb-8 text-center text-secondary">
-        Novedades
-      </h1>
-
-      <div className="max-w-4xl mx-auto mb-12">
-        <p className="text-lg text-center">
-          Manténgase informado sobre las últimas noticias, eventos y novedades
-          de Depósito Pakatnamú.
-        </p>
-      </div>
+      <TitleComponent 
+        title="Novedades"
+        description="Manténgase informado sobre las últimas noticias, eventos y novedades
+          de Depósito Pakatnamú."
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
         {noticias.map((noticia) => (
