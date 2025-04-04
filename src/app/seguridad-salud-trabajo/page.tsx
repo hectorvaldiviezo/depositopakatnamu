@@ -26,14 +26,14 @@ export default function SeguridadSaludTrabajo() {
           <CardContent className="pt-6">
             <div className="flex items-center mb-4">
               <FileText className="h-8 w-8 text-primary mr-3" />
-              <h2 className="text-2xl font-bold text-secondary">Política de Seguridad y Salud</h2>
+              <h2 className="text-xl font-bold text-secondary">Política de Seguridad y Salud</h2>
             </div>
             <p className="mb-6">
               Nuestra política establece los principios y compromisos para garantizar la seguridad y salud de todos
               nuestros colaboradores, contratistas y visitantes.
             </p>
             <Button asChild className="w-full bg-primary hover:bg-primary/90">
-              <Link href="/documentos/politica-seguridad-salud.pdf" target="_blank">
+              <Link href="/docs/politica-seguridad-salud.pdf" target="_blank">
                 Descargar Aquí
               </Link>
             </Button>
@@ -44,14 +44,14 @@ export default function SeguridadSaludTrabajo() {
           <CardContent className="pt-6">
             <div className="flex items-center mb-4">
               <FileText className="h-8 w-8 text-primary mr-3" />
-              <h2 className="text-2xl font-bold text-secondary">Reglamento Interno</h2>
+              <h2 className="text-xl font-bold text-secondary">Reglamento Interno</h2>
             </div>
             <p className="mb-6">
               Nuestro reglamento interno establece las normas, procedimientos y responsabilidades que todos debemos
               seguir para mantener un ambiente de trabajo seguro y saludable.
             </p>
             <Button asChild className="w-full bg-primary hover:bg-primary/90">
-              <Link href="/documentos/reglamento-interno.pdf" target="_blank">
+              <Link href="/docs/reglamento-interno.pdf" target="_blank">
                 Descargar Aquí
               </Link>
             </Button>

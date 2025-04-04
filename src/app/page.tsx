@@ -8,24 +8,7 @@ import { Testimonials } from "@/components/testimonials";
 import { AnimatedElement } from "@/components/animated-element";
 import { ArrowRight } from "lucide-react";
 import { InfiniteLogoScroll } from "@/components/infinite-logo-scroll";
-
-const carouselSlides = [
-  {
-    image: "/slider1.jpg",
-    title: "SOLUCIONES INTEGRALES PARA TU NEGOCIO",
-    description: "Innovación, calidad y servicio excepcional en cada producto",
-  },
-  {
-    image: "/slider2.jpg",
-    title: "ESTAMOS EN TODO EL NORTE DEL PERÚ",
-    description: "Colaborando con el crecimiendo de nuestra gente",
-  },
-  {
-    image: "/slider4.jpg",
-    title: "ATENCIÓN PERSONALIZADA Y ESPECIALIZADA",
-    description: "Nos comprometemos para hacer realidad tus sueños",
-  },
-];
+import { getCarousel } from "@/components/carousel/lib/carousel.actions";
 
 const partners = [
   { name: "Socio 1", logo: "/placeholder.svg" },
@@ -36,7 +19,9 @@ const partners = [
   { name: "Socio 6", logo: "/placeholder.svg" },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const carouselSlides = await getCarousel();
+
   return (
     <div className="flex flex-col min-h-screen">
       <Carousel slides={carouselSlides} />

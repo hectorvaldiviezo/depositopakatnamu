@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { MapPin, Phone, Mail, Clock } from "lucide-react"
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
 export default function Contactenos() {
   const [formData, setFormData] = useState({
@@ -16,32 +16,35 @@ export default function Contactenos() {
     email: "",
     asunto: "",
     mensaje: "",
-  })
+  });
 
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
-    success?: boolean
-    message?: string
-  } | null>(null)
+    success?: boolean;
+    message?: string;
+  } | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
     // Simulación de envío de formulario
     try {
       // En un caso real, aquí se enviaría el formulario a un endpoint
-      await new Promise((resolve) => setTimeout(resolve, 1500))
+      await new Promise((resolve) => setTimeout(resolve, 1500));
 
       setSubmitStatus({
         success: true,
-        message: "¡Gracias por contactarnos! Nos pondremos en contacto con usted a la brevedad.",
-      })
+        message:
+          "¡Gracias por contactarnos! Nos pondremos en contacto con usted a la brevedad.",
+      });
 
       // Resetear el formulario
       setFormData({
@@ -49,30 +52,33 @@ export default function Contactenos() {
         email: "",
         asunto: "",
         mensaje: "",
-      })
+      });
     } catch (error) {
       setSubmitStatus({
         success: false,
-        message: "Hubo un error al enviar el formulario. Por favor, inténtelo nuevamente.",
-      })
+        message:
+          "Hubo un error al enviar el formulario. Por favor, inténtelo nuevamente.",
+      });
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   return (
     <div className="container mx-auto py-12 px-4 md:px-6">
-      <h1 className="text-4xl font-bold mb-8 text-center text-secondary">Contáctenos</h1>
+      <h1 className="text-4xl font-bold mb-8 text-center text-secondary uppercase">
+        Contáctenos
+      </h1>
 
       <div className="max-w-4xl mx-auto mb-12">
         <p className="text-lg text-center">
-          Estamos aquí para ayudarle. Complete el formulario a continuación y nos pondremos en contacto con usted a la
-          brevedad.
+          Estamos aquí para ayudarle. Complete el formulario a continuación y
+          nos pondremos en contacto con usted a la brevedad.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <div className="lg:col-span-2">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
+        <div className="lg:col-span-3">
           <Card className="shadow-lg">
             <CardContent className="pt-6">
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -135,7 +141,11 @@ export default function Contactenos() {
                   />
                 </div>
 
-                <Button type="submit" className="w-full bg-primary hover:bg-primary/90" disabled={isSubmitting}>
+                <Button
+                  type="submit"
+                  className="w-full bg-primary hover:bg-primary/90"
+                  disabled={isSubmitting}
+                >
                   {isSubmitting ? "Enviando..." : "Enviar mensaje"}
                 </Button>
 
@@ -155,17 +165,24 @@ export default function Contactenos() {
           </Card>
         </div>
 
-        <div>
-          <Card className="shadow-lg">
+        <div className="lg:col-span-2 h-full">
+          <Card className="shadow-lg h-full">
             <CardContent className="pt-6">
-              <h2 className="text-xl font-bold mb-6 text-secondary">Información de contacto</h2>
+              <h2 className="text-xl font-bold mb-6 text-secondary">
+                Información de contacto
+              </h2>
 
               <div className="space-y-6">
                 <div className="flex items-start">
                   <MapPin className="h-5 w-5 mr-3 text-primary mt-1" />
                   <div>
                     <h3 className="font-medium">Dirección principal</h3>
-                    <p className="text-gray-600 dark:text-gray-400">Av. Principal 123, Lima, Perú</p>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      Av. Augusto B. Leguia Nro. 1050 Urb. San Lorenzo
+                    </p>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      Lambayeque, Chiclayo, Jose Leonardo Ortiz
+                    </p>
                   </div>
                 </div>
 
@@ -173,7 +190,12 @@ export default function Contactenos() {
                   <Phone className="h-5 w-5 mr-3 text-primary mt-1" />
                   <div>
                     <h3 className="font-medium">Teléfono</h3>
-                    <p className="text-gray-600 dark:text-gray-400">(01) 123-4567</p>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      (074)25-4406
+                    </p>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      (074)25-0653
+                    </p>
                   </div>
                 </div>
 
@@ -181,7 +203,9 @@ export default function Contactenos() {
                   <Mail className="h-5 w-5 mr-3 text-primary mt-1" />
                   <div>
                     <h3 className="font-medium">Correo electrónico</h3>
-                    <p className="text-gray-600 dark:text-gray-400">info@depositopakatnamu.com</p>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      informes@depositopakatnamu.com
+                    </p>
                   </div>
                 </div>
 
@@ -189,8 +213,12 @@ export default function Contactenos() {
                   <Clock className="h-5 w-5 mr-3 text-primary mt-1" />
                   <div>
                     <h3 className="font-medium">Horario de atención</h3>
-                    <p className="text-gray-600 dark:text-gray-400">Lunes a Viernes: 8:00 AM - 6:00 PM</p>
-                    <p className="text-gray-600 dark:text-gray-400">Sábados: 9:00 AM - 1:00 PM</p>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      Lunes a Viernes: 8:00 AM - 6:00 PM
+                    </p>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      Sábados: 8:00 AM - 1:00 PM
+                    </p>
                   </div>
                 </div>
               </div>
@@ -199,6 +227,5 @@ export default function Contactenos() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-

@@ -1,9 +1,9 @@
 "use client";
 import Image from "next/image";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Quote } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 type Section = "historia" | "mision" | "vision" | "valores";
 
@@ -21,11 +21,12 @@ export default function QuienesSomos() {
       content: (
         <div>
           <p className="text-lg mb-6">
-            <strong className="text-secondary"> Depósito Pakatnamú</strong> es una empresa líder en el
-            mercado, dedicada a proporcionar soluciones integrales para negocios
-            de todos los tamaños. Desde nuestra fundación, hemos trabajado
-            incansablemente para construir una reputación basada en la
-            confianza, la calidad y la excelencia en el servicio.
+            <strong className="text-secondary"> Depósito Pakatnamú</strong> es
+            una empresa líder en el mercado, dedicada a proporcionar soluciones
+            integrales para negocios de todos los tamaños. Desde nuestra
+            fundación, hemos trabajado incansablemente para construir una
+            reputación basada en la confianza, la calidad y la excelencia en el
+            servicio.
           </p>
           <p className="text-lg mb-6">
             Nuestro equipo está formado por <strong>profesionales</strong>{" "}
@@ -135,9 +136,35 @@ export default function QuienesSomos() {
 
   return (
     <div className="container mx-auto py-12 px-4 md:px-6">
-      <h1 className="text-4xl font-bold mb-8 text-center text-primary uppercase">
+      {/* <h1 className="text-4xl font-bold mb-8 text-center text-primary uppercase">
         {sections[section].title}
-      </h1>
+      </h1> */}
+      <div className="mb-8">
+        <div className="bg-muted rounded-full flex max-w-xl mx-auto">
+          {Object.entries(sections).map(([key, { title }], index) => (
+            <Button
+              key={key}
+              size="lg"
+              className="w-full flex items-center justify-center space-x-2 py-3 px-6 rounded-full cursor-pointer"
+              variant={section === key ? "default" : "ghost"}
+              onClick={() => handleButtonClick(key as Section)}
+            >
+              {/* <span className= "w-6 h-6 rounded-full bg-primary flex items-center justify-center text-background text-xs"> */}
+              <span
+                className={cn(
+                  "w-6 h-6 rounded-full flex items-center justify-center text-background text-xs font-bold",
+                  section === key ? "bg-muted text-primary" : "bg-secondary"
+                )}
+              >
+                {index + 1}
+              </span>
+              <span className={cn("", section === key ? "font-bold" : "")}>
+                {title}
+              </span>
+            </Button>
+          ))}
+        </div>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16 items-center">
         <div className="flex relative aspect-4/3 rounded-lg overflow-hidden shadow-lg order-last lg:order-first">
@@ -150,31 +177,6 @@ export default function QuienesSomos() {
         </div>
         <div className="flex items-center justify-center">
           {sections[section].content}
-        </div>
-      </div>
-
-      <div className="mt-8">
-        <div className="bg-muted rounded-full flex max-w-xl mx-auto">
-          {Object.entries(sections).map(([key, { title }], index) => (
-            <Button
-              key={key}
-              size="lg"
-              className="w-full flex items-center justify-center space-x-2 py-3 px-6 rounded-full cursor-pointer"
-              variant={
-                section === key
-                  ? key === "valores"
-                    ? "secondary"
-                    : "secondary"
-                  : "ghost"
-              }
-              onClick={() => handleButtonClick(key as Section)}
-            >
-              <span className="w-6 h-6 rounded-full bg-secondary flex items-center justify-center text-white text-xs">
-                {index + 1}
-              </span>
-              <span>{title}</span>
-            </Button>
-          ))}
         </div>
       </div>
     </div>
