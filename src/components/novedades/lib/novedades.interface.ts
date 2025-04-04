@@ -1,17 +1,7 @@
 export interface NewsResponse {
-  current_page: number;
   data: NewsResource[];
-  first_page_url: string;
-  from: number;
-  last_page: number;
-  last_page_url: string;
-  links: Link[];
-  next_page_url: string;
-  path: string;
-  per_page: number;
-  prev_page_url: null;
-  to: number;
-  total: number;
+  links: Links;
+  meta: Meta;
 }
 
 export interface NewsResource {
@@ -22,7 +12,7 @@ export interface NewsResource {
   image: string;
   images: string[];
   content: string;
-  typeMedia: string;
+  typeMedia: null | string;
   category: string;
   category_id: number;
   newsRelated: NewsRelated[];
@@ -32,9 +22,27 @@ export interface NewsRelated {
   id: number;
   title: string;
   description: string;
-  date: Date;
+  date: string;
   category: string;
   image: string;
+}
+
+export interface Links {
+  first: string;
+  last: string;
+  prev: null;
+  next: string;
+}
+
+export interface Meta {
+  current_page: number;
+  from: number;
+  last_page: number;
+  links: Link[];
+  path: string;
+  per_page: number;
+  to: number;
+  total: number;
 }
 
 export interface Link {
