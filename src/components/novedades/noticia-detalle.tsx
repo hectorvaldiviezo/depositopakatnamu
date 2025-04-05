@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar } from "lucide-react";
 import { NewsResource } from "./lib/novedades.interface";
+import { AnimatedElement } from "../animated-element";
 
 export interface NoticiaDetalleProps {
   noticia: NewsResource;
@@ -30,9 +31,16 @@ export default function NoticiaDetalle({ noticia }: NoticiaDetalleProps) {
             {noticia.date}
           </div>
 
-          <h1 className="text-3xl md:text-4xl font-bold mb-6 text-secondary">
-            {noticia.title}
-          </h1>
+          <AnimatedElement
+            key={noticia.id}
+            animation="fade-left"
+            delay={100}
+            className="group"
+          >
+            <h1 className="text-3xl md:text-4xl font-bold mb-6 text-secondary">
+              {noticia.title}
+            </h1>
+          </AnimatedElement>
 
           {/* <div className="relative aspect-[16/9] w-full mb-8 rounded-lg overflow-hidden shadow-lg">
             <Image
