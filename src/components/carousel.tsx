@@ -21,7 +21,7 @@ interface CarouselProps {
 export default function Carousel({
   slides,
   autoPlay = true,
-  interval = 5000,
+  interval = 2000,
 }: CarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -32,7 +32,7 @@ export default function Carousel({
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
-    setTimeout(() => setIsAnimating(false), 500);
+    setTimeout(() => setIsAnimating(false), 2000);
   };
 
   const next = () => {
@@ -41,30 +41,32 @@ export default function Carousel({
     const isLastSlide = currentIndex === slides.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
-    setTimeout(() => setIsAnimating(false), 500);
+    setTimeout(() => setIsAnimating(false), 2000);
   };
 
   const goToSlide = (slideIndex: number) => {
     if (isAnimating || slideIndex === currentIndex) return;
     setIsAnimating(true);
     setCurrentIndex(slideIndex);
-    setTimeout(() => setIsAnimating(false), 500);
+    setTimeout(() => setIsAnimating(false), 2000);
   };
 
   useEffect(() => {
     if (!autoPlay) return;
 
     const slideInterval = setInterval(() => {
-      next();
+      if (!isAnimating) {
+        next();
+      }
     }, interval);
 
     return () => clearInterval(slideInterval);
-  }, [currentIndex, autoPlay, interval]);
+  }, [currentIndex, autoPlay, interval, isAnimating]);
 
   return (
     <div className="relative h-[500px] md:h-[600px] lg:h-[700px] w-full overflow-hidden">
       <div
-        className="h-full transition-transform duration-1000 ease-out flex"
+        className="h-full transition-transform duration-2000 ease-out flex"
         style={{ transform: `translateX(-${currentIndex * 100}%)` }}
       >
         {slides.map((slide, index) => (

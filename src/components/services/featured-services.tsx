@@ -1,47 +1,15 @@
-import { AnimatedElement } from "./animated-element";
+import { AnimatedElement } from "../animated-element";
 import * as LucideReact from "lucide-react";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { ServiceResource } from "./lib/service.interface";
 
-type IconNames = keyof typeof LucideReact;
+interface FeaturedServicesProps {
+  services: ServiceResource[];
+}
 
-export function FeaturedServices() {
-  const services: {
-    icon?: IconNames;
-    title: string;
-    description: string;
-    link: string;
-  }[] = [
-    {
-      icon: "ShieldCheck",
-      title: "GARANTÍA DE CALIDAD",
-      description:
-        "Todos nuestros productos cuentan con certificaciones de calidad y garantía extendida.",
-      link: "/productos",
-    },
-    {      
-      title: "ENTREGA RÁPIDA",
-      description:
-        "Servicio de entrega express a nivel nacional con seguimiento en tiempo real.",
-      link: "/contactenos",
-    },
-    {
-      icon: "HeadsetIcon",
-      title: "SOPORTE 24/7",
-      description:
-        "Equipo de atención al cliente disponible las 24 horas, todos los días de la semana.",
-      link: "/contactenos",
-    },
-    {
-      icon: "BarChart3",
-      title: "ASESORÍA ESPECIALIZADA",
-      description:
-        "Expertos a tu disposición para ayudarte a elegir la mejor solución para tu negocio.",
-      link: "/quienes-somos",
-    },
-  ];
-
+export function FeaturedServices({ services }: FeaturedServicesProps) {
   return (
     <section className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4 md:px-6">
@@ -57,7 +25,9 @@ export function FeaturedServices() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => {
-            const Icon = LucideReact[service.icon ?? "Atom"] as React.ComponentType<any>;
+            const Icon = LucideReact[
+              service.icon ?? "Atom"
+            ] as React.ComponentType<any>;
 
             return (
               <AnimatedElement
@@ -79,7 +49,7 @@ export function FeaturedServices() {
                     variant="outline"
                     className="group-hover:bg-primary group-hover:text-white transition-colors duration-300"
                   >
-                    <Link href={service.link}>Saber más</Link>
+                    <Link href={service.url}>Saber más</Link>
                   </Button>
                 </div>
               </AnimatedElement>
