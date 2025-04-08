@@ -9,6 +9,7 @@ import { InfiniteLogoScroll } from "@/components/infinite-logo-scroll";
 import { getCarousel } from "@/components/carousel/lib/carousel.actions";
 import { getServices } from "@/components/services/lib/service.actions";
 import OurHistory from "@/components/our-history";
+import { getStats } from "@/components/stats/lib/stats.actions";
 
 const partners = [
   { name: "Socio 1", logo: "/placeholder.svg" },
@@ -22,6 +23,7 @@ const partners = [
 export default async function Home() {
   const carouselSlides = await getCarousel();
   const services = await getServices();
+  const stats = await getStats();
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -31,7 +33,7 @@ export default async function Home() {
 
       <OurHistory />
 
-      <StatsSection />
+      <StatsSection stats={stats} />
 
       <Testimonials />
 

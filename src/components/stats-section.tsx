@@ -2,19 +2,15 @@ import { AnimatedElement } from "./animated-element";
 import { AnimatedCounter } from "./animated-counter";
 import * as LucideReact from "lucide-react";
 import React from "react";
+import { StatsResource } from "./stats/lib/stats.interface";
 
 // Definir el tipo de los nombres de los íconos
-type IconNames = keyof typeof LucideReact;
 
-export function StatsSection() {
-  const icons: IconNames[] = [
-    "Users",
-    "TrendingUp",
-    "Award",
-    "Building",
-    // Puedes agregar más nombres de íconos aquí
-  ];
+interface StatsSectionProps {
+  stats: StatsResource[];
+}
 
+export function StatsSection({ stats }: StatsSectionProps) {
   return (
     <section className="py-20 bg-linear-to-r from-secondary/10 to-primary/10">
       <div className="container mx-auto px-4 md:px-6">
@@ -29,8 +25,8 @@ export function StatsSection() {
         </AnimatedElement>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {icons.map((iconName, index) => {
-            const Icon = LucideReact[iconName] as React.ComponentType<any>;
+          {stats.map((stat, index) => {
+            const Icon = LucideReact[stat.icon] as React.ComponentType<any>;
 
             return (
               <AnimatedElement
@@ -40,13 +36,14 @@ export function StatsSection() {
                 className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg text-center"
               >
                 <div className="flex justify-center mb-4">
-                  {/* Usar el componente de ícono correctamente */}
                   {Icon && <Icon className="h-12 w-12 text-primary" />}
                 </div>
-                <AnimatedCounter end={index * 1000 + 15000} suffix="+" />
-                <h3 className="text-xl font-semibold mt-2 mb-1">{iconName}</h3>
+                <AnimatedCounter end={stat.number} suffix={stat.symbol} />
+                <h3 className="text-xl font-semibold mt-2 mb-1">
+                  {stat.title}
+                </h3>
                 <p className="text-gray-600 dark:text-gray-300">
-                  Descripción de {iconName}
+                  {stat.description}
                 </p>
               </AnimatedElement>
             );

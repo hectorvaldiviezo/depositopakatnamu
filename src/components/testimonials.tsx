@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { AnimatedElement } from "./animated-element"
-import { Star, ChevronLeft, ChevronRight } from "lucide-react"
-import Image from "next/image"
+import { useState, useEffect } from "react";
+import { AnimatedElement } from "./animated-element";
+import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import Image from "next/image";
 
 const testimonials = [
   {
@@ -42,29 +42,31 @@ const testimonials = [
       "La calidad y durabilidad de los productos de Depósito Pakatnamú superan ampliamente a la competencia. Definitivamente son nuestra primera opción para cualquier proyecto.",
     rating: 5,
   },
-]
+];
 
 export function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const [autoplay, setAutoplay] = useState(true)
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [autoplay, setAutoplay] = useState(true);
 
   const next = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
-  }
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+  };
 
   const prev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length)
-  }
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length
+    );
+  };
 
   useEffect(() => {
-    if (!autoplay) return
+    if (!autoplay) return;
 
     const interval = setInterval(() => {
-      next()
-    }, 5000)
+      next();
+    }, 5000);
 
-    return () => clearInterval(interval)
-  }, [autoplay, currentIndex])
+    return () => clearInterval(interval);
+  }, [autoplay, currentIndex]);
 
   return (
     <section className="py-20 bg-secondary text-white">
@@ -74,7 +76,8 @@ export function Testimonials() {
             LO QUE DICEN <span className="text-primary">NUESTROS CLIENTES</span>
           </h2>
           <p className="text-lg md:text-xl max-w-3xl mx-auto text-gray-200">
-            La satisfacción de nuestros clientes es nuestro mayor logro y motivación para seguir mejorando.
+            La satisfacción de nuestros clientes es nuestro mayor logro y
+            motivación para seguir mejorando.
           </p>
         </AnimatedElement>
 
@@ -91,7 +94,11 @@ export function Testimonials() {
                       {[...Array(5)].map((_, i) => (
                         <Star
                           key={i}
-                          className={`h-5 w-5 ${i < testimonial.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-300"}`}
+                          className={`h-5 w-5 ${
+                            i < testimonial.rating
+                              ? "text-yellow-400 fill-yellow-400"
+                              : "text-gray-300"
+                          }`}
                         />
                       ))}
                     </div>
@@ -120,8 +127,8 @@ export function Testimonials() {
 
           <button
             onClick={() => {
-              prev()
-              setAutoplay(false)
+              prev();
+              setAutoplay(false);
             }}
             className="absolute top-1/2 -left-4 md:-left-12 -translate-y-1/2 bg-white dark:bg-gray-800 text-primary p-2 rounded-full shadow-lg hover:bg-primary hover:text-white transition-colors"
             aria-label="Testimonio anterior"
@@ -131,8 +138,8 @@ export function Testimonials() {
 
           <button
             onClick={() => {
-              next()
-              setAutoplay(false)
+              next();
+              setAutoplay(false);
             }}
             className="absolute top-1/2 -right-4 md:-right-12 -translate-y-1/2 bg-white dark:bg-gray-800 text-primary p-2 rounded-full shadow-lg hover:bg-primary hover:text-white transition-colors"
             aria-label="Testimonio siguiente"
@@ -142,6 +149,5 @@ export function Testimonials() {
         </div>
       </div>
     </section>
-  )
+  );
 }
-
