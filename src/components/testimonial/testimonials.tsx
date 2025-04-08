@@ -1,50 +1,16 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { AnimatedElement } from "./animated-element";
-import { Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { AnimatedElement } from "../animated-element";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
+import { TestimonialResource } from "./lib/testimonial.interface";
 
-const testimonials = [
-  {
-    name: "Carlos Rodríguez",
-    position: "Director de Operaciones",
-    company: "Constructora ABC",
-    image: "/placeholder.svg",
-    quote:
-      "Depósito Pakatnamú ha sido un socio estratégico clave para nuestro crecimiento. La calidad de sus productos y la eficiencia en sus entregas nos han permitido cumplir con nuestros proyectos en tiempo récord.",
-    rating: 5,
-  },
-  {
-    name: "María Fernández",
-    position: "Gerente de Compras",
-    company: "Industrias XYZ",
-    image: "/placeholder.svg",
-    quote:
-      "Trabajar con Depósito Pakatnamú ha transformado nuestra cadena de suministro. Su servicio personalizado y su amplio catálogo de productos nos han ayudado a optimizar nuestros procesos.",
-    rating: 5,
-  },
-  {
-    name: "Juan Pérez",
-    position: "CEO",
-    company: "Tecnología Innovadora",
-    image: "/placeholder.svg",
-    quote:
-      "La asesoría especializada que recibimos de Depósito Pakatnamú fue fundamental para elegir los materiales adecuados para nuestro nuevo proyecto. Su equipo de expertos realmente marca la diferencia.",
-    rating: 4,
-  },
-  {
-    name: "Ana López",
-    position: "Directora de Proyectos",
-    company: "Constructora Moderna",
-    image: "/placeholder.svg",
-    quote:
-      "La calidad y durabilidad de los productos de Depósito Pakatnamú superan ampliamente a la competencia. Definitivamente son nuestra primera opción para cualquier proyecto.",
-    rating: 5,
-  },
-];
+interface TestimonialProps {
+  testimonials: TestimonialResource[];
+}
 
-export function Testimonials() {
+export function Testimonials({ testimonials }: TestimonialProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [autoplay, setAutoplay] = useState(true);
 
@@ -67,7 +33,7 @@ export function Testimonials() {
 
     return () => clearInterval(interval);
   }, [autoplay, currentIndex]);
-
+  // 200 - 240
   return (
     <section className="py-20 bg-secondary text-white">
       <div className="container mx-auto px-4 md:px-6">
@@ -81,7 +47,7 @@ export function Testimonials() {
           </p>
         </AnimatedElement>
 
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-3xl mx-auto">
           <div className="overflow-hidden">
             <div
               className="flex transition-transform duration-500 ease-out"
@@ -90,7 +56,7 @@ export function Testimonials() {
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="min-w-full px-4">
                   <div className="bg-white dark:bg-gray-800 text-gray-800 dark:text-white p-8 rounded-lg shadow-lg">
-                    <div className="flex items-center mb-6">
+                    {/* <div className="flex items-center mb-6">
                       {[...Array(5)].map((_, i) => (
                         <Star
                           key={i}
@@ -101,8 +67,10 @@ export function Testimonials() {
                           }`}
                         />
                       ))}
-                    </div>
-                    <p className="text-lg italic mb-6">"{testimonial.quote}"</p>
+                    </div> */}
+                    <p className="text-lg italic mb-6">
+                      "{testimonial.testimonial}"
+                    </p>
                     <div className="flex items-center">
                       <div className="relative h-14 w-14 rounded-full overflow-hidden mr-4">
                         <Image
@@ -115,7 +83,10 @@ export function Testimonials() {
                       <div>
                         <h4 className="font-bold">{testimonial.name}</h4>
                         <p className="text-sm text-gray-600 dark:text-gray-300">
-                          {testimonial.position}, {testimonial.company}
+                          {testimonial.job}{" "}
+                          {testimonial.business
+                            ? `- ${testimonial.business}`
+                            : ""}
                         </p>
                       </div>
                     </div>

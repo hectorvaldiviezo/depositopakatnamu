@@ -1,15 +1,16 @@
 import Link from "next/link";
 import Carousel from "@/components/carousel";
 import { Button } from "@/components/ui/button";
-import { StatsSection } from "@/components/stats-section";
 import { FeaturedServices } from "@/components/services/featured-services";
-import { Testimonials } from "@/components/testimonials";
+import { Testimonials } from "@/components/testimonial/testimonials";
 import { AnimatedElement } from "@/components/animated-element";
 import { InfiniteLogoScroll } from "@/components/infinite-logo-scroll";
 import { getCarousel } from "@/components/carousel/lib/carousel.actions";
 import { getServices } from "@/components/services/lib/service.actions";
 import OurHistory from "@/components/our-history";
 import { getStats } from "@/components/stats/lib/stats.actions";
+import { getTestimonials } from "@/components/testimonial/lib/testimonial.actions";
+import { StatsSection } from "@/components/stats/stats-section";
 
 const partners = [
   { name: "Socio 1", logo: "/placeholder.svg" },
@@ -24,6 +25,7 @@ export default async function Home() {
   const carouselSlides = await getCarousel();
   const services = await getServices();
   const stats = await getStats();
+  const testimonials = await getTestimonials();
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -35,7 +37,7 @@ export default async function Home() {
 
       <StatsSection stats={stats} />
 
-      <Testimonials />
+      <Testimonials testimonials={testimonials} />
 
       <section className="py-20 px-4 md:px-6">
         <div className="container mx-auto">

@@ -1,8 +1,9 @@
-import { AnimatedElement } from "./animated-element";
-import { AnimatedCounter } from "./animated-counter";
+
 import * as LucideReact from "lucide-react";
 import React from "react";
-import { StatsResource } from "./stats/lib/stats.interface";
+import { AnimatedElement } from "../animated-element";
+import { StatsResource } from "./lib/stats.interface";
+import { AnimatedCounter } from "../animated-counter";
 
 // Definir el tipo de los nombres de los íconos
 
