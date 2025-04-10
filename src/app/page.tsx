@@ -11,6 +11,8 @@ import OurHistory from "@/components/our-history";
 import { getStats } from "@/components/stats/lib/stats.actions";
 import { getTestimonials } from "@/components/testimonial/lib/testimonial.actions";
 import { StatsSection } from "@/components/stats/stats-section";
+import { getSocios } from "@/components/socios/lib/socios.actions";
+import SociosSection from "@/components/socios/socios";
 
 const partners = [
   { name: "Socio 1", logo: "/placeholder.svg" },
@@ -26,6 +28,7 @@ export default async function Home() {
   const services = await getServices();
   const stats = await getStats();
   const testimonials = await getTestimonials();
+  const socios = await getSocios();
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -39,21 +42,7 @@ export default async function Home() {
 
       <Testimonials testimonials={testimonials} />
 
-      <section className="py-20 px-4 md:px-6">
-        <div className="container mx-auto">
-          <AnimatedElement animation="fade-up" className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-secondary">
-              NUESTROS <span className="text-primary">SOCIOS ESTRATÉGICOS</span>
-            </h2>
-            <p className="text-lg max-w-3xl mx-auto text-gray-600 dark:text-gray-300">
-              Colaboramos con las marcas líderes del mercado para ofrecerte
-              productos de la más alta calidad.
-            </p>
-          </AnimatedElement>
-
-          <InfiniteLogoScroll />
-        </div>
-      </section>
+      <SociosSection socios={socios} />
 
       <section className="py-20 px-4 md:px-6 bg-primary text-white">
         <div className="container mx-auto text-center">
