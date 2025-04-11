@@ -14,15 +14,6 @@ import { StatsSection } from "@/components/stats/stats-section";
 import { getSocios } from "@/components/socios/lib/socios.actions";
 import SociosSection from "@/components/socios/socios";
 
-const partners = [
-  { name: "Socio 1", logo: "/placeholder.svg" },
-  { name: "Socio 2", logo: "/placeholder.svg" },
-  { name: "Socio 3", logo: "/placeholder.svg" },
-  { name: "Socio 4", logo: "/placeholder.svg" },
-  { name: "Socio 5", logo: "/placeholder.svg" },
-  { name: "Socio 6", logo: "/placeholder.svg" },
-];
-
 export default async function Home() {
   const carouselSlides = await getCarousel();
   const services = await getServices();
