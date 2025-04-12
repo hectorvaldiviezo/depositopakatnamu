@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,6 +13,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ModeToggle } from "./mode-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "./ui/sheet";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -39,7 +47,7 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-sm supports-backdrop-filter:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-background">
       <div className="container mx-auto max-w-(--breakpoint-xl) flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center justify-center gap-2">
           <Avatar className="rounded-xl">
@@ -144,6 +152,69 @@ export default function Header() {
           </div>
         </div>
       )}
+
+      <div className="block md:hidden">
+        <Sheet>
+          <SheetTrigger
+            className={
+              buttonVariants({ variant: "ghost", size: "icon" }) +
+              " text-secondary"
+            }
+          >
+            <Menu size={24} />
+          </SheetTrigger>
+          <SheetContent className="bg-accent">
+            <SheetHeader>
+              <SheetTitle>
+                <div className="flex items-center justify-center gap-1 pt-6">
+                  <Avatar>
+                    <AvatarImage src="/tplogo.svg" alt="tp" />
+                    <AvatarFallback>TP</AvatarFallback>
+                  </Avatar>
+                  <div className="text-base font-roboto font-bold flex flex-col bg-linear-to-r from-navy to-danger bg-clip-text text-transparent">
+                    DEPÓSITO PAKATNAMU
+                  </div>
+                </div>
+              </SheetTitle>
+              <SheetDescription></SheetDescription>
+              <nav className="grid place-items-start gap-2">
+                {routes.map((route) =>
+                  route.dropdown ? (
+                    <div key={route.name} className="py-2">
+                      <h4 className="font-medium">{route.name}</h4>
+                      <div className="grid grid-flow-row auto-rows-max pl-4 text-sm">
+                        {route.dropdown.map((item) => (
+                          <Link
+                            key={item.name}
+                            href={item.path}
+                            className={`py-2 ${
+                              isActive(item.path) ? "text-primary" : ""
+                            }`}
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <Link
+                      key={route.name}
+                      href={route.path}
+                      className={`py-2 ${
+                        isActive(route.path) ? "text-primary" : ""
+                      }`}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {route.name}
+                    </Link>
+                  )
+                )}
+              </nav>
+            </SheetHeader>
+          </SheetContent>
+        </Sheet>
+      </div>
     </header>
   );
 }

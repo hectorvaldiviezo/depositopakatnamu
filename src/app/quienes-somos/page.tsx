@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Quote } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { BASE_PATH, MILLA_BASE } from "@/lib/config";
 
 type Section = "historia" | "mision" | "vision" | "valores";
 
@@ -17,7 +18,7 @@ export default function QuienesSomos() {
     historia: {
       title: "Quiénes Somos",
       value: "historia",
-      image: "/placeholder.svg",
+      image: "/webImages/Quienes Somos",
       content: (
         <div>
           <p className="text-lg mb-6">
@@ -46,7 +47,7 @@ export default function QuienesSomos() {
     mision: {
       title: "Misión",
       value: "mision",
-      image: "/placeholder.svg",
+      image: "/webImages/Misión",
       content: (
         <div>
           <Quote className="size-10 fill-secondary text-secondary mb-2 mx-auto" />
@@ -64,7 +65,7 @@ export default function QuienesSomos() {
     vision: {
       title: "Visión",
       value: "vision",
-      image: "/placeholder.svg",
+      image: "/webImages/Vision",
       content: (
         <div>
           <Quote className="size-10 fill-secondary text-secondary mb-2 mx-auto" />
@@ -82,7 +83,7 @@ export default function QuienesSomos() {
     valores: {
       title: "Valores",
       value: "valores",
-      image: "/placeholder.svg",
+      image: "/webImages/Valores",
       content: (
         <ul className="space-y-4 text-lg mb-6 list-none pl-0">
           <li className="flex items-start gap-4">
@@ -167,9 +168,9 @@ export default function QuienesSomos() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16 items-center">
-        <div className="flex relative aspect-4/3 rounded-lg overflow-hidden shadow-lg order-last lg:order-first">
+        <div className="flex relative aspect-1/1 rounded-lg overflow-hidden shadow-lg order-last lg:order-first">
           <Image
-            src={sections[section].image}
+            src={MILLA_BASE + sections[section].image}
             alt="Depósito Pakatnamú"
             fill
             className="object-cover"

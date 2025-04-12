@@ -27,6 +27,7 @@ import useProductsStore from "./lib/product.store";
 import CustomPagination from "../Pagination";
 import useProductCartStore from "../quotation/lib/quotation.store";
 import { successToast } from "@/lib/core.function";
+import { useRouter } from "next/navigation";
 
 export interface ProductsProps {
   productsData: ProductResponse;
@@ -50,6 +51,8 @@ export default function Productos({ productsData, categorias }: ProductsProps) {
   const [productoSeleccionado, setProductoSeleccionado] =
     useState<ProductResource | null>(null);
   const [sheetOpen, setSheetOpen] = useState(false);
+
+  const { push } = useRouter();
 
   useEffect(() => {
     const handler = setTimeout(() => {
@@ -89,7 +92,7 @@ export default function Productos({ productsData, categorias }: ProductsProps) {
 
   return (
     <div className="container mx-auto py-12 px-4 md:px-6">
-      <h1 className="text-4xl font-bold mb-8 text-center text-secondary">
+      <h1 className="text-4xl font-bold mb-8 text-center text-secondary uppercase">
         Catálogo de Productos
       </h1>
 
@@ -254,16 +257,29 @@ export default function Productos({ productsData, categorias }: ProductsProps) {
                       Por {productoSeleccionado.unit}
                     </p>
                   </div>
-                  <Button
-                    variant="secondary"
-                    className="cursor-pointer"
-                    onClick={() =>
-                      handleAddToCart(productoSeleccionado as ProductResource)
-                    }
-                  >
-                    <ShoppingCart className="mr-2 h-4 w-4" />
-                    Cotizar
-                  </Button>
+                  <div className="flex gap-2">
+                    <Button
+                      variant="secondary"
+                      size={"sm"}
+                      className="cursor-pointer"
+                      onClick={() =>
+                        handleAddToCart(productoSeleccionado as ProductResource)
+                      }
+                    >
+                      <ShoppingCart className="mr-2 h-4 w-4" />
+                      Agregar
+                    </Button>
+                    {/* ir a cotizar */}
+                    <Button
+                      variant="outline"
+                      size={"sm"}
+                      onClick={() => {
+                        push("/contactenos");
+                      }}
+                    >
+                      Ir a cotizar
+                    </Button>
+                  </div>
                 </div>
 
                 <div

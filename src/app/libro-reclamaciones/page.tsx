@@ -14,9 +14,9 @@ export default function Home() {
           description=""
           src={
             MILLA_BASE +
-            "/transportes/administradorweb/hero_libro_reclamaciones.png"
+            "/webImages/Libro de Reclamaciones"
           }
-          height="h-[400px]"
+          height="h-[300px]"
           gradient={true}
           complaint={true}
         />

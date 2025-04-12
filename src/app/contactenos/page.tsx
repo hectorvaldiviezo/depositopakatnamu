@@ -145,6 +145,7 @@ export default function Contactenos() {
                           </p>
                           <Input
                             type="number"
+                            placeholder="Cantidad"
                             min="1"
                             required
                             value={product.quantity || ""}
@@ -157,7 +158,7 @@ export default function Contactenos() {
                                 });
                               }
                             }}
-                            className="ml-2 w-24 h-7 text-center"
+                            className="ml-2 w-28 h-7 text-center"
                           />
                         </div>
                       ))}

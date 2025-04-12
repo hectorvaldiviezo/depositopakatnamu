@@ -2,14 +2,15 @@ import { toast } from "sonner";
 
 export const successToast = (
   body: string,
-  description: string = new Date().toLocaleString()
+  description: string = new Date().toLocaleString(),
+  handler: () => void = () => toast.dismiss()
 ) => {
   return toast.success(body, {
     description: description,
     position: "bottom-center",
     action: {
       label: "Listo",
-      onClick: () => toast.dismiss(),
+      onClick: handler,
     },
   });
 };
