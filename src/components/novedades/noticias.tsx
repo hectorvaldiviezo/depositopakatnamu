@@ -38,8 +38,7 @@ export default function Novedades({ newsData }: NovedadesProps) {
     <div className="container mx-auto py-12 px-4 md:px-6">
       <TitleComponent
         title="Novedades"
-        description="Manténgase informado sobre las últimas noticias, eventos y novedades
-                    de Depósito Pakatnamú."
+        description="Manténgase informado sobre las últimas noticias, eventos y novedades de Depósito Pakatnamú."
       />
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">

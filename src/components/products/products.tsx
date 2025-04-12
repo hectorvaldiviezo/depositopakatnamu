@@ -20,47 +20,71 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Search, Filter, ShoppingCart, FileText, Download } from "lucide-react";
+import { Search, Filter, ShoppingCart } from "lucide-react";
+import { ProductResource, ProductResponse } from "./lib/product.interface";
+import { CategoryResource } from "../category/lib/category.interface";
+import useProductsStore from "./lib/product.store";
+import CustomPagination from "../Pagination";
+import useProductCartStore from "../quotation/lib/quotation.store";
+import { successToast } from "@/lib/core.function";
 
+export interface ProductsProps {
+  productsData: ProductResponse;
+  categorias: CategoryResource[];
+}
 
-// Lista de categorías únicas
-const categorias = [...new Set(productos.map((p) => p.categoria))];
+export default function Productos({ productsData, categorias }: ProductsProps) {
+  const {
+    products: productos,
+    setData,
+    loadProducts,
+    meta,
+  } = useProductsStore();
 
-export default function Productos() {
+  const { addProduct } = useProductCartStore();
   const [busqueda, setBusqueda] = useState("");
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("Todas");
-  const [productosFiltrados, setProductosFiltrados] = useState(productos);
-  const [productoSeleccionado, setProductoSeleccionado] = useState<any>(null);
+  const [productosFiltrados, setProductosFiltrados] = useState<
+    ProductResource[]
+  >(productsData.data);
+  const [productoSeleccionado, setProductoSeleccionado] =
+    useState<ProductResource | null>(null);
   const [sheetOpen, setSheetOpen] = useState(false);
 
-  // Filtrar productos cuando cambia la búsqueda o categoría
   useEffect(() => {
-    let resultado = productos;
+    const handler = setTimeout(() => {
+      const trimmed = busqueda.trim();
+      if (trimmed !== "") {
+        loadProducts(1, trimmed, categoriaSeleccionada);
+      } else {
+        loadProducts(1, trimmed, categoriaSeleccionada);
+      }
+    }, 300);
 
-    // Filtrar por búsqueda
-    if (busqueda) {
-      resultado = resultado.filter(
-        (p) =>
-          p.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
-          p.descripcion.toLowerCase().includes(busqueda.toLowerCase())
-      );
-    }
-
-    // Filtrar por categoría
-    if (categoriaSeleccionada !== "Todas") {
-      resultado = resultado.filter(
-        (p) => p.categoria === categoriaSeleccionada
-      );
-    }
-
-    setProductosFiltrados(resultado);
+    return () => clearTimeout(handler); // Limpia el timeout anterior antes de crear uno nuevo
   }, [busqueda, categoriaSeleccionada]);
+
+  useEffect(() => {
+    setData(productsData);
+  }, [productsData, setData]);
+
+  useEffect(() => {
+    setProductosFiltrados(productos);
+  }, [productos]);
+
+  const handlePageChange = async (page: number) => {
+    loadProducts(page);
+  };
 
   // Función para abrir el sheet con los detalles del producto
   const verDetalleProducto = (producto: any) => {
     setProductoSeleccionado(producto);
     setSheetOpen(true);
+  };
+
+  const handleAddToCart = (producto: ProductResource) => {
+    addProduct(producto);
+    successToast(`${producto.name}`, "Producto agregado a la cotización");
   };
 
   return (
@@ -96,21 +120,32 @@ export default function Productos() {
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="Todas">Todas las categorías</SelectItem>
-              {categorias.map((cat) => (
-                <SelectItem key={cat} value={cat}>
-                  {cat}
-                </SelectItem>
+              {categorias.map((category) => (
+                <div key={category.id}>
+                  <SelectItem
+                    value={category.id.toString()}
+                    className="font-bold"
+                  >
+                    {category.name}
+                  </SelectItem>
+                  {Array.isArray(category.children) &&
+                    category.children.length > 0 && (
+                      <div className="pl-4 border-l-2 border-secondary">
+                        {category.children.map((subCategory) => (
+                          <SelectItem
+                            key={subCategory.id}
+                            value={subCategory.id.toString()}
+                          >
+                            {subCategory.name}
+                          </SelectItem>
+                        ))}
+                      </div>
+                    )}
+                </div>
               ))}
             </SelectContent>
           </Select>
         </div>
-      </div>
-
-      {/* Contador de resultados */}
-      <div className="mb-6">
-        <p className="text-sm text-gray-500">
-          Mostrando {productosFiltrados.length} de {productos.length} productos
-        </p>
       </div>
 
       {/* Grilla de productos */}
@@ -124,28 +159,28 @@ export default function Productos() {
             >
               <div className="relative aspect-square">
                 <Image
-                  src={producto.imagen || "/placeholder.svg"}
-                  alt={producto.nombre}
+                  src={producto.image || "/placeholder.svg"}
+                  alt={producto.name}
                   fill
                   className="object-cover"
                 />
               </div>
               <CardContent className="p-4">
                 <Badge className="mb-2 bg-secondary hover:bg-secondary/90">
-                  {producto.categoria}
+                  {producto.category}
                 </Badge>
                 <h3 className="font-bold text-lg mb-1 line-clamp-2">
-                  {producto.nombre}
+                  {producto.name}
                 </h3>
                 <p className="text-sm text-gray-500 mb-2">
-                  {producto.subcategoria}
+                  {producto.subcategory ?? producto.category}
                 </p>
-                <div className="flex justify-between items-center">
+                <div className="justify-between items-center hidden">
                   <span className="font-bold text-primary">
-                    S/ {producto.precio.toFixed(2)}
+                    S/ {producto.price.toFixed(2)}
                   </span>
                   <span className="text-sm text-gray-500">
-                    Por {producto.unidad}
+                    Por {producto.unit}
                   </span>
                 </div>
               </CardContent>
@@ -170,6 +205,14 @@ export default function Productos() {
         </div>
       )}
 
+      {productosFiltrados.length > 0 && (
+        <div className="mt-10">
+          <CustomPagination meta={meta} onPageChange={handlePageChange} />
+        </div>
+      )}
+
+      {/* Footer */}
+
       {/* Sheet para detalles del producto */}
       <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
         <SheetContent className="overflow-y-auto">
@@ -177,23 +220,26 @@ export default function Productos() {
             <>
               <SheetHeader>
                 <SheetTitle className="text-xl font-bold text-secondary">
-                  {productoSeleccionado.nombre}
+                  {productoSeleccionado.name}
                 </SheetTitle>
-                <SheetDescription>
-                  <Badge className="mt-1 bg-secondary hover:bg-secondary/90">
-                    {productoSeleccionado.categoria}
+                <SheetDescription className="hidden" />
+                <div className="flex justify-start items-center gap-4">
+                  <Badge className="bg-secondary rounded-full hover:bg-secondary/90">
+                    {productoSeleccionado.category}
                   </Badge>
-                  <span className="ml-2 text-sm">
-                    {productoSeleccionado.subcategoria}
-                  </span>
-                </SheetDescription>
+                  {productoSeleccionado.subcategory && (
+                    <span className="text-sm">
+                      {productoSeleccionado.subcategory}
+                    </span>
+                  )}
+                </div>
               </SheetHeader>
 
               <div className="mt-6">
                 <div className="relative aspect-square w-full mb-6 rounded-md overflow-hidden">
                   <Image
-                    src={productoSeleccionado.imagen || "/placeholder.svg"}
-                    alt={productoSeleccionado.nombre}
+                    src={productoSeleccionado.image || "/placeholder.svg"}
+                    alt={productoSeleccionado.name}
                     fill
                     className="object-cover"
                   />
@@ -201,18 +247,31 @@ export default function Productos() {
 
                 <div className="flex justify-between items-center mb-6">
                   <div>
-                    <p className="text-2xl font-bold text-primary">
-                      S/ {productoSeleccionado.precio.toFixed(2)}
+                    <p className="text-2xl font-bold text-primary hidden">
+                      S/ {productoSeleccionado.price.toFixed(2)}
                     </p>
                     <p className="text-sm text-gray-500">
-                      Por {productoSeleccionado.unidad}
+                      Por {productoSeleccionado.unit}
                     </p>
                   </div>
-                  <Button className="bg-primary hover:bg-primary/90">
+                  <Button
+                    variant="secondary"
+                    className="cursor-pointer"
+                    onClick={() =>
+                      handleAddToCart(productoSeleccionado as ProductResource)
+                    }
+                  >
                     <ShoppingCart className="mr-2 h-4 w-4" />
                     Cotizar
                   </Button>
                 </div>
+
+                <div
+                  className="prose max-w-none"
+                  dangerouslySetInnerHTML={{
+                    __html: productoSeleccionado.content,
+                  }}
+                />
               </div>
             </>
           )}

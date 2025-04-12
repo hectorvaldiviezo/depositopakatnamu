@@ -9,8 +9,11 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import useProductCartStore from "@/components/quotation/lib/quotation.store";
+import { errorToast, successToast } from "@/lib/core.function";
 
 export default function Contactenos() {
+  const { products, updateProduct } = useProductCartStore();
   const [formData, setFormData] = useState({
     nombre: "",
     email: "",
@@ -19,10 +22,6 @@ export default function Contactenos() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<{
-    success?: boolean;
-    message?: string;
-  } | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -35,30 +34,15 @@ export default function Contactenos() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulación de envío de formulario
     try {
-      // En un caso real, aquí se enviaría el formulario a un endpoint
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      setSubmitStatus({
-        success: true,
-        message:
-          "¡Gracias por contactarnos! Nos pondremos en contacto con usted a la brevedad.",
-      });
-
-      // Resetear el formulario
-      setFormData({
-        nombre: "",
-        email: "",
-        asunto: "",
-        mensaje: "",
-      });
+      console.log("Formulario enviado:", formData);
+      console.log("Productos seleccionados:", products);
+      successToast(
+        "Formulario enviado con éxito",
+        "Nos pondremos en contacto con usted pronto."
+      );
     } catch (error) {
-      setSubmitStatus({
-        success: false,
-        message:
-          "Hubo un error al enviar el formulario. Por favor, inténtelo nuevamente.",
-      });
+      errorToast("Error al enviar el formulario");
     } finally {
       setIsSubmitting(false);
     }
@@ -141,6 +125,46 @@ export default function Contactenos() {
                   />
                 </div>
 
+                {products.length > 0 && (
+                  <div className="space-y-4">
+                    <h3 className="font-semibold">Productos seleccionados</h3>
+                    <div className="flex flex-col gap-1">
+                      {products.map((product, index) => (
+                        <div
+                          key={index}
+                          className="text-gray-700 dark:text-gray-300 flex gap-1 items-center w-full justify-between pl-2"
+                        >
+                          <p>
+                            <span className="text-secondary font-bold">
+                              {index + 1}. {product.name}
+                            </span>
+                            {" - "}
+                            <span className="text-muted-foreground">
+                              {product.unit}
+                            </span>
+                          </p>
+                          <Input
+                            type="number"
+                            min="1"
+                            required
+                            value={product.quantity || ""}
+                            onChange={(e) => {
+                              const quantity = parseInt(e.target.value, 10);
+                              if (quantity > 0) {
+                                updateProduct({
+                                  ...product,
+                                  quantity,
+                                });
+                              }
+                            }}
+                            className="ml-2 w-24 h-7 text-center"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 <Button
                   type="submit"
                   className="w-full bg-primary hover:bg-primary/90"
@@ -148,18 +172,6 @@ export default function Contactenos() {
                 >
                   {isSubmitting ? "Enviando..." : "Enviar mensaje"}
                 </Button>
-
-                {submitStatus && (
-                  <div
-                    className={`p-4 rounded-md ${
-                      submitStatus.success
-                        ? "bg-green-50 text-green-700 dark:bg-green-900/20 dark:text-green-400"
-                        : "bg-red-50 text-red-700 dark:bg-red-900/20 dark:text-red-400"
-                    }`}
-                  >
-                    {submitStatus.message}
-                  </div>
-                )}
               </form>
             </CardContent>
           </Card>

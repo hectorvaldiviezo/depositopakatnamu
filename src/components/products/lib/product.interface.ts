@@ -8,14 +8,16 @@ export interface ProductResource {
   id: number;
   name: string;
   description: string;
+  quantity?: number;
   unit: string;
-  price: string;
+  price: number;
   image: string;
   content: string;
   company_id: number;
   category_id: number;
   company: string;
   category: string;
+  subcategory?: string;
 }
 
 export interface Links {

@@ -5,18 +5,18 @@ import {
   ProductResource,
   ProductResponse,
 } from "./product.interface";
-import { getNews } from "./product.actions";
+import { getProducts } from "./product.actions";
 
 interface ProductsState {
-  news: ProductResource[];
+  products: ProductResource[];
   meta: Meta;
   links: Links;
-  loadNews: (page: number) => void;
+  loadProducts: (page: number, search?: string, category?: string) => void;
   setData: (data: ProductResponse) => void;
 }
 
 const useProductsStore = create<ProductsState>((set) => ({
-  news: [],
+  products: [],
   meta: {
     current_page: 0,
     from: 0,
@@ -33,17 +33,17 @@ const useProductsStore = create<ProductsState>((set) => ({
     prev: null,
     next: "",
   },
-  loadNews: async (page: number) => {
-    const data = await getNews(page);
+  loadProducts: async (page: number, search?: string, category?: string) => {
+    const data = await getProducts(page, search, category);
     set((state) => ({
-      news: data.data,
+      products: data.data,
       meta: data.meta,
       links: data.links,
     }));
   },
   setData: (data: ProductResponse) =>
     set(() => ({
-      news: data.data,
+      products: data.data,
       meta: data.meta,
       links: data.links,
     })),

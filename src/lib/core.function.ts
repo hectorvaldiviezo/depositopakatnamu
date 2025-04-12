@@ -6,6 +6,7 @@ export const successToast = (
 ) => {
   return toast.success(body, {
     description: description,
+    position: "bottom-center",
     action: {
       label: "Listo",
       onClick: () => toast.dismiss(),

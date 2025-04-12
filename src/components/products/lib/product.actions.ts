@@ -2,10 +2,16 @@ import { AxiosRequestConfig } from "axios";
 import { ProductResource, ProductResponse } from "./product.interface";
 import { apiMilla, EMPRESA_ID } from "@/lib/config";
 
-export async function getNews(page: number): Promise<ProductResponse> {
+export async function getProducts(
+  page: number,
+  search?: string,
+  category?: string
+): Promise<ProductResponse> {
   const config: AxiosRequestConfig = {
     params: {
       company: EMPRESA_ID,
+      search: search === "" ? undefined : search,
+      category: category === "Todas" ? undefined : category,
       page,
     },
   };
@@ -13,7 +19,7 @@ export async function getNews(page: number): Promise<ProductResponse> {
   return data;
 }
 
-export async function getNewsById(id: number): Promise<ProductResource> {
+export async function getProductsById(id: number): Promise<ProductResource> {
   const config: AxiosRequestConfig = {
     params: {
       company: EMPRESA_ID,
