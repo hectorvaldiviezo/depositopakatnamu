@@ -3,6 +3,7 @@ import { getNewsById } from "@/components/novedades/lib/novedades.actions";
 import NotFoundPage from "@/components/404";
 import Hero from "@/components/Hero";
 
+export const dynamic = "force-dynamic";
 interface PageProps {
   params: Promise<{ id: string }>;
 }

@@ -4,8 +4,9 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Quote } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { BASE_PATH, MILLA_BASE } from "@/lib/config";
+import { MILLA_BASE } from "@/lib/config";
 
+export const dynamic = "force-dynamic";
 type Section = "historia" | "mision" | "vision" | "valores";
 
 export default function QuienesSomos() {

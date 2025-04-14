@@ -11,6 +11,7 @@ import { Label } from "@/components/ui/label";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import useProductCartStore from "@/components/quotation/lib/quotation.store";
 import { errorToast, successToast } from "@/lib/core.function";
+export const dynamic = "force-dynamic";
 
 export default function Contactenos() {
   const { products, updateProduct } = useProductCartStore();

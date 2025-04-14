@@ -3,6 +3,7 @@ import { FileText } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 
+export const dynamic = "force-dynamic";
 export default function SeguridadSaludTrabajo() {
   return (
     <div className="container mx-auto py-12 px-4 md:px-6">

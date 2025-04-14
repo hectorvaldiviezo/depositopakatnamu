@@ -13,6 +13,7 @@ import { getTestimonials } from "@/components/testimonial/lib/testimonial.action
 import { StatsSection } from "@/components/stats/stats-section";
 import { getSocios } from "@/components/socios/lib/socios.actions";
 import SociosSection from "@/components/socios/socios";
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const carouselSlides = await getCarousel();
