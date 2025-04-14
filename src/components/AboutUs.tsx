@@ -11,8 +11,8 @@ export function CardPrinciple(principle: Principle) {
   return (
     <Card className="h-full py-0">
       <CardHeader className="flex flex-row gap-4 items-center">
-        <div className="flex p-2 rounded-full bg-navy w-fit h-fit relative">
-          <div className="absolute top-[-0.5rem] left-[-0.5rem] flex w-[calc(100%+1rem)] h-[calc(100%+1rem)] animate-pulse animate-infinite border-4 border-navy rounded-full"></div>
+        <div className="flex p-2 rounded-full bg-secondary w-fit h-fit relative">
+          <div className="absolute top-[-0.5rem] left-[-0.5rem] flex w-[calc(100%+1rem)] h-[calc(100%+1rem)] animate-pulse animate-infinite border-4 border-secondary rounded-full"></div>
           <principle.icon size={28} className="text-white" />
         </div>
         <CardTitle>{principle.title}</CardTitle>
@@ -57,7 +57,7 @@ export default function AboutUs() {
           <div className="md:col-span-2 flex flex-col gap-8 md:gap-16">
             {" "}
             <div className="flex flex-col gap-3">
-              <h1 className="md:text-4xl text-2xl font-roboto font-bold text-navy">
+              <h1 className="md:text-4xl text-2xl font-roboto font-bold text-secondary">
                 ¿Quiénes Somos?
               </h1>
               <div className="flex flex-col gap-3">
@@ -67,13 +67,13 @@ export default function AboutUs() {
                   pilares fundamentales:{" "}
                 </p>
                 <div className="flex gap-2 w-full justify-center">
-                  <p className="text-background bg-navy md:text-3xl text-lg font-bold p-1 rounded w-fit">
+                  <p className="text-background bg-secondary md:text-3xl text-lg font-bold p-1 rounded w-fit">
                     Oportunidad
                   </p>
                   <p className="text-muted-foreground md:text-3xl text-lg font-bold p-1 rounded w-fit">
                     +
                   </p>
-                  <p className="text-background bg-danger md:text-3xl text-lg font-bold p-1 rounded w-fit">
+                  <p className="text-background bg-primary md:text-3xl text-lg font-bold p-1 rounded w-fit">
                     Competencia
                   </p>
                 </div>
@@ -85,7 +85,7 @@ export default function AboutUs() {
               </div>
             </div>
             <div className="flex flex-col gap-3">
-              <h1 className="md:text-4xl text-2xl font-roboto font-bold text-navy">
+              <h1 className="md:text-4xl text-2xl font-roboto font-bold text-secondary">
                 Misión
               </h1>
               <div className="flex flex-col gap-3">
@@ -96,7 +96,7 @@ export default function AboutUs() {
               </div>
             </div>
             <div className="flex flex-col gap-3">
-              <h1 className="md:text-4xl text-2xl font-roboto font-bold text-navy flex items-center">
+              <h1 className="md:text-4xl text-2xl font-roboto font-bold text-secondary flex items-center">
                 Visión
               </h1>
               <div className="flex flex-col gap-3">

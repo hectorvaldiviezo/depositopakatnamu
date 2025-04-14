@@ -1,6 +1,4 @@
-import Header from "@/components/halternativo";
 import Hero from "@/components/Hero";
-import Footer from "@/components/falternativo";
 import ComplaintForm from "@/components/ComplaintForm";
 import { MILLA_BASE } from "@/lib/config";
 
@@ -12,10 +10,7 @@ export default function Home() {
           title="LIBRO DE RECLAMACIONES"
           subtitle=""
           description=""
-          src={
-            MILLA_BASE +
-            "/webImages/Libro de Reclamaciones"
-          }
+          src={MILLA_BASE + "/webImages/Libro de Reclamaciones"}
           height="h-[300px]"
           gradient={true}
           complaint={true}

@@ -342,7 +342,7 @@ export default function ComplaintForm() {
               <TabsContent value="complaint" className="w-full">
                 <Card>
                   <CardHeader>
-                    <CardTitle className="text-xl font-roboto uppercase font-bold text-navy">
+                    <CardTitle className="text-xl font-roboto uppercase font-bold text-secondary">
                       Información del reclamo
                     </CardTitle>
                     <CardDescription>
@@ -356,7 +356,7 @@ export default function ComplaintForm() {
                         name="sedeId"
                         render={({ field }) => (
                           <FormItem className="space-y-3">
-                            <FormLabel className="uppercase font-roboto font-bold flex items-center gap-2 text-darknavy">
+                            <FormLabel className="uppercase font-roboto font-bold flex items-center gap-2 text-darksecondary">
                               1. Sede<span className="text-destructive">*</span>
                             </FormLabel>
                             {sedes.isLoading ? (
@@ -456,7 +456,7 @@ export default function ComplaintForm() {
                       name="type"
                       render={({ field }) => (
                         <FormItem className="space-y-3">
-                          <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darknavy">
+                          <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darksecondary">
                             2. ¿Queja o Reclamo?
                             <span className="text-destructive">*</span>
                           </FormLabel>
@@ -494,7 +494,7 @@ export default function ComplaintForm() {
                         name="date"
                         render={({ field }) => (
                           <FormItem className="flex flex-col">
-                            <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darknavy">
+                            <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darksecondary">
                               3. Fecha
                               <span className="text-destructive">*</span>
                             </FormLabel>
@@ -544,7 +544,7 @@ export default function ComplaintForm() {
                         name="time"
                         render={({ field }) => (
                           <FormItem className="flex flex-col">
-                            <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darknavy">
+                            <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darksecondary">
                               4. Hora{" "}
                               <span className="text-destructive">*</span>
                             </FormLabel>
@@ -573,7 +573,7 @@ export default function ComplaintForm() {
                       name="description"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darknavy">
+                          <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darksecondary">
                             5. Descripción
                             <span className="text-destructive">*</span>
                           </FormLabel>
@@ -593,7 +593,7 @@ export default function ComplaintForm() {
                       name="request"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darknavy">
+                          <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darksecondary">
                             6. Pedido
                           </FormLabel>
                           <FormControl>
@@ -610,7 +610,7 @@ export default function ComplaintForm() {
                     <div className="flex flex-col gap-2">
                       <Label
                         htmlFor="files"
-                        className="uppercase font-bold font-roboto flex items-center gap-2 text-darknavy"
+                        className="uppercase font-bold font-roboto flex items-center gap-2 text-darksecondary"
                       >
                         7. Archivos
                       </Label>
@@ -660,7 +660,7 @@ export default function ComplaintForm() {
               <TabsContent value="well" className="w-full">
                 <Card>
                   <CardHeader>
-                    <CardTitle className="text-xl font-roboto uppercase font-bold text-navy">
+                    <CardTitle className="text-xl font-roboto uppercase font-bold text-secondary">
                       Información del bien contratado
                     </CardTitle>
                     <CardDescription>
@@ -673,7 +673,7 @@ export default function ComplaintForm() {
                       name="typeWell"
                       render={({ field }) => (
                         <FormItem className="space-y-3">
-                          <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darknavy">
+                          <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darksecondary">
                             8. ¿Bien o Servicio?
                             <span className="text-destructive">*</span>
                           </FormLabel>
@@ -712,7 +712,7 @@ export default function ComplaintForm() {
                       render={() => (
                         <FormItem className="space-y-1">
                           <div className="mb-4">
-                            <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darknavy">
+                            <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darksecondary">
                               9. Identifica el motivo del reclamo. Puedes
                               seleccionar máximo 2 opciones.
                               <span className="text-destructive">*</span>
@@ -776,7 +776,7 @@ export default function ComplaintForm() {
                       name="amount"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darknavy">
+                          <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darksecondary">
                             10. Monto reclamado S/.
                           </FormLabel>
                           <FormControl>
@@ -820,12 +820,12 @@ export default function ComplaintForm() {
               <TabsContent value="customer" className="w-full">
                 <Card>
                   <CardHeader>
-                    <CardTitle className="text-xl font-roboto uppercase font-bold text-navy">
+                    <CardTitle className="text-xl font-roboto uppercase font-bold text-secondary">
                       Información del Cliente
                     </CardTitle>
                     <CardDescription>
                       Complete los siguientes campos para registrar su reclamo.
-                      <span className="font-bold text-darknavy">
+                      <span className="font-bold text-darksecondary">
                         Recuerde que el correo electrónico ingresado será el
                         medio de comunicación para el seguimiento de su reclamo.
                       </span>
@@ -837,7 +837,7 @@ export default function ComplaintForm() {
                       name="typeDocument"
                       render={({ field }) => (
                         <FormItem className="space-y-3">
-                          <FormLabel className="uppercase font-roboto font-bold flex items-center gap-2 text-darknavy">
+                          <FormLabel className="uppercase font-roboto font-bold flex items-center gap-2 text-darksecondary">
                             11. Tipo de Documento
                             <span className="text-destructive">*</span>
                           </FormLabel>
@@ -874,7 +874,7 @@ export default function ComplaintForm() {
                       name="documentNumber"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darknavy">
+                          <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darksecondary">
                             12. Número de Documento
                           </FormLabel>
                           <div className="flex gap-4">
@@ -916,7 +916,7 @@ export default function ComplaintForm() {
                       name="fullName"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darknavy">
+                          <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darksecondary">
                             13. Nombre Completo
                           </FormLabel>
                           <FormControl>
@@ -938,7 +938,7 @@ export default function ComplaintForm() {
                       name="email"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darknavy">
+                          <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darksecondary">
                             14. Correo Electrónico
                           </FormLabel>
                           <FormControl>
@@ -953,7 +953,7 @@ export default function ComplaintForm() {
                       name="phone"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darknavy">
+                          <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darksecondary">
                             15. Teléfono
                           </FormLabel>
                           <FormControl>
@@ -968,7 +968,7 @@ export default function ComplaintForm() {
                       name="address"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darknavy">
+                          <FormLabel className="uppercase font-bold font-roboto flex items-center gap-2 text-darksecondary">
                             16. Dirección
                           </FormLabel>
                           <FormControl>

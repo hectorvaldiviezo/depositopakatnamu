@@ -78,7 +78,7 @@ export default function ComplaintQuery({
         <CardHeader>
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
             <div>
-              <CardTitle className="text-xl md:text-2xl font-bold text-navy">
+              <CardTitle className="text-xl md:text-2xl font-bold text-secondary">
                 Consulta de Reclamo
               </CardTitle>
               <CardDescription>
@@ -110,7 +110,7 @@ export default function ComplaintQuery({
               <Button
                 disabled={!complaintCode}
                 onClick={handleSearch}
-                className="bg-navy hover:bg-navy/90 text-white"
+                variant="secondary"
               >
                 Buscar
               </Button>
@@ -122,7 +122,7 @@ export default function ComplaintQuery({
                 <div className="bg-white p-4 rounded-lg shadow-xs">
                   <h2 className="text-xl font-semibold mb-2">{reclamo.type}</h2>
                   <div className="flex md:flex-row flex-col justify-between md:items-center">
-                    <span className="text-danger font-bold md:text-lg">
+                    <span className="text-primary font-bold md:text-lg">
                       N° {reclamo.complaintCode}
                     </span>
                     <div className="flex flex-col items-end">
@@ -138,7 +138,7 @@ export default function ComplaintQuery({
 
                 {/* Avance del reclamo */}
                 <div className="bg-white p-4 rounded-lg shadow-xs">
-                  <h3 className="font-semibold mb-2 text-base text-navy">
+                  <h3 className="font-semibold mb-2 text-base text-secondary">
                     Avance
                   </h3>
                   <div className="flex items-center space-x-2 mb-2">
@@ -220,7 +220,7 @@ export default function ComplaintQuery({
 
                 {/* Respuesta */}
                 <div className="bg-white p-4 rounded-lg shadow-xs">
-                  <h3 className="font-semibold mb-2 text-base text-navy">
+                  <h3 className="font-semibold mb-2 text-base text-secondary">
                     Respuesta
                   </h3>
                   <p className="text-gray-700 mb-2 break-words">
@@ -253,7 +253,7 @@ export default function ComplaintQuery({
 
                 {/* Hoja de Reclamo */}
                 <div className="bg-white p-4 rounded-lg shadow-xs">
-                  <h3 className="font-semibold mb-4 text-base text-navy">
+                  <h3 className="font-semibold mb-4 text-base text-secondary">
                     Hoja de Reclamo
                   </h3>
                   <div className="space-y-2">
@@ -374,7 +374,7 @@ export default function ComplaintQuery({
                   </div>
                   <div className="flex w-full justify-end py-4">
                     <Button
-                      className="bg-navy hover:bg-navy/90 text-white"
+                      variant={"outline"}
                       onClick={() =>
                         handleDownloadComplaint(reclamo.pdfComplaint)
                       }

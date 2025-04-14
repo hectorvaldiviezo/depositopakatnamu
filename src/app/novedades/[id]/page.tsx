@@ -3,9 +3,14 @@ import { getNewsById } from "@/components/novedades/lib/novedades.actions";
 import NotFoundPage from "@/components/404";
 import Hero from "@/components/Hero";
 
-export default async function Page({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: Promise<{ id: string }>;
+}
+
+export default async function Page({ params }: PageProps) {
+  const { id } = await params;
   try {
-    const noticia = await getNewsById(Number(params.id));
+    const noticia = await getNewsById(Number(id));
 
     if (!noticia) {
       // Manejo explícito si no se encuentra la noticia

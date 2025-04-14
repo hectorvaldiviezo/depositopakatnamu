@@ -171,8 +171,8 @@ export default function ContactForm() {
           onSubmit={form.handleSubmit(onSubmit)}
         >
           <div className="w-full flex flex-col justify-center max-w-(--breakpoint-md) bg-background p-6 rounded-xl shadow-lg">
-            <div className="border-l-4 border-danger px-2">
-              <div className="text-2xl font-roboto uppercase font-bold text-danger">
+            <div className="border-l-4 border-primary px-2">
+              <div className="text-2xl font-roboto uppercase font-bold text-primary">
                 Información de Contacto
               </div>
               <div className="text-sm text-muted-foreground">
@@ -185,7 +185,7 @@ export default function ContactForm() {
                 name="document"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-darknavy font-semibold">
+                    <FormLabel className="text-darksecondary font-semibold">
                       DNI o RUC
                       <span className="text-destructive ml-1">*</span>
                     </FormLabel>
@@ -222,7 +222,7 @@ export default function ContactForm() {
                 name="fullName"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-darknavy font-semibold">
+                    <FormLabel className="text-darksecondary font-semibold">
                       Razon social o Nombre completo
                       <span className="text-destructive ml-1">*</span>
                     </FormLabel>
@@ -243,7 +243,7 @@ export default function ContactForm() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-darknavy font-semibold">
+                    <FormLabel className="text-darksecondary font-semibold">
                       Email
                       <span className="text-destructive ml-1">*</span>
                     </FormLabel>
@@ -265,7 +265,7 @@ export default function ContactForm() {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-darknavy font-semibold">
+                      <FormLabel className="text-darksecondary font-semibold">
                         Celular
                         <span className="text-destructive ml-1">*</span>
                       </FormLabel>
@@ -282,7 +282,7 @@ export default function ContactForm() {
                   name="telephone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-darknavy font-semibold">
+                      <FormLabel className="text-darksecondary font-semibold">
                         Teléfono
                       </FormLabel>
                       <FormControl>
@@ -300,7 +300,7 @@ export default function ContactForm() {
                 name="product"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-darknavy font-semibold">
+                    <FormLabel className="text-darksecondary font-semibold">
                       Producto | Descripción de la carga
                       <span className="text-destructive ml-1">*</span>
                     </FormLabel>
@@ -318,7 +318,7 @@ export default function ContactForm() {
                   name="origin"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-darknavy font-semibold">
+                      <FormLabel className="text-darksecondary font-semibold">
                         Punto de Partida
                         <span className="text-destructive ml-1">*</span>
                       </FormLabel>
@@ -335,7 +335,7 @@ export default function ContactForm() {
                   name="destination"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-darknavy font-semibold">
+                      <FormLabel className="text-darksecondary font-semibold">
                         Punto de Llegada
                         <span className="text-destructive ml-1">*</span>
                       </FormLabel>
@@ -355,7 +355,7 @@ export default function ContactForm() {
                   name="includeDelivery"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-darknavy font-semibold">
+                      <FormLabel className="text-darksecondary font-semibold">
                         Incluir Reparto
                         <span className="text-destructive ml-1">*</span>
                       </FormLabel>
@@ -383,7 +383,7 @@ export default function ContactForm() {
                   name="includeLoadingOrUnloading"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-darknavy font-semibold">
+                      <FormLabel className="text-darksecondary font-semibold">
                         Incluir Carga o Descarga
                         <span className="text-destructive ml-1">*</span>
                       </FormLabel>
@@ -419,7 +419,7 @@ export default function ContactForm() {
                 name="observations"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-darknavy font-semibold">
+                    <FormLabel className="text-darksecondary font-semibold">
                       Puntos a tener en cuenta
                     </FormLabel>
                     <FormControl>
@@ -433,7 +433,7 @@ export default function ContactForm() {
             </div>
             <CardFooter className="p-0 flex justify-end">
               <Button
-                className="bg-navy hover:bg-navy/95 flex gap-2"
+                className="bg-secondary hover:bg-secondary/95 flex gap-2"
                 disabled={loadgingSubmit}
               >
                 {loadgingSubmit ? (

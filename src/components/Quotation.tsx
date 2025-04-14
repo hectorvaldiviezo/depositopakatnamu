@@ -24,7 +24,7 @@ export default function Quotation() {
           quality={100}
           className="rounded"
         />
-        <div className="absolute inset-0 bg-linear-to-l from-transparent via-navy/80 via-50% to-navy/90 rounded"></div>
+        <div className="absolute inset-0 bg-linear-to-l from-transparent via-secondary/80 via-50% to-secondary/90 rounded"></div>
         <div className="max-w-full px-4 relative h-full flex flex-col justify-center items-start shadow-xs">
           <div className="w-full mb-4 text-secondary flex flex-col items-start text-start">
             <h1 className="text-clamp-xl-6xl font-roboto font-bold text-secondary">

@@ -102,118 +102,70 @@ export default function Header() {
             )
           )}
         </nav>
-      </div>
-      {isMenuOpen && (
-        <div className="fixed inset-0 top-16 z-50 grid h-[calc(100vh-4rem)] grid-flow-row auto-rows-max overflow-auto p-6 pb-32 shadow-md animate-in md:hidden bg-background">
-          <div className="relative z-20 grid gap-6 p-4 rounded-md">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="absolute right-4 top-4"
-              onClick={() => setIsMenuOpen(false)}
+        <div className="block md:hidden">
+          <Sheet>
+            <SheetTrigger
+              className={
+                buttonVariants({ variant: "ghost", size: "icon" }) +
+                " text-secondary"
+              }
             >
-              <X className="h-5 w-5" />
-              <span className="sr-only">Close</span>
-            </Button>
-            <nav className="grid grid-flow-row auto-rows-max text-sm">
-              {routes.map((route) =>
-                route.dropdown ? (
-                  <div key={route.name} className="py-2">
-                    <h4 className="font-medium">{route.name}</h4>
-                    <div className="grid grid-flow-row auto-rows-max pl-4 text-sm">
-                      {route.dropdown.map((item) => (
-                        <Link
-                          key={item.name}
-                          href={item.path}
-                          className={`py-2 ${
-                            isActive(item.path) ? "text-primary" : ""
-                          }`}
-                          onClick={() => setIsMenuOpen(false)}
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
+              <Menu size={24} />
+            </SheetTrigger>
+            <SheetContent className="bg-accent z-50">
+              <SheetHeader>
+                <SheetTitle>
+                  <div className="flex items-center justify-center gap-1 pt-6">
+                    <Avatar>
+                      <AvatarImage src="/dplogo.svg" alt="tp" />
+                      <AvatarFallback>DP</AvatarFallback>
+                    </Avatar>
+                    <div className="text-base font-roboto font-bold flex flex-col bg-linear-to-r from-secondary to-primary bg-clip-text text-transparent">
+                      DEPÓSITO PAKATNAMU
                     </div>
                   </div>
-                ) : (
-                  <Link
-                    key={route.name}
-                    href={route.path}
-                    className={`py-2 ${
-                      isActive(route.path) ? "text-primary" : ""
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {route.name}
-                  </Link>
-                )
-              )}
-            </nav>
-          </div>
-        </div>
-      )}
-
-      <div className="block md:hidden">
-        <Sheet>
-          <SheetTrigger
-            className={
-              buttonVariants({ variant: "ghost", size: "icon" }) +
-              " text-secondary"
-            }
-          >
-            <Menu size={24} />
-          </SheetTrigger>
-          <SheetContent className="bg-accent">
-            <SheetHeader>
-              <SheetTitle>
-                <div className="flex items-center justify-center gap-1 pt-6">
-                  <Avatar>
-                    <AvatarImage src="/tplogo.svg" alt="tp" />
-                    <AvatarFallback>TP</AvatarFallback>
-                  </Avatar>
-                  <div className="text-base font-roboto font-bold flex flex-col bg-linear-to-r from-navy to-danger bg-clip-text text-transparent">
-                    DEPÓSITO PAKATNAMU
-                  </div>
-                </div>
-              </SheetTitle>
-              <SheetDescription></SheetDescription>
-              <nav className="grid place-items-start gap-2">
-                {routes.map((route) =>
-                  route.dropdown ? (
-                    <div key={route.name} className="py-2">
-                      <h4 className="font-medium">{route.name}</h4>
-                      <div className="grid grid-flow-row auto-rows-max pl-4 text-sm">
-                        {route.dropdown.map((item) => (
-                          <Link
-                            key={item.name}
-                            href={item.path}
-                            className={`py-2 ${
-                              isActive(item.path) ? "text-primary" : ""
-                            }`}
-                            onClick={() => setIsMenuOpen(false)}
-                          >
-                            {item.name}
-                          </Link>
-                        ))}
+                </SheetTitle>
+                <SheetDescription></SheetDescription>
+                <nav className="grid place-items-start gap-2">
+                  {routes.map((route) =>
+                    route.dropdown ? (
+                      <div key={route.name} className="py-2">
+                        <h4 className="font-semibold text-start">
+                          {route.name}
+                        </h4>
+                        <div className="grid grid-flow-row auto-rows-max pl-4 text-sm place-items-start">
+                          {route.dropdown.map((item) => (
+                            <Link
+                              key={item.name}
+                              href={item.path}
+                              className={`py-1 font-medium ${
+                                isActive(item.path) ? "text-primary" : ""
+                              }`}
+                              onClick={() => setIsMenuOpen(false)}
+                            >
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  ) : (
-                    <Link
-                      key={route.name}
-                      href={route.path}
-                      className={`py-2 ${
-                        isActive(route.path) ? "text-primary" : ""
-                      }`}
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {route.name}
-                    </Link>
-                  )
-                )}
-              </nav>
-            </SheetHeader>
-          </SheetContent>
-        </Sheet>
+                    ) : (
+                      <Link
+                        key={route.name}
+                        href={route.path}
+                        className={`py-1 font-medium ${
+                          isActive(route.path) ? "text-primary" : ""
+                        }`}
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {route.name}
+                      </Link>
+                    )
+                  )}
+                </nav>
+              </SheetHeader>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );
