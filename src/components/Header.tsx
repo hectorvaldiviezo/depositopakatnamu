@@ -103,12 +103,13 @@ export default function Header() {
           )}
         </nav>
         <div className="block md:hidden">
-          <Sheet>
+          <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger
               className={
                 buttonVariants({ variant: "ghost", size: "icon" }) +
                 " text-secondary"
               }
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <Menu size={24} />
             </SheetTrigger>

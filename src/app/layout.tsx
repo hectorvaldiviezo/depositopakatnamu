@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <ReactQueryClientProvider>
-      <html lang="es" suppressHydrationWarning>
+      <html className="hiddenScroll" lang="es" suppressHydrationWarning>
         <body className={`${roboto.variable}`}>
           <ThemeProvider
             attribute="class"

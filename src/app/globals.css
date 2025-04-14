@@ -341,3 +341,18 @@ body {
 .animate-fade-in-up {
   animation: fadeInUp 0.8s ease-out forwards;
 }
+
+.hiddenScroll::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.hiddenScroll::-webkit-scrollbar {
+  width: 8px;
+  height: 4px;
+}
+
+.hiddenScroll::-webkit-scrollbar-thumb {
+  background-color: #83838357;
+  border-radius: 4px;
+}
+

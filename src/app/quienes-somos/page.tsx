@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 type Section = "historia" | "mision" | "vision" | "valores";
 
 export default function QuienesSomos() {
-  const [section, setSection] = useState<Section>("historia");
+  const [section, setSection] = useState<Section>("valores");
   const handleButtonClick = (section: Section) => {
     setSection(section);
   };
@@ -21,23 +21,23 @@ export default function QuienesSomos() {
       value: "historia",
       image: "/webImages/Quienes Somos",
       content: (
-        <div>
-          <p className="text-lg mb-6">
-            <strong className="text-secondary"> Depósito Pakatnamú</strong> es
+        <div className="text-sm md:text-lg text-justify">
+          <p className="mb-6">
+            <strong className="text-secondary">Depósito Pakatnamú</strong> es
             una empresa líder en el mercado, dedicada a proporcionar soluciones
             integrales para negocios de todos los tamaños. Desde nuestra
             fundación, hemos trabajado incansablemente para construir una
             reputación basada en la confianza, la calidad y la excelencia en el
             servicio.
           </p>
-          <p className="text-lg mb-6">
+          <p className="mb-6">
             Nuestro equipo está formado por <strong>profesionales</strong>{" "}
             altamente capacitados y comprometidos con la satisfacción del
             cliente. Entendemos que cada negocio es único, por lo que nos
             esforzamos por ofrecer soluciones personalizadas que se adapten a
             sus necesidades específicas.
           </p>
-          <p className="text-lg">
+          <p>
             En Depósito Pakatnamú, no solo vendemos productos; construimos
             relaciones duraderas con nuestros clientes, basadas en la confianza
             mutua y el compromiso con la excelencia.
@@ -53,7 +53,7 @@ export default function QuienesSomos() {
         <div>
           <Quote className="size-10 fill-secondary text-secondary mb-2 mx-auto" />
           <blockquote className="p-4 my-4 border-s-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-800">
-            <p className="text-xl italic font-medium leading-relaxed text-gray-900 dark:text-white">
+            <p className="text-base md:text-xl italic font-medium leading-relaxed text-gray-900 dark:text-white">
               "Proporcionar soluciones integrales de alta calidad que impulsen
               el crecimiento y éxito de nuestros clientes, a través de un
               servicio excepcional y productos innovadores que superen sus
@@ -71,7 +71,7 @@ export default function QuienesSomos() {
         <div>
           <Quote className="size-10 fill-secondary text-secondary mb-2 mx-auto" />
           <blockquote className="p-4 my-4 border-s-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-800">
-            <p className="text-xl italic font-medium leading-relaxed text-gray-900 dark:text-white">
+            <p className="text-base md:text-xl italic font-medium leading-relaxed text-gray-900 dark:text-white">
               "Ser reconocidos como el socio estratégico preferido en nuestro
               sector, liderando el mercado a través de la innovación, la
               excelencia operativa y un compromiso inquebrantable con la
@@ -87,62 +87,51 @@ export default function QuienesSomos() {
       image: "/webImages/Valores",
       content: (
         <ul className="space-y-4 text-lg mb-6 list-none pl-0">
-          <li className="flex items-start gap-4">
-            <span className="w-6 h-6 flex items-center justify-center bg-secondary text-white rounded-full font-bold">
-              1
-            </span>
-            <div>
-              <strong className="text-primary uppercase">Integridad</strong>
-              <p className="text-muted-foreground">
-                Actuamos con honestidad y transparencia en todo lo que hacemos.
-              </p>
-            </div>
-          </li>
-          <li className="flex items-start gap-4">
-            <span className="w-6 h-6 flex items-center justify-center bg-secondary text-white rounded-full font-bold">
-              2
-            </span>
-            <div>
-              <strong className="text-primary uppercase">Excelencia</strong>
-              <p className="text-muted-foreground">
-                Nos esforzamos por superar las expectativas en cada interacción.
-              </p>
-            </div>
-          </li>
-          <li className="flex items-start gap-4">
-            <span className="w-6 h-6 flex items-center justify-center bg-secondary text-white rounded-full font-bold">
-              3
-            </span>
-            <div>
-              <strong className="text-primary uppercase">Innovación</strong>
-              <p className="text-muted-foreground">
-                Buscamos constantemente nuevas formas de mejorar y crecer.
-              </p>
-            </div>
-          </li>
-          <li className="flex items-start gap-4">
-            <span className="w-6 h-6 flex items-center justify-center bg-secondary text-white rounded-full font-bold">
-              4
-            </span>
-            <div>
-              <strong className="text-primary uppercase">Compromiso</strong>
-              <p className="text-muted-foreground">
-                Estamos dedicados al éxito de nuestros clientes y colaboradores.
-              </p>
-            </div>
-          </li>
+          {[
+            {
+              title: "Integridad",
+              description:
+                "Actuamos con honestidad y transparencia en todo lo que hacemos.",
+            },
+            {
+              title: "Excelencia",
+              description:
+                "Nos esforzamos por superar las expectativas en cada interacción.",
+            },
+            {
+              title: "Innovación",
+              description:
+                "Buscamos constantemente nuevas formas de mejorar y crecer.",
+            },
+            {
+              title: "Compromiso",
+              description:
+                "Estamos dedicados al éxito de nuestros clientes y colaboradores.",
+            },
+          ].map((value, index) => (
+            <li key={index} className="flex items-start gap-4">
+              <div className="md:min-w-6 md:min-h-6 min-h-5 min-w-5 text-sm md:text-base aspect-square flex items-center justify-center bg-secondary text-white rounded-full font-bold">
+                {index + 1}
+              </div>
+              <div className="flex flex-col">
+                <strong className="text-primary uppercase text-sm md:text-base">
+                  {value.title}
+                </strong>
+                <p className="text-muted-foreground text-sm md:text-base">
+                  {value.description}
+                </p>
+              </div>
+            </li>
+          ))}
         </ul>
       ),
     },
   };
 
   return (
-    <div className="container mx-auto py-12 px-4 md:px-6">
-      {/* <h1 className="text-4xl font-bold mb-8 text-center text-primary uppercase">
-        {sections[section].title}
-      </h1> */}
+    <div className="container mx-auto py-12 px-4 md:px-6 overflow-hidden">
       <div className="mb-8">
-        <div className="bg-muted rounded-full flex max-w-xl mx-auto">
+        <div className="bg-muted rounded-full flex max-w-2xl mx-auto overflow-auto hiddenScroll">
           {Object.entries(sections).map(([key, { title }], index) => (
             <Button
               key={key}
@@ -151,7 +140,6 @@ export default function QuienesSomos() {
               variant={section === key ? "default" : "ghost"}
               onClick={() => handleButtonClick(key as Section)}
             >
-              {/* <span className= "w-6 h-6 rounded-full bg-primary flex items-center justify-center text-background text-xs"> */}
               <span
                 className={cn(
                   "w-6 h-6 rounded-full flex items-center justify-center text-background text-xs font-bold",
