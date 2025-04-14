@@ -10,7 +10,7 @@ export const dynamic = "force-dynamic";
 type Section = "historia" | "mision" | "vision" | "valores";
 
 export default function QuienesSomos() {
-  const [section, setSection] = useState<Section>("valores");
+  const [section, setSection] = useState<Section>("historia");
   const handleButtonClick = (section: Section) => {
     setSection(section);
   };
