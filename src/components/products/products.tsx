@@ -91,8 +91,8 @@ export default function Productos({ productsData, categorias }: ProductsProps) {
   };
 
   return (
-    <div className="container mx-auto py-12 px-4 md:px-6">
-      <h1 className="text-4xl font-bold mb-8 text-center text-secondary uppercase">
+    <div className="container mx-auto py-4 md:py-12 px-4 md:px-6">
+      <h1 className="text-2xl md:text-4xl font-bold mb-8 text-center text-secondary uppercase">
         Catálogo de Productos
       </h1>
 
@@ -103,7 +103,7 @@ export default function Productos({ productsData, categorias }: ProductsProps) {
           <Input
             type="text"
             placeholder="Buscar productos..."
-            className="pl-10"
+            className="pl-10 text-sm md:text-base"
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
           />
@@ -153,7 +153,7 @@ export default function Productos({ productsData, categorias }: ProductsProps) {
 
       {/* Grilla de productos */}
       {productosFiltrados.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {productosFiltrados.map((producto) => (
             <Card
               key={producto.id}
@@ -169,10 +169,10 @@ export default function Productos({ productsData, categorias }: ProductsProps) {
                 />
               </div>
               <CardContent className="p-4">
-                <Badge className="mb-2 bg-secondary hover:bg-secondary/90">
+                <Badge className="mb-2 bg-secondary hover:bg-secondary/90 text-xs md:text-sm">
                   {producto.category}
                 </Badge>
-                <h3 className="font-bold text-lg mb-1 line-clamp-2">
+                <h3 className="font-bold mb-1 line-clamp-2 text-sm md:text-lg">
                   {producto.name}
                 </h3>
                 <p className="text-sm text-gray-500 mb-2">
