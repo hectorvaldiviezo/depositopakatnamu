@@ -8,7 +8,7 @@ export interface TitleProps {
 export default function TitleComponent({ title, description }: TitleProps) {
   return (
     <AnimatedElement animation="fade-up" className="text-center mb-16">
-      <div className="grid bg-gradient-to-r backdrop-blur-3xl p-4 gap-4 mb-8 rounded-2xl justify-items-center">
+      <div className="grid bg-linear-to-r backdrop-blur-3xl p-4 gap-4 mb-8 rounded-2xl justify-items-center">
         <h1 className="sm:text-4xl text-2xl w-fit uppercase font-bold text-center text-primary">
           {title}
         </h1>

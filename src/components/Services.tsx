@@ -39,7 +39,7 @@ export default function Services() {
       id="services"
       className="py-clamp-10-20 text-2xl px-2 bg-secondary"
     >
-      <div className="container max-w-(--breakpoint-xl) mx-auto py-12 md:py-20 px-4 md:px-10 bg-background rounded shadow-sm relative">
+      <div className="container max-w-(--breakpoint-xl) mx-auto py-12 md:py-20 px-4 md:px-10 bg-background rounded shadow-xs relative">
         <div className="absolute top-[-8px] left-1/2 transform -translate-x-1/2 w-24 h-4 bg-danger"></div>
 
         <div className="mb-8 md:mb-12 border-l-4 md:border-l-8 border-danger px-4">

@@ -1,7 +1,8 @@
 import axios from "axios";
 
 // const MILLA_BASE = "https://milla.grupopakatnamu.com";
-const MILLA_BASE = "http://127.0.0.1:8000";
+const MILLA_BASE = "http://192.168.18.51:8000";
+// const MILLA_BASE = "http://127.0.0.1:8000";
 const MILLA_URL = "/libro-reclamaciones";
 const API_URL = "/api";
 const BASE_PATH = "";

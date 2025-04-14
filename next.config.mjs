@@ -15,6 +15,11 @@ const nextConfig = {
                 hostname: 'milla.grupopakatnamu.com',
                 pathname: '**'
             },
+            {
+                protocol: 'http',
+                hostname: '192.168.18.51',
+                pathname: '**'
+            },
         ]
     },
 };

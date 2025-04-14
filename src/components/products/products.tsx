@@ -98,7 +98,7 @@ export default function Productos({ productsData, categorias }: ProductsProps) {
 
       <div className="flex flex-col md:flex-row gap-4 mb-8">
         {/* Buscador */}
-        <div className="relative flex-grow">
+        <div className="relative grow">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-500" />
           <Input
             type="text"

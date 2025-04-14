@@ -42,7 +42,7 @@ export default function NoticiaDetalle({ noticia }: NoticiaDetalleProps) {
             </h1>
           </AnimatedElement>
 
-          {/* <div className="relative aspect-[16/9] w-full mb-8 rounded-lg overflow-hidden shadow-lg">
+          {/* <div className="relative aspect-16/9 w-full mb-8 rounded-lg overflow-hidden shadow-lg">
             <Image
               src={noticia.image || "/placeholder.svg"}
               alt={noticia.title}
@@ -68,7 +68,7 @@ export default function NoticiaDetalle({ noticia }: NoticiaDetalleProps) {
                     (img: string, index: number) => (
                       <div
                         key={index}
-                        className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-md"
+                        className="relative aspect-4/3 rounded-lg overflow-hidden shadow-md"
                       >
                         <Image
                           src={img || "/placeholder.svg"}

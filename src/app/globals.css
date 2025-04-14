@@ -111,8 +111,8 @@ body {
     animation: scroll 30s linear infinite;
   }
 } */
-
 @import "tailwindcss";
+@import "tw-animate-css";
 @plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
