@@ -356,3 +356,11 @@ body {
   border-radius: 4px;
 }
 
+.transparentScroll::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
+
+.transparentScroll::-webkit-scrollbar-thumb {
+  background-color: transparent !important;
+  height: 0 !important;
+}

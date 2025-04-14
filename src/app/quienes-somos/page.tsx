@@ -131,7 +131,7 @@ export default function QuienesSomos() {
   return (
     <div className="container mx-auto py-12 px-4 md:px-6 overflow-hidden">
       <div className="mb-8">
-        <div className="bg-muted rounded-full flex max-w-2xl mx-auto overflow-auto hiddenScroll">
+        <div className="bg-muted rounded-full flex max-w-2xl mx-auto overflow-auto hiddenScroll transparentScroll">
           {Object.entries(sections).map(([key, { title }], index) => (
             <Button
               key={key}
