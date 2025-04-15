@@ -21,7 +21,15 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { LoaderPinwheel, Search, Send } from "lucide-react";
+import {
+  BadgeCheck,
+  ChevronRight,
+  CircleDot,
+  Dot,
+  LoaderPinwheel,
+  Search,
+  Send,
+} from "lucide-react";
 import { Textarea } from "../ui/textarea";
 import { Separator } from "../ui/separator";
 import { useEffect, useState } from "react";
@@ -29,7 +37,11 @@ import { errorToast, successToast } from "@/lib/core.function";
 import { searchByDNI, searchByRUC } from "@/lib/search.actions";
 import { QuotationRequest } from "./lib/quotation.interface";
 import { sendQuotation } from "./lib/quotation.actions";
+import useProductCartStore from "./lib/quotation.store";
+import { Skeleton } from "../ui/skeleton";
+import { useSedes } from "../sedes/lib/sedes.hook";
 const FormSchema = z.object({
+  sedeId: z.string().nonempty("Debes seleccionar una sede"),
   document: z
     .string()
     .nonempty("Debes ingresar tu DNI o RUC")
@@ -41,44 +53,29 @@ const FormSchema = z.object({
   email: z.string().email("Debes ingresar un email válido"),
   phone: z.string().nonempty("Debes ingresar tu número de celular"),
   telephone: z.string(),
-  product: z
+  message: z
     .string()
-    .nonempty("Debes ingresar la descripción del producto")
-    .min(50, "Mínimo 50 caracteres")
-    .max(1000, "Máximo 1000 caracteres."),
-  origin: z.string().nonempty("Debes ingresar el punto de partida"),
-  destination: z.string().nonempty("Debes ingresar el punto de llegada"),
-  includeDelivery: z.enum(["si", "no"], {
-    required_error: "Debes seleccionar si incluye entrega",
-  }),
-  includeLoadingOrUnloading: z.enum(
-    ["no", "solo-carga", "solo-descarga", "ambos"],
-    {
-      required_error: "Debes seleccionar si incluye carga o descarga",
-    }
-  ),
-  observations: z.string(),
+    .nonempty("Debes ingresar un mensaje")
+    .min(50, "Mínimo 50 caracteres"),
 });
 
 export default function ContactForm() {
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
+      sedeId: "",
       document: "",
       fullName: "",
       email: "",
       phone: "",
       telephone: "",
-      product: "",
-      origin: "",
-      destination: "",
-      includeDelivery: "no",
-      includeLoadingOrUnloading: "no",
-      observations: "",
+      message: "",
     },
     mode: "onChange", // Valida en cada cambio
     criteriaMode: "all",
   });
+
+  const { products, updateProduct } = useProductCartStore();
 
   const [loadingSearch, setLoadingSearch] = useState(false);
   const [loadgingSubmit, setLoadingSubmit] = useState(false);
@@ -118,30 +115,27 @@ export default function ContactForm() {
     }
   };
 
-  useEffect(() => {
-    const dept = sessionStorage.getItem("selectedDepartment");
-    if (dept) {
-      form.setValue("origin", dept);
-      sessionStorage.removeItem("selectedDepartment");
-    }
-  }, []);
+  const sedes = useSedes(2);
 
   async function onSubmit() {
     setLoadingSubmit(true);
     const data = await form.getValues();
 
     const quotationRequest: QuotationRequest = {
+      sedeId: Number(data.sedeId),
       document: data.document,
       fullName: data.fullName,
       email: data.email,
       phone: data.phone,
       telephone: data.telephone,
-      product: data.product,
-      origin: data.origin,
-      destination: data.destination,
-      includeDelivery: data.includeDelivery === "si",
-      includeLoadingOrUnloading: data.includeLoadingOrUnloading,
-      observations: data.observations,
+      message: data.message,
+      products: products.map((product) => {
+        return {
+          id: product.id,
+          quantity: product.quantity ?? 1,
+          name: product.name,
+        };
+      }),
     };
 
     await sendQuotation(quotationRequest)
@@ -163,290 +157,234 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="w-full py-20 px-2 flex justify-center items-center bg-muted">
-      <Form {...form}>
-        <form
-          action=""
-          className="container max-w-(--breakpoint-xl) flex items-center justify-center w-full"
-          onSubmit={form.handleSubmit(onSubmit)}
-        >
-          <div className="w-full flex flex-col justify-center max-w-(--breakpoint-md) bg-background p-6 rounded-xl shadow-lg">
-            <div className="border-l-4 border-primary px-2">
-              <div className="text-2xl font-roboto uppercase font-bold text-primary">
-                Información de Contacto
-              </div>
-              <div className="text-sm text-muted-foreground">
-                Complete los siguientes campos para poder establecer contacto
-              </div>
+    <Form {...form}>
+      <form
+        action=""
+        className="container max-w-(--breakpoint-xl) flex items-center justify-center w-full"
+        onSubmit={form.handleSubmit(onSubmit)}
+      >
+        <div className="w-full flex flex-col justify-center max-w-(--breakpoint-md)">
+          <div className="border-l-4 border-primary px-2">
+            <div className="text-sm text-muted-foreground">
+              Complete los siguientes campos para poder establecer contacto
             </div>
-            <div className="grid grid-cols-1 gap-2 py-4 w-full">
-              <FormField
-                control={form.control}
-                name="document"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-darksecondary font-semibold">
-                      DNI o RUC
-                      <span className="text-destructive ml-1">*</span>
-                    </FormLabel>
-                    <div className="flex gap-4">
-                      <FormControl>
-                        <Input
-                          placeholder="11111111"
-                          minLength={8}
-                          maxLength={11}
-                          {...field}
-                        />
-                      </FormControl>
-                      <Button
-                        className="flex items-center gap-2"
-                        type="button"
-                        disabled={loadingSearch}
-                        onClick={validateDocumentNumber}
-                      >
-                        {loadingSearch ? (
-                          <LoaderPinwheel className="w-4 h-4 animate-spin" />
-                        ) : (
-                          <Search className="w-4 h-4" />
-                        )}
-                        <span>Validar Documento</span>
-                      </Button>
-                    </div>
-                    <FormDescription></FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="fullName"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-darksecondary font-semibold">
-                      Razon social o Nombre completo
-                      <span className="text-destructive ml-1">*</span>
-                    </FormLabel>
-                    <FormControl>
-                      <Input
-                        disabled
-                        placeholder="Transportes Pakatnamú SAC"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormDescription></FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-darksecondary font-semibold">
-                      Email
-                      <span className="text-destructive ml-1">*</span>
-                    </FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="example@gmail.com"
-                        type="email"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormDescription></FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <FormField
-                  control={form.control}
-                  name="phone"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-darksecondary font-semibold">
-                        Celular
-                        <span className="text-destructive ml-1">*</span>
-                      </FormLabel>
-                      <FormControl>
-                        <Input placeholder="982648215" {...field} />
-                      </FormControl>
-                      <FormDescription></FormDescription>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="telephone"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-darksecondary font-semibold">
-                        Teléfono
-                      </FormLabel>
-                      <FormControl>
-                        <Input placeholder="048483" {...field} />
-                      </FormControl>
-                      <FormDescription></FormDescription>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
-              <Separator className="w-full my-4" />
-              <FormField
-                control={form.control}
-                name="product"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-darksecondary font-semibold">
-                      Producto | Descripción de la carga
-                      <span className="text-destructive ml-1">*</span>
-                    </FormLabel>
-                    <FormControl>
-                      <Textarea placeholder="Productos de ..." {...field} />
-                    </FormControl>
-                    <FormDescription></FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <FormField
-                  control={form.control}
-                  name="origin"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-darksecondary font-semibold">
-                        Punto de Partida
-                        <span className="text-destructive ml-1">*</span>
-                      </FormLabel>
-                      <FormControl>
-                        <Input placeholder="Lambayeque" {...field} />
-                      </FormControl>
-                      <FormDescription></FormDescription>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="destination"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-darksecondary font-semibold">
-                        Punto de Llegada
-                        <span className="text-destructive ml-1">*</span>
-                      </FormLabel>
-                      <FormControl>
-                        <Input placeholder="Lima" {...field} />
-                      </FormControl>
-                      <FormDescription></FormDescription>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <FormField
-                  control={form.control}
-                  name="includeDelivery"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-darksecondary font-semibold">
-                        Incluir Reparto
-                        <span className="text-destructive ml-1">*</span>
-                      </FormLabel>
-                      <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Seleccionar" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="si">Incluir</SelectItem>
-                          <SelectItem value="no">No Incluir</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormDescription></FormDescription>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="includeLoadingOrUnloading"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-darksecondary font-semibold">
-                        Incluir Carga o Descarga
-                        <span className="text-destructive ml-1">*</span>
-                      </FormLabel>
-                      <Select
-                        onValueChange={field.onChange}
-                        defaultValue={field.value}
-                      >
-                        <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder="Seleccionar" />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          <SelectItem value="no">No Incluir</SelectItem>
-                          <SelectItem value="solo-carga">
-                            Incluir Solo Carga
-                          </SelectItem>
-                          <SelectItem value="solo-descarga">
-                            Incluir Solo Descarga
-                          </SelectItem>
-                          <SelectItem value="ambos">Incluir Ambos</SelectItem>
-                        </SelectContent>
-                      </Select>
-                      <FormDescription></FormDescription>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-              </div>
-              <Separator className="w-full my-4" />
-              <FormField
-                control={form.control}
-                name="observations"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel className="text-darksecondary font-semibold">
-                      Puntos a tener en cuenta
-                    </FormLabel>
-                    <FormControl>
-                      <Textarea placeholder="La Carga lleva..." {...field} />
-                    </FormControl>
-                    <FormDescription></FormDescription>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-            <CardFooter className="p-0 flex justify-end">
-              <Button
-                className="bg-secondary hover:bg-secondary/95 flex gap-2"
-                disabled={loadgingSubmit}
-              >
-                {loadgingSubmit ? (
-                  <LoaderPinwheel className="w-4 h-4 animate-spin" />
-                ) : (
-                  <Send className="w-4 h-4" />
-                )}
-                Solicitar Cotización
-              </Button>
-            </CardFooter>
           </div>
-        </form>
-      </Form>
-    </div>
+          <div className="grid grid-cols-1 gap-2 py-4 w-full">
+            <FormField
+              control={form.control}
+              name="sedeId"
+              render={({ field }) => (
+                <FormItem className="space-y-3">
+                  <FormLabel className="text-darksecondary font-semibold">
+                    Sede<span className="text-destructive ml-1">*</span>
+                  </FormLabel>
+                  {sedes.isLoading ? (
+                    <Skeleton className="h-9 w-full" />
+                  ) : (
+                    <Select onValueChange={field.onChange} value={field.value}>
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder="Selecciona una sede" />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {sedes.data!.sedes.map((sede) => (
+                          <SelectItem key={sede.id} value={sede.id.toString()}>
+                            {sede.razon_social} - {sede.suc_abrev}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  )}
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="document"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-darksecondary font-semibold">
+                    DNI o RUC
+                    <span className="text-destructive ml-1">*</span>
+                  </FormLabel>
+                  <div className="flex gap-4">
+                    <FormControl>
+                      <Input
+                        placeholder="11111111"
+                        minLength={8}
+                        maxLength={11}
+                        {...field}
+                      />
+                    </FormControl>
+                    <Button
+                      className="flex items-center gap-2 cursor-pointer"
+                      type="button"
+                      disabled={loadingSearch}
+                      onClick={validateDocumentNumber}
+                    >
+                      {loadingSearch ? (
+                        <LoaderPinwheel className="w-4 h-4 animate-spin" />
+                      ) : (
+                        <Search className="w-4 h-4" />
+                      )}
+                      <span>Validar Documento</span>
+                    </Button>
+                  </div>
+                  <FormDescription></FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="fullName"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-darksecondary font-semibold">
+                    Razon social o Nombre completo
+                    <span className="text-destructive ml-1">*</span>
+                  </FormLabel>
+                  <FormControl>
+                    <Input disabled placeholder="Empresa..." {...field} />
+                  </FormControl>
+                  <FormDescription></FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-darksecondary font-semibold">
+                    Email
+                    <span className="text-destructive ml-1">*</span>
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      placeholder="example@gmail.com"
+                      type="email"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormDescription></FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <FormField
+                control={form.control}
+                name="phone"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-darksecondary font-semibold">
+                      Celular
+                      <span className="text-destructive ml-1">*</span>
+                    </FormLabel>
+                    <FormControl>
+                      <Input placeholder="982648215" {...field} />
+                    </FormControl>
+                    <FormDescription></FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="telephone"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-darksecondary font-semibold">
+                      Teléfono
+                    </FormLabel>
+                    <FormControl>
+                      <Input placeholder="048483" {...field} />
+                    </FormControl>
+                    <FormDescription></FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <FormField
+              control={form.control}
+              name="message"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-darksecondary font-semibold">
+                    Mensaje <span className="text-destructive ml-1">*</span>
+                  </FormLabel>
+                  <FormControl>
+                    <Textarea placeholder="Requiero ..." {...field} />
+                  </FormControl>
+                  <FormDescription></FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Separator className="w-full my-4" />
+            {products.length > 0 && (
+              <div className="space-y-4">
+                <h3 className="font-semibold">Productos seleccionados</h3>
+                <div className="flex flex-col gap-1">
+                  {products.map((product, index) => (
+                    <div
+                      key={index}
+                      className="text-gray-700 dark:text-gray-300 flex gap-1 items-center w-full justify-between pl-2"
+                    >
+                      <div className="flex items-center gap-1">
+                        <BadgeCheck className="size-4 text-secondary" />
+                        <span className="text-secondary font-bold">
+                          {product.name}
+                        </span>
+                        {" - "}
+                        <span className="text-muted-foreground">
+                          {product.unit}
+                        </span>
+                      </div>
+                      <Input
+                        type="number"
+                        placeholder="Cantidad"
+                        min="1"
+                        required
+                        value={product.quantity || ""}
+                        onChange={(e) => {
+                          const quantity = parseInt(e.target.value, 10);
+                          if (quantity > 0) {
+                            updateProduct({
+                              ...product,
+                              quantity,
+                            });
+                          }
+                        }}
+                        className="ml-2 w-28 h-7 text-center"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+          <CardFooter className="p-0 flex justify-end">
+            <Button
+              variant={"secondary"}
+              className="flex gap-2 cursor-pointer"
+              disabled={loadgingSubmit || !form.formState.isValid}
+            >
+              {loadgingSubmit ? (
+                <LoaderPinwheel className="w-4 h-4 animate-spin" />
+              ) : (
+                <Send className="w-4 h-4" />
+              )}
+              Solicitar Cotización
+            </Button>
+          </CardFooter>
+        </div>
+      </form>
+    </Form>
   );
 }

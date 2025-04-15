@@ -11,11 +11,28 @@ import { Label } from "@/components/ui/label";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import useProductCartStore from "@/components/quotation/lib/quotation.store";
 import { errorToast, successToast } from "@/lib/core.function";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { useSedes } from "@/components/sedes/lib/sedes.hook";
+import { Skeleton } from "@/components/ui/skeleton";
+import ContactForm from "@/components/quotation/ContactForm";
 export const dynamic = "force-dynamic";
 
 export default function Contactenos() {
-  const { products, updateProduct } = useProductCartStore();
   const [formData, setFormData] = useState({
+    sede: "",
     nombre: "",
     email: "",
     asunto: "",
@@ -36,8 +53,6 @@ export default function Contactenos() {
     setIsSubmitting(true);
 
     try {
-      console.log("Formulario enviado:", formData);
-      console.log("Productos seleccionados:", products);
       successToast(
         "Formulario enviado con éxito",
         "Nos pondremos en contacto con usted pronto."
@@ -66,115 +81,7 @@ export default function Contactenos() {
         <div className="lg:col-span-3">
           <Card className="shadow-lg">
             <CardContent className="pt-6">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="nombre">
-                      Nombre completo <span className="text-primary">*</span>
-                    </Label>
-                    <Input
-                      id="nombre"
-                      name="nombre"
-                      value={formData.nombre}
-                      onChange={handleChange}
-                      required
-                      placeholder="Ingrese su nombre completo"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">
-                      Correo electrónico <span className="text-primary">*</span>
-                    </Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      placeholder="Ingrese su correo electrónico"
-                    />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="asunto">
-                    Asunto <span className="text-primary">*</span>
-                  </Label>
-                  <Input
-                    id="asunto"
-                    name="asunto"
-                    value={formData.asunto}
-                    onChange={handleChange}
-                    required
-                    placeholder="Ingrese el asunto de su mensaje"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="mensaje">
-                    Mensaje <span className="text-primary">*</span>
-                  </Label>
-                  <Textarea
-                    id="mensaje"
-                    name="mensaje"
-                    value={formData.mensaje}
-                    onChange={handleChange}
-                    required
-                    placeholder="Escriba su mensaje aquí"
-                    rows={6}
-                  />
-                </div>
-
-                {products.length > 0 && (
-                  <div className="space-y-4">
-                    <h3 className="font-semibold">Productos seleccionados</h3>
-                    <div className="flex flex-col gap-1">
-                      {products.map((product, index) => (
-                        <div
-                          key={index}
-                          className="text-gray-700 dark:text-gray-300 flex gap-1 items-center w-full justify-between pl-2"
-                        >
-                          <p>
-                            <span className="text-secondary font-bold">
-                              {index + 1}. {product.name}
-                            </span>
-                            {" - "}
-                            <span className="text-muted-foreground">
-                              {product.unit}
-                            </span>
-                          </p>
-                          <Input
-                            type="number"
-                            placeholder="Cantidad"
-                            min="1"
-                            required
-                            value={product.quantity || ""}
-                            onChange={(e) => {
-                              const quantity = parseInt(e.target.value, 10);
-                              if (quantity > 0) {
-                                updateProduct({
-                                  ...product,
-                                  quantity,
-                                });
-                              }
-                            }}
-                            className="ml-2 w-28 h-7 text-center"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                <Button
-                  type="submit"
-                  className="w-full bg-primary hover:bg-primary/90"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? "Enviando..." : "Enviar mensaje"}
-                </Button>
-              </form>
+              <ContactForm />
             </CardContent>
           </Card>
         </div>

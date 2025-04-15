@@ -1,15 +1,16 @@
 export interface QuotationRequest {
+  sedeId: number;
   document: string;
   fullName: string;
   email: string;
   phone: string;
   telephone: string;
-  product: string;
-  origin: string;
-  destination: string;
-  includeDelivery: boolean;
-  includeLoadingOrUnloading: string;
-  observations: string;
+  message: string;
+  products: {
+    id: number;
+    name: string;
+    quantity: number;
+  }[];
 }
 
 export interface QuotationResponse {

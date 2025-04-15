@@ -5,7 +5,7 @@ export async function sendQuotation(
   quotation: QuotationRequest
 ): Promise<QuotationResponse> {
   const { data } = await apiMilla.post<QuotationResponse>(
-    "/quotation",
+    "/quotation/dp",
     quotation
   );
   return data;
