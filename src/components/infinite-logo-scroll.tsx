@@ -12,9 +12,9 @@ export function InfiniteLogoScroll({ socios }: SociosSectionProps) {
   return (
     <div className="w-full overflow-hidden bg-background">
       <div className="relative">
-        <div className="flex animate-scroll">
+        <div className="flex animate-scroll-md md:animate-scroll">
           {[...socios, ...socios].map((socio, index) => (
-            <div key={index} className="shrink-0 w-36 md:w-[200px] p-6">
+            <div key={index} className="shrink-0 w-36 md:w-[200px] p-3 md:p-6">
               <AnimatedElement
                 key={index}
                 animation="fade-up"
@@ -26,7 +26,7 @@ export function InfiniteLogoScroll({ socios }: SociosSectionProps) {
                   alt={`Logo ${index + 1}`}
                   width={1200}
                   height={1200}
-                  className="h-full max-h-8 md:max-h-20 w-full object-contain filter transition-transform duration-300 ease-in-out hover:scale-90"
+                  className="h-full max-h-16 md:max-h-20 w-full object-contain filter transition-transform duration-300 ease-in-out hover:scale-90"
                 />
               </AnimatedElement>
             </div>

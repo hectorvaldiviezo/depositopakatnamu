@@ -183,6 +183,7 @@ body {
   --animate-accordion-up: accordion-up 0.2s ease-out;
   --animate-fade-left: fadeLeft 1s ease-in-out both;
   --animate-scroll: scroll 10s linear infinite;
+  --animate-scroll-md: scrollmd 5s linear infinite;
 
   @keyframes accordion-down {
     from {
@@ -210,12 +211,22 @@ body {
       transform: translateX(0);
     }
   }
+
   @keyframes scroll {
     0% {
       transform: translateX(0);
     }
     100% {
       transform: translateX(-50%);
+    }
+  }
+
+  @keyframes scrollmd {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
     }
   }
 }
