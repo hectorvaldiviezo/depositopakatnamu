@@ -14,8 +14,9 @@ export function FeaturedServices({ services }: FeaturedServicesProps) {
     <section className="py-20 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4 md:px-6">
         <AnimatedElement animation="fade-up" className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            SERVICIOS <span className="text-primary">PREMIUM</span>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            <span className="text-secondary">NUESTROS</span>{" "}
+            <span className="text-primary">SERVICIOS</span>
           </h2>
           <p className="text-lg md:text-xl max-w-3xl mx-auto text-gray-600 dark:text-gray-300">
             Ofrecemos soluciones integrales diseñadas para potenciar el éxito de

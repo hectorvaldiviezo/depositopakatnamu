@@ -54,10 +54,11 @@ export default function QuienesSomos() {
           <Quote className="size-10 fill-secondary text-secondary mb-2 mx-auto" />
           <blockquote className="p-4 my-4 border-s-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-800">
             <p className="text-base md:text-xl italic font-medium leading-relaxed text-gray-900 dark:text-white">
-              "Proporcionar soluciones integrales de alta calidad que impulsen
-              el crecimiento y éxito de nuestros clientes, a través de un
-              servicio excepcional y productos innovadores que superen sus
-              expectativas."
+              "Buscamos satisfacer las necesidades del cliente ofreciendo
+              productos al mejor precio junto a una atención de calidad, con el
+              compromiso de nuestros colaboradores y socios estratégicos;
+              poniendo en práctica los valores de respeto, confianza,
+              honestidad, responsabilidad y lealtad."
             </p>
           </blockquote>
         </div>
@@ -72,10 +73,10 @@ export default function QuienesSomos() {
           <Quote className="size-10 fill-secondary text-secondary mb-2 mx-auto" />
           <blockquote className="p-4 my-4 border-s-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-800">
             <p className="text-base md:text-xl italic font-medium leading-relaxed text-gray-900 dark:text-white">
-              "Ser reconocidos como el socio estratégico preferido en nuestro
-              sector, liderando el mercado a través de la innovación, la
-              excelencia operativa y un compromiso inquebrantable con la
-              satisfacción del cliente."
+              "Que Deposito Pakatnamú sea conocida y reconocida como la empresa
+              lider a nivel nacional en la comercialización de materiales de
+              construcción y productos siderúrgicos, ofreciendo a los clientes
+              una atención personalizada."
             </p>
           </blockquote>
         </div>
@@ -89,22 +90,27 @@ export default function QuienesSomos() {
         <ul className="space-y-4 text-lg mb-6 list-none pl-0">
           {[
             {
-              title: "Integridad",
+              title: "Respeto",
               description:
                 "Actuamos con honestidad y transparencia en todo lo que hacemos.",
             },
-            {
-              title: "Excelencia",
+            { 
+              title: "Confianza",
               description:
                 "Nos esforzamos por superar las expectativas en cada interacción.",
             },
             {
-              title: "Innovación",
+              title: "Honestidad",
               description:
                 "Buscamos constantemente nuevas formas de mejorar y crecer.",
             },
             {
-              title: "Compromiso",
+              title: "Responsabilidad",
+              description:
+                "Estamos dedicados al éxito de nuestros clientes y colaboradores.",
+            },
+            {
+              title: "Lealtad",
               description:
                 "Estamos dedicados al éxito de nuestros clientes y colaboradores.",
             },
