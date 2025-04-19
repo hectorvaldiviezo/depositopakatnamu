@@ -218,7 +218,7 @@ export default function Productos({ productsData, categorias }: ProductsProps) {
 
       {/* Sheet para detalles del producto */}
       <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
-        <SheetContent className="overflow-y-auto">
+        <SheetContent className="overflow-y-auto hiddenScroll">
           {productoSeleccionado && (
             <>
               <SheetHeader>
