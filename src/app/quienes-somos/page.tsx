@@ -19,7 +19,7 @@ export default function QuienesSomos() {
     historia: {
       title: "Quiénes Somos",
       value: "historia",
-      image: "/webImages/Quienes Somos",
+      image: "/webImages/2/Quienes Somos",
       content: (
         <div className="text-sm md:text-lg text-justify">
           <p className="mb-6">
@@ -48,7 +48,7 @@ export default function QuienesSomos() {
     mision: {
       title: "Misión",
       value: "mision",
-      image: "/webImages/Misión",
+      image: "/webImages/2/Misión",
       content: (
         <div>
           <Quote className="size-10 fill-secondary text-secondary mb-2 mx-auto" />
@@ -67,7 +67,7 @@ export default function QuienesSomos() {
     vision: {
       title: "Visión",
       value: "vision",
-      image: "/webImages/Vision",
+      image: "/webImages/2/Vision",
       content: (
         <div>
           <Quote className="size-10 fill-secondary text-secondary mb-2 mx-auto" />
@@ -85,7 +85,7 @@ export default function QuienesSomos() {
     valores: {
       title: "Valores",
       value: "valores",
-      image: "/webImages/Valores",
+      image: "/webImages/2/Valores",
       content: (
         <ul className="space-y-4 text-lg mb-6 list-none pl-0">
           {[
