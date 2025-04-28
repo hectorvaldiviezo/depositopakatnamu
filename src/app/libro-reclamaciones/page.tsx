@@ -12,7 +12,7 @@ export default function Home() {
           title="LIBRO DE RECLAMACIONES"
           subtitle=""
           description=""
-          src={MILLA_BASE + "/webImages/Libro de Reclamaciones"}
+          src={MILLA_BASE + "/webImages/2/Libro de Reclamaciones"}
           height="h-[300px]"
           gradient={true}
           complaint={true}
