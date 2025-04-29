@@ -28,6 +28,7 @@ import {
 import { useSedes } from "@/components/sedes/lib/sedes.hook";
 import { Skeleton } from "@/components/ui/skeleton";
 import ContactForm from "@/components/quotation/ContactForm";
+import Image from "next/image";
 export const dynamic = "force-dynamic";
 
 export default function Contactenos() {
@@ -108,29 +109,6 @@ export default function Contactenos() {
                 </div>
 
                 <div className="flex items-start">
-                  <Phone className="h-5 w-5 mr-3 text-primary mt-1" />
-                  <div>
-                    <h3 className="font-medium">Teléfono</h3>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      (074)25-4406
-                    </p>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      (074)25-0653
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <Mail className="h-5 w-5 mr-3 text-primary mt-1" />
-                  <div>
-                    <h3 className="font-medium">Correo electrónico</h3>
-                    <p className="text-gray-600 dark:text-gray-400">
-                      informes@depositopakatnamu.com
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
                   <Clock className="h-5 w-5 mr-3 text-primary mt-1" />
                   <div>
                     <h3 className="font-medium">Horario de atención</h3>
@@ -141,6 +119,10 @@ export default function Contactenos() {
                       Sábados: 8:00 AM - 1:00 PM
                     </p>
                   </div>
+                </div>
+
+                <div className="flex justify-center">
+                  <Image src="/dplogo.svg" alt="Logo" width={200} height={50} />
                 </div>
               </div>
             </CardContent>
