@@ -23,9 +23,11 @@ export default async function Page({ params }: PageProps) {
         <Hero
           description=""
           title=""
-          height="h-[400px]"
+          height="h-[400px] w-full justify-center"
           src={noticia.image || "/placeholder.svg"}
           gradient={false}
+          noText={true}
+          classImg="!h-[400px] !w-auto aspect-[3/1] !relative"
         />
         <NoticiaDetalle noticia={noticia} />
       </>

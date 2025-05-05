@@ -2,15 +2,14 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
 import { AnimatedElement } from "./animated-element";
+import HeroVideoDialog from "./magicui/hero-video-dialog";
 
 export default function OurHistory() {
   return (
-    <section className="py-20 px-4 md:px-6 bg-gray-50 dark:bg-gray-900">
+    <section className="py-20 px-4 md:px-6 bg-background dark:bg-gray-900">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <AnimatedElement animation="fade-right">
-            <div className="relative aspect-video rounded-lg overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
-              <iframe
+          {/* <iframe
                 src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F331701614734139&width=500&show_text=false&height=500&appId"
                 width="100%"
                 height="100%"
@@ -18,9 +17,23 @@ export default function OurHistory() {
                 frameBorder="0"
                 allow="autoplay; clipboard-write; encrypted-media; web-share"
                 allowFullScreen
-              ></iframe>
-            </div>
-          </AnimatedElement>
+              ></iframe> */}
+          <div className="relative">
+            <HeroVideoDialog
+              className="block dark:hidden"
+              animationStyle="from-center"
+              videoSrc="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F331701614734139&width=500&show_text=false&height=500&appId"
+              thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
+              thumbnailAlt="Hero Video"
+            />
+            <HeroVideoDialog
+              className="hidden dark:block"
+              animationStyle="from-center"
+              videoSrc="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F331701614734139&width=500&show_text=false&height=500&appId"
+              thumbnailSrc="https://startup-template-sage.vercel.app/hero-dark.png"
+              thumbnailAlt="Hero Video"
+            />
+          </div>
 
           <AnimatedElement animation="fade-left">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-secondary">

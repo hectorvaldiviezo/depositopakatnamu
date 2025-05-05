@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Quote } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { MILLA_BASE } from "@/lib/config";
+import TitleComponent from "@/components/title";
 
 export const dynamic = "force-dynamic";
 type Section = "historia" | "mision" | "vision" | "valores";
@@ -94,7 +95,7 @@ export default function QuienesSomos() {
               description:
                 "Actuamos con honestidad y transparencia en todo lo que hacemos.",
             },
-            { 
+            {
               title: "Confianza",
               description:
                 "Nos esforzamos por superar las expectativas en cada interacción.",
@@ -136,6 +137,8 @@ export default function QuienesSomos() {
 
   return (
     <div className="container mx-auto py-12 px-4 md:px-6 overflow-hidden">
+      <TitleComponent title="¿QUIÉNES SOMOS?" description="Conoce más sobre nosotros"  />
+
       <div className="mb-8">
         <div className="bg-muted rounded-full flex max-w-2xl mx-auto overflow-auto hiddenScroll transparentScroll">
           {Object.entries(sections).map(([key, { title }], index) => (

@@ -14,6 +14,8 @@ export interface HeroProps {
   height: string;
   gradient: boolean;
   complaint?: boolean;
+  noText?: boolean;
+  classImg?: string;
 }
 
 export default function Hero({
@@ -25,6 +27,8 @@ export default function Hero({
   height,
   gradient = false,
   complaint = false,
+  noText = false,
+  classImg = "",
 }: HeroProps) {
   const navigate = useRouter();
 
@@ -36,6 +40,7 @@ export default function Hero({
         fill={true}
         style={{ objectFit: "cover" }}
         quality={100}
+        className={classImg}
       />
       <div
         className={`absolute inset-0 ${
@@ -45,7 +50,11 @@ export default function Hero({
             : ""
         }`}
       ></div>
-      <div className="container max-w-(--breakpoint-lg) mx-auto px-4 relative z-10">
+      <div
+        className={`container max-w-(--breakpoint-lg) mx-auto px-4 relative z-10 ${
+          noText ? "hidden" : ""
+        }`}
+      >
         <div className="max-w-full">
           <div className="w-full mb-4 text-white flex flex-col items-center text-center">
             <h1 className="text-4xl md:text-7xl font-bold font-roboto animate-fade-left animate-once animate-duration-1000 animate-delay-0 animate-ease-in animate-alternate animate-fill-forwards">

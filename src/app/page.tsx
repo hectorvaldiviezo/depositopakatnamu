@@ -50,7 +50,7 @@ export default async function Home() {
               asChild
               size="lg"
               variant="outline"
-              className="bg-white text-primary hover:bg-gray-100"
+              className="bg-background text-primary hover:bg-gray-100"
             >
               <Link href="/contactenos">CONTÁCTANOS AHORA</Link>
             </Button>

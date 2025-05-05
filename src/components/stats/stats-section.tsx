@@ -34,7 +34,7 @@ export function StatsSection({ stats }: StatsSectionProps) {
                 key={index}
                 animation="fade-up"
                 delay={100 * index}
-                className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg text-center"
+                className="bg-background dark:bg-gray-800 p-8 rounded-lg shadow-lg text-center"
               >
                 <div className="flex justify-center mb-4">
                   {Icon && <Icon className="h-12 w-12 text-primary" />}

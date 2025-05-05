@@ -29,6 +29,12 @@ import { useSedes } from "@/components/sedes/lib/sedes.hook";
 import { Skeleton } from "@/components/ui/skeleton";
 import ContactForm from "@/components/quotation/ContactForm";
 import Image from "next/image";
+import TitleComponent from "@/components/title";
+import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
+import { cn } from "@/lib/utils";
+import { Particles } from "@/components/magicui/particles";
+import { InteractiveGridPattern } from "@/components/magicui/interactive-grid-pattern";
+import { DotPattern } from "@/components/magicui/dot-pattern";
 export const dynamic = "force-dynamic";
 
 export default function Contactenos() {
@@ -66,17 +72,12 @@ export default function Contactenos() {
   };
 
   return (
-    <div className="container mx-auto py-12 px-4 md:px-6">
-      <h1 className="text-4xl font-bold mb-8 text-center text-secondary uppercase">
-        Contáctenos
-      </h1>
-
-      <div className="max-w-4xl mx-auto mb-12">
-        <p className="text-lg text-center">
-          Estamos aquí para ayudarle. Complete el formulario a continuación y
-          nos pondremos en contacto con usted a la brevedad.
-        </p>
-      </div>
+    <div className="container mx-auto py-12 px-4 md:px-6 relative">
+      <TitleComponent
+        title="Contáctenos"
+        description="Estamos aquí para ayudarle. Complete el formulario a continuación y
+          nos pondremos en contacto con usted a la brevedad."
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
         <div className="lg:col-span-3">
