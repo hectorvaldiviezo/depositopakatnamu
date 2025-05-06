@@ -22,15 +22,15 @@ export default function OurHistory() {
             <HeroVideoDialog
               className="block dark:hidden"
               animationStyle="from-center"
-              videoSrc="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F331701614734139&width=500&show_text=false&height=500&appId"
-              thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
+              videoSrc="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F331701614734139&width=892&show_text=false&height=500&appId"
+              thumbnailSrc="/video-imagen.jpg"
               thumbnailAlt="Hero Video"
             />
             <HeroVideoDialog
               className="hidden dark:block"
               animationStyle="from-center"
-              videoSrc="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F331701614734139&width=500&show_text=false&height=500&appId"
-              thumbnailSrc="https://startup-template-sage.vercel.app/hero-dark.png"
+              videoSrc="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F331701614734139&width=892&show_text=false&height=500&appId"
+              thumbnailSrc="/video-imagen.jpg"
               thumbnailAlt="Hero Video"
             />
           </div>

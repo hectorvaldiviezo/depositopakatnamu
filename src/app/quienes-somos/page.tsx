@@ -8,7 +8,7 @@ import { MILLA_BASE } from "@/lib/config";
 import TitleComponent from "@/components/title";
 
 export const dynamic = "force-dynamic";
-type Section = "historia" | "mision" | "vision" | "valores";
+type Section = "historia" | "mision" | "vision" | "principios";
 
 export default function QuienesSomos() {
   const [section, setSection] = useState<Section>("historia");
@@ -83,43 +83,48 @@ export default function QuienesSomos() {
         </div>
       ),
     },
-    valores: {
-      title: "Valores",
-      value: "valores",
+    principios: {
+      title: "Principios",
+      value: "principios",
       image: "/webImages/2/Valores",
       content: (
-        <ul className="space-y-4 text-lg mb-6 list-none pl-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-lg text-justify">
           {[
             {
-              title: "Respeto",
+              title: "Somos todo terreno",
               description:
-                "Actuamos con honestidad y transparencia en todo lo que hacemos.",
+                "Miramos el negocio desde el campo, buscando oportunidades de crecimiento en todo tipo de terreno.",
             },
             {
-              title: "Confianza",
+              title: "Mentalidad de dueño",
               description:
-                "Nos esforzamos por superar las expectativas en cada interacción.",
+                "Asumimos el negocio como propio haciéndonos cargo, logrando que las cosas sucedan y gestionando las consecuencias de nuestras decisiones.",
             },
             {
-              title: "Honestidad",
+              title: "Me apasiona conocer mi negocio",
               description:
-                "Buscamos constantemente nuevas formas de mejorar y crecer.",
+                "Nos apasiona conocer profundamente sobre nuestro negocio para aportar desde nuestro rol en su crecimiento y desarrollo.",
             },
             {
-              title: "Responsabilidad",
+              title: "Tomamos la delantera",
               description:
-                "Estamos dedicados al éxito de nuestros clientes y colaboradores.",
+                "En Pakatnamu nos anticipamos a los hechos manteniéndonos proactivos, dinámicos y enérgicos en el cumplimiento de nuestro propósito.",
             },
             {
-              title: "Lealtad",
+              title: "Fomento con el ejemplo nuestras normativas",
               description:
-                "Estamos dedicados al éxito de nuestros clientes y colaboradores.",
+                "Somos respetuosos y cuidadores de nuestras políticas y procedimientos, fomentamos el cumplimiento de las mismas y nunca nos desviamos de los lineamientos.",
+            },
+            {
+              title: "El cliente es primero",
+              description:
+                "Adaptamos ágilmente nuestros procesos y protocolos de atención para generar una experiencia placentera en nuestros clientes.",
             },
           ].map((value, index) => (
-            <li key={index} className="flex items-start gap-4">
-              <div className="md:min-w-6 md:min-h-6 min-h-5 min-w-5 text-sm md:text-base aspect-square flex items-center justify-center bg-secondary text-white rounded-full font-bold">
+            <div key={index} className="flex items-start gap-4">
+              {/* <div className="md:min-w-6 md:min-h-6 min-h-5 min-w-5 text-sm md:text-base aspect-square flex items-center justify-center bg-secondary text-white rounded-full font-bold">
                 {index + 1}
-              </div>
+              </div> */}
               <div className="flex flex-col">
                 <strong className="text-primary uppercase text-sm md:text-base">
                   {value.title}
@@ -128,16 +133,19 @@ export default function QuienesSomos() {
                   {value.description}
                 </p>
               </div>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       ),
     },
   };
 
   return (
     <div className="container mx-auto py-12 px-4 md:px-6 overflow-hidden">
-      <TitleComponent title="¿QUIÉNES SOMOS?" description="Conoce más sobre nosotros"  />
+      <TitleComponent
+        title="¿QUIÉNES SOMOS?"
+        description="Conoce más sobre nosotros"
+      />
 
       <div className="mb-8">
         <div className="bg-muted rounded-full flex max-w-2xl mx-auto overflow-auto hiddenScroll transparentScroll">
