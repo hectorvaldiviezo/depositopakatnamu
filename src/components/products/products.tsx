@@ -28,6 +28,7 @@ import CustomPagination from "../Pagination";
 import useProductCartStore from "../quotation/lib/quotation.store";
 import { successToast } from "@/lib/core.function";
 import { useRouter } from "next/navigation";
+import TitleComponent from "../title";
 
 export interface ProductsProps {
   productsData: ProductResponse;
@@ -91,11 +92,11 @@ export default function Productos({ productsData, categorias }: ProductsProps) {
   };
 
   return (
-    <div className="container mx-auto py-4 md:py-12 px-4 md:px-6">
-      <h1 className="text-2xl md:text-4xl font-bold mb-8 text-center text-secondary uppercase">
-        Catálogo de Productos
-      </h1>
-
+    <div className="container mx-auto py-4 px-4 md:px-6">
+      <TitleComponent
+        title="Catálogo de Productos"
+        description="Explora nuestra amplia variedad de productos y encuentra lo que necesitas."
+      />
       <div className="flex flex-col md:flex-row gap-4 mb-8">
         {/* Buscador */}
         <div className="relative grow">

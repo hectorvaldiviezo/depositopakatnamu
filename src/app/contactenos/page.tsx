@@ -72,7 +72,7 @@ export default function Contactenos() {
   };
 
   return (
-    <div className="container mx-auto py-12 px-4 md:px-6 relative">
+    <div className="container mx-auto py-4 px-4 md:px-6 relative">
       <TitleComponent
         title="Contáctenos"
         description="Estamos aquí para ayudarle. Complete el formulario a continuación y

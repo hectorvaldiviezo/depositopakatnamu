@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar } from "lucide-react";
 import { NewsResource } from "./lib/novedades.interface";
 import { AnimatedElement } from "../animated-element";
+import { ScrollProgress } from "../magicui/scroll-progress";
 
 export interface NoticiaDetalleProps {
   noticia: NewsResource;
@@ -15,16 +16,8 @@ export default function NoticiaDetalle({ noticia }: NoticiaDetalleProps) {
 
   return (
     <div className="container mx-auto py-12 px-4 md:px-6">
+      <ScrollProgress className="top-[65px]" />
       <div className="max-w-4xl mx-auto">
-        <Button
-          variant="ghost"
-          className="mb-6 flex items-center text-secondary hover:text-primary"
-          onClick={() => router.back()}
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Volver a Novedades
-        </Button>
-
         <div className="mb-8">
           <div className="flex items-center text-sm text-gray-500 mb-4">
             <Calendar className="h-4 w-4 mr-2" />
@@ -54,6 +47,7 @@ export default function NoticiaDetalle({ noticia }: NoticiaDetalleProps) {
 
           <div
             className="prose max-w-none"
+            style={{ color: "inherit !important" }}
             dangerouslySetInnerHTML={{ __html: noticia.content }}
           />
 

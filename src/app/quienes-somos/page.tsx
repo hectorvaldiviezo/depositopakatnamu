@@ -6,11 +6,14 @@ import { Quote } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { MILLA_BASE } from "@/lib/config";
 import TitleComponent from "@/components/title";
+import { MagicCard } from "@/components/magicui/magic-card";
+import { useTheme } from "next-themes";
 
 export const dynamic = "force-dynamic";
 type Section = "historia" | "mision" | "vision" | "principios";
 
 export default function QuienesSomos() {
+  const { theme } = useTheme();
   const [section, setSection] = useState<Section>("historia");
   const handleButtonClick = (section: Section) => {
     setSection(section);
@@ -88,7 +91,7 @@ export default function QuienesSomos() {
       value: "principios",
       image: "/webImages/2/Valores",
       content: (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-lg text-justify">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-lg">
           {[
             {
               title: "Somos todo terreno",
@@ -121,15 +124,22 @@ export default function QuienesSomos() {
                 "Adaptamos ágilmente nuestros procesos y protocolos de atención para generar una experiencia placentera en nuestros clientes.",
             },
           ].map((value, index) => (
-            <div key={index} className="flex items-start gap-4">
+            <div
+              key={index}
+              className="max-w-sm w-full border-none bg-gray-100 p-4 rounded-lg shadow"
+            >
               {/* <div className="md:min-w-6 md:min-h-6 min-h-5 min-w-5 text-sm md:text-base aspect-square flex items-center justify-center bg-secondary text-white rounded-full font-bold">
                 {index + 1}
               </div> */}
+              <MagicCard
+                gradientColor={theme === "dark" ? "#262626" : "#D9D9D955"}
+                className="p-0"
+              ></MagicCard>
               <div className="flex flex-col">
-                <strong className="text-primary uppercase text-sm md:text-base">
+                <strong className="text-secondary text-sm md:text-base">
                   {value.title}
                 </strong>
-                <p className="text-muted-foreground text-sm md:text-base">
+                <p className="text-muted-foreground text-sm text-justify">
                   {value.description}
                 </p>
               </div>
@@ -141,9 +151,9 @@ export default function QuienesSomos() {
   };
 
   return (
-    <div className="container mx-auto py-12 px-4 md:px-6 overflow-hidden">
+    <div className="container mx-auto px-4 py-4 md:px-6 overflow-hidden">
       <TitleComponent
-        title="¿QUIÉNES SOMOS?"
+        title="¿Quiénes Somos?"
         description="Conoce más sobre nosotros"
       />
 

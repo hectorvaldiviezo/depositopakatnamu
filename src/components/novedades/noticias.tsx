@@ -35,7 +35,7 @@ export default function Novedades({ newsData }: NovedadesProps) {
   };
 
   return (
-    <div className="container mx-auto py-12 px-4 md:px-6">
+    <div className="container mx-auto py-4 px-4 md:px-6">
       <TitleComponent
         title="Novedades"
         description="Manténgase informado sobre las últimas noticias, eventos y novedades de Depósito Pakatnamú."
@@ -49,29 +49,30 @@ export default function Novedades({ newsData }: NovedadesProps) {
             delay={index * 100}
             className="group"
           >
-            <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-full">
-              <div className="relative h-48">
-                <Image
-                  src={noticia.image || "/placeholder.svg"}
-                  alt={noticia.title}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <CardContent className="pt-6">
-                <div className="text-sm text-gray-500 mb-2">{noticia.date}</div>
-                <h2 className="text-xl font-bold mb-3 text-secondary">
-                  {noticia.title}
-                </h2>
-                <p className="line-clamp-3">{noticia.description}</p>
-              </CardContent>
-
-              <CardFooter>
-                <Button asChild variant="link" className="text-primary p-0">
-                  <Link href={`/novedades/${noticia.id}`}>Leer más</Link>
-                </Button>
-              </CardFooter>
-            </Card>
+            <Link
+              href={`/novedades/${noticia.id}`}
+              className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-full"
+            >
+              <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow h-full">
+                <div className="relative h-60 m-2">
+                  <Image
+                    src={noticia.image || "/placeholder.svg"}
+                    alt={noticia.title}
+                    fill
+                    className="object-cover rounded-2xl"
+                  />
+                </div>
+                <CardContent className="pt-2">
+                  <div className="text-sm text-gray-500 mb-2">
+                    {noticia.date}
+                  </div>
+                  <h2 className="text-xl font-bold mb-3 text-secondary line-clamp-1">
+                    {noticia.title}
+                  </h2>
+                  <p className="line-clamp-3">{noticia.description}</p>
+                </CardContent>
+              </Card>
+            </Link>
           </AnimatedElement>
         ))}
       </div>
