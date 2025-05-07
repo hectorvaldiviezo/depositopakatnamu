@@ -1,3 +1,4 @@
+"use client";
 import { AnimatedElement } from "./animated-element";
 import { AuroraText } from "./magicui/aurora-text";
 

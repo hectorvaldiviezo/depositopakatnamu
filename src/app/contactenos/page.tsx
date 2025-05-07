@@ -30,11 +30,6 @@ import { Skeleton } from "@/components/ui/skeleton";
 import ContactForm from "@/components/quotation/ContactForm";
 import Image from "next/image";
 import TitleComponent from "@/components/title";
-import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
-import { cn } from "@/lib/utils";
-import { Particles } from "@/components/magicui/particles";
-import { InteractiveGridPattern } from "@/components/magicui/interactive-grid-pattern";
-import { DotPattern } from "@/components/magicui/dot-pattern";
 export const dynamic = "force-dynamic";
 
 export default function Contactenos() {
