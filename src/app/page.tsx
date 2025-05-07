@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { FeaturedServices } from "@/components/services/featured-services";
 import { Testimonials } from "@/components/testimonial/testimonials";
 import { AnimatedElement } from "@/components/animated-element";
-import { InfiniteLogoScroll } from "@/components/infinite-logo-scroll";
 import { getCarousel } from "@/components/carousel/lib/carousel.actions";
 import { getServices } from "@/components/services/lib/service.actions";
 import OurHistory from "@/components/our-history";
@@ -36,13 +35,13 @@ export default async function Home() {
 
       <SociosSection socios={socios} />
 
-      <section className="py-20 px-4 md:px-6 bg-primary text-white">
+      <section className="py-10 md:py-20 px-4 md:px-6 bg-primary text-white">
         <div className="container mx-auto text-center">
           <AnimatedElement animation="zoom-in">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4">
               ¿LISTO PARA LLEVAR TU NEGOCIO AL SIGUIENTE NIVEL?
             </h2>
-            <p className="text-xl mb-8 max-w-3xl mx-auto">
+            <p className="md:text-xl mb-8 max-w-3xl mx-auto">
               Contáctanos hoy mismo y descubre cómo nuestras soluciones pueden
               impulsar tu crecimiento.
             </p>

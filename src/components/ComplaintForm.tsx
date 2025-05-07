@@ -21,7 +21,6 @@ import { cn } from "@/lib/utils";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -222,7 +221,6 @@ export default function ComplaintForm() {
   const [activeTab, setActiveTab] = useState(tabs[0]);
   const [submitting, setSubmitting] = useState(false);
 
-  const files = formComplaint.watch("files", []);
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = e.target.files ? Array.from(e.target.files) : [];
     formComplaint.setValue("files", selectedFiles, { shouldValidate: true });
@@ -793,10 +791,7 @@ export default function ComplaintForm() {
                     />
                   </CardContent>
                   <CardFooter className="flex justify-between">
-                    <Button
-                      variant="secondary"
-                      onClick={handlePrev}
-                    >
+                    <Button variant="secondary" onClick={handlePrev}>
                       Atrás
                     </Button>
                     <Button
@@ -990,10 +985,7 @@ export default function ComplaintForm() {
                     </div>
                   </CardContent>
                   <CardFooter className="flex justify-between">
-                    <Button
-                    variant="secondary"
-                      onClick={handlePrev}
-                    >
+                    <Button variant="secondary" onClick={handlePrev}>
                       Atrás
                     </Button>
                     <Button

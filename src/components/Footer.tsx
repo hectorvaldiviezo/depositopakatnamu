@@ -3,7 +3,6 @@ import {
   MapPin,
   Mail,
   Phone,
-  BookOpen,
   Facebook,
   Instagram,
   Linkedin,
@@ -15,7 +14,7 @@ import { Button } from "./ui/button";
 
 export default function Footer() {
   return (
-    <footer className="bg-secondary text-white mt-8">
+    <footer className="bg-secondary text-white">
       <div className="container py-12 px-4 md:px-6 max-w-(--breakpoint-xl) mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
           <div>
@@ -205,7 +204,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 border-t border-gray-700 text-center">
+        <div className="mt-12 text-center">
           <div className="w-full flex flex-wrap justify-center gap-4 py-4">
             <Link
               href="https://www.facebook.com/depositopakatnamuadm"

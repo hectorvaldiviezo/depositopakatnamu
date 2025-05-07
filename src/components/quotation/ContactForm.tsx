@@ -21,18 +21,10 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import {
-  BadgeCheck,
-  ChevronRight,
-  CircleDot,
-  Dot,
-  LoaderPinwheel,
-  Search,
-  Send,
-} from "lucide-react";
+import { BadgeCheck, LoaderPinwheel, Search, Send } from "lucide-react";
 import { Textarea } from "../ui/textarea";
 import { Separator } from "../ui/separator";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { errorToast, successToast } from "@/lib/core.function";
 import { searchByDNI, searchByRUC } from "@/lib/search.actions";
 import { QuotationRequest } from "./lib/quotation.interface";

@@ -68,7 +68,7 @@ export function Testimonials({ testimonials }: TestimonialProps) {
                         />
                       ))}
                     </div> */}
-                    <p className="text-lg italic mb-6">
+                    <p className="text-sm md:text-lg italic mb-6">
                       "{testimonial.testimonial}"
                     </p>
                     <div className="flex items-center">

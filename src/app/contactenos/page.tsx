@@ -1,77 +1,18 @@
 "use client";
 
-import type React from "react";
-
-import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import useProductCartStore from "@/components/quotation/lib/quotation.store";
-import { errorToast, successToast } from "@/lib/core.function";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { useSedes } from "@/components/sedes/lib/sedes.hook";
-import { Skeleton } from "@/components/ui/skeleton";
+import { MapPin, Clock } from "lucide-react";
 import ContactForm from "@/components/quotation/ContactForm";
 import Image from "next/image";
 import TitleComponent from "@/components/title";
 export const dynamic = "force-dynamic";
 
 export default function Contactenos() {
-  const [formData, setFormData] = useState({
-    sede: "",
-    nombre: "",
-    email: "",
-    asunto: "",
-    mensaje: "",
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      successToast(
-        "Formulario enviado con éxito",
-        "Nos pondremos en contacto con usted pronto."
-      );
-    } catch (error) {
-      errorToast("Error al enviar el formulario");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
-    <div className="container mx-auto py-4 px-4 md:px-6 relative">
+    <div className="container mx-auto pt-4 pb-16 px-4 md:px-6 relative">
       <TitleComponent
         title="Contáctenos"
-        description="Estamos aquí para ayudarle. Complete el formulario a continuación y
-          nos pondremos en contacto con usted a la brevedad."
+        description="Complete el formulario a continuación y nos pondremos en contacto con usted a la brevedad."
       />
 
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -11,7 +11,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ModeToggle } from "./mode-toggle";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import {
   Sheet,
@@ -69,7 +68,7 @@ export default function Header() {
                     variant="link"
                     className={`text-sm font-medium ${
                       route.dropdown.some((item) => isActive(item.path))
-                        ? "text-primary"
+                        ? "text-secondary"
                         : "text-foreground"
                     }`}
                   >
@@ -81,7 +80,7 @@ export default function Header() {
                     <DropdownMenuItem key={item.name} asChild>
                       <Link
                         href={item.path}
-                        className={isActive(item.path) ? "text-primary" : ""}
+                        className={isActive(item.path) ? "text-secondary" : ""}
                       >
                         {item.name}
                       </Link>
@@ -93,8 +92,8 @@ export default function Header() {
               <Link
                 key={route.name}
                 href={route.path}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isActive(route.path) ? "text-primary" : "text-foreground"
+                className={`text-sm font-medium transition-colors hover:text-secondary ${
+                  isActive(route.path) ? "text-secondary" : "text-foreground"
                 }`}
               >
                 {route.name}
@@ -140,7 +139,7 @@ export default function Header() {
                               key={item.name}
                               href={item.path}
                               className={`py-1 font-medium ${
-                                isActive(item.path) ? "text-primary" : ""
+                                isActive(item.path) ? "text-secondary" : ""
                               }`}
                               onClick={() => setIsMenuOpen(false)}
                             >
@@ -154,7 +153,7 @@ export default function Header() {
                         key={route.name}
                         href={route.path}
                         className={`py-1 font-medium ${
-                          isActive(route.path) ? "text-primary" : ""
+                          isActive(route.path) ? "text-secondary" : ""
                         }`}
                         onClick={() => setIsMenuOpen(false)}
                       >
