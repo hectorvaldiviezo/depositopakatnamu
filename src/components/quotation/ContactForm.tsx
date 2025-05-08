@@ -403,11 +403,7 @@ export default function ContactForm() {
             <Button
               variant={"secondary"}
               className="flex gap-2 cursor-pointer"
-              disabled={
-                loadgingSubmit ||
-                !form.formState.isValid ||
-                products.length === 0
-              }
+              disabled={loadgingSubmit || !form.formState.isValid}
             >
               {loadgingSubmit ? (
                 <LoaderPinwheel className="w-4 h-4 animate-spin" />
