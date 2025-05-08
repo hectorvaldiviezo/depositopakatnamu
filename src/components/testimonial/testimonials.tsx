@@ -74,10 +74,13 @@ export function Testimonials({ testimonials }: TestimonialProps) {
                     <div className="flex items-center">
                       <div className="relative h-14 w-14 rounded-full overflow-hidden mr-4">
                         <Image
-                          src={testimonial.image || "/placeholder.svg"}
+                          src={testimonial.image}
                           alt={testimonial.name}
                           fill
                           className="object-cover"
+                          onError={(e) => {
+                            e.currentTarget.src = "/placeholder.svg";
+                          }}
                         />
                       </div>
                       <div>
