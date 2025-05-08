@@ -34,7 +34,7 @@ export default function Novedades({ newsData }: NovedadesProps) {
   };
 
   return (
-    <div className="max-w-(--breakpoint-xl) mx-auto py-4 px-4 md:px-6">
+    <div className="max-w-(--breakpoint-xl) mx-auto pt-4 pb-8 px-4 md:px-6">
       <TitleComponent
         title="Novedades"
         description="Manténgase informado sobre las últimas noticias, eventos y novedades de Depósito Pakatnamú."
