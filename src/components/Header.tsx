@@ -47,7 +47,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background">
-      <div className="max-w-(--breakpoint-xl) mx-auto px-4 max-w-(--breakpoint-xl) flex h-16 items-center justify-between">
+      <div className="max-w-(--breakpoint-xl) mx-auto px-4  flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center justify-center gap-2">
           <Avatar className="rounded-xl">
             <AvatarImage src="/dplogo.svg" alt="tp" />
