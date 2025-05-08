@@ -15,7 +15,7 @@ import { Button } from "./ui/button";
 export default function Footer() {
   return (
     <footer className="bg-secondary text-white">
-      <div className="max-w-(--breakpoint-xl) py-12 px-4 md:px-6 max-w-(--breakpoint-xl) mx-auto">
+      <div className="py-12 px-4 md:px-6 max-w-(--breakpoint-xl) mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
           <div>
             <h3 className="text-lg font-bold mb-4 relative inline-block">
@@ -144,32 +144,16 @@ export default function Footer() {
 
           <div>
             <h3 className="text-lg font-bold mb-4 relative inline-block">
-              Novedades
+              Enlaces
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary"></span>
             </h3>
             <ul className="space-y-3 mb-8 text-sm">
               <li>
                 <Link
-                  href="/novedades/nueva-sucursal"
+                  href="/quienes-somos"
                   className="hover:text-primary transition-colors"
                 >
-                  Nueva sucursal en Trujillo
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/novedades/promocion-verano"
-                  className="hover:text-primary transition-colors"
-                >
-                  Promociones de verano
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/novedades/nuevos-productos"
-                  className="hover:text-primary transition-colors"
-                >
-                  Nuevos productos disponibles
+                  Quienes Somos
                 </Link>
               </li>
               <li>
@@ -177,7 +161,15 @@ export default function Footer() {
                   href="/novedades"
                   className="hover:text-primary transition-colors"
                 >
-                  Ver todas las novedades
+                  Novedades
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/productos"
+                  className="hover:text-primary transition-colors"
+                >
+                  Productos
                 </Link>
               </li>
             </ul>
