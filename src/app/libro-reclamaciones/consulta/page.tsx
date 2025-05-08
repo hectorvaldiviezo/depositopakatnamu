@@ -48,7 +48,7 @@ export default function Page() {
         title="LIBRO DE RECLAMACIONES"
         subtitle=""
         description=""
-        src={MILLA_BASE + "/webImages/Libro de Reclamaciones"}
+        src={MILLA_BASE + "/storage/webImages/2/libro-de-reclamaciones.png"}
         height="h-[300px]"
         gradient={true}
       />

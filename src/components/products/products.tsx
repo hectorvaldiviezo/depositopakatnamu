@@ -92,7 +92,7 @@ export default function Productos({ productsData, categorias }: ProductsProps) {
   };
 
   return (
-    <div className="container mx-auto py-4 px-4 md:px-6">
+    <div className="max-w-(--breakpoint-xl) mx-auto pt-4 pb-8 px-4 md:px-6">
       <TitleComponent
         title="Catálogo de Productos"
         description="Explora nuestra amplia variedad de productos y encuentra lo que necesitas."

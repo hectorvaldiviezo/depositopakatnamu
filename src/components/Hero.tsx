@@ -51,7 +51,7 @@ export default function Hero({
         }`}
       ></div>
       <div
-        className={`container max-w-(--breakpoint-lg) mx-auto px-4 relative z-10 ${
+        className={`max-w-(--breakpoint-xl) max-w-(--breakpoint-lg) mx-auto px-4 relative z-10 ${
           noText ? "hidden" : ""
         }`}
       >

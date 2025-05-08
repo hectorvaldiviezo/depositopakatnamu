@@ -30,7 +30,7 @@ const useNovedadesStore = create<NovedadesState>((set) => ({
   },
   loadNews: async (page: number) => {
     const data = await getNews(page);
-    set((state) => ({
+    set(() => ({
       news: data.data,
       meta: data.meta,
       links: data.links,

@@ -14,7 +14,7 @@ interface StatsSectionProps {
 export function StatsSection({ stats }: StatsSectionProps) {
   return (
     <section className="py-20 bg-linear-to-r from-secondary/10 to-primary/10">
-      <div className="container mx-auto px-4 md:px-6">
+      <div className="max-w-(--breakpoint-xl) mx-auto px-4 md:px-6">
         <AnimatedElement animation="fade-up" className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-secondary">
             NUESTRO <span className="text-primary">IMPACTO</span> EN NÚMEROS

@@ -15,7 +15,7 @@ import { Button } from "./ui/button";
 export default function Footer() {
   return (
     <footer className="bg-secondary text-white">
-      <div className="container py-12 px-4 md:px-6 max-w-(--breakpoint-xl) mx-auto">
+      <div className="max-w-(--breakpoint-xl) py-12 px-4 md:px-6 max-w-(--breakpoint-xl) mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
           <div>
             <h3 className="text-lg font-bold mb-4 relative inline-block">

@@ -6,7 +6,7 @@ import { Home, Search, ArrowLeft } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <div className="container mx-auto py-20 px-4 md:px-6">
+    <div className="max-w-(--breakpoint-xl) mx-auto py-20 px-4 md:px-6">
       <div className="flex flex-col items-center justify-center text-center max-w-3xl mx-auto">
         <div className="relative size-32 mb-8">
           <div className="absolute inset-0 flex items-center justify-center">

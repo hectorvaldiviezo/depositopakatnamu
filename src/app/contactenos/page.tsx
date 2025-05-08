@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 
 export default function Contactenos() {
   return (
-    <div className="container mx-auto pt-4 pb-16 px-4 md:px-6 relative">
+    <div className="max-w-(--breakpoint-xl) mx-auto pt-4 pb-16 px-4 md:px-6 relative">
       <TitleComponent
         title="Contáctenos"
         description="Complete el formulario a continuación y nos pondremos en contacto con usted a la brevedad."

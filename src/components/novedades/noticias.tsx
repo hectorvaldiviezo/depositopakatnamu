@@ -1,8 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import TitleComponent from "@/components/title";
 import { AnimatedElement } from "@/components/animated-element";
 import { NewsResource, NewsResponse } from "./lib/novedades.interface";
@@ -35,7 +34,7 @@ export default function Novedades({ newsData }: NovedadesProps) {
   };
 
   return (
-    <div className="container mx-auto py-4 px-4 md:px-6">
+    <div className="max-w-(--breakpoint-xl) mx-auto py-4 px-4 md:px-6">
       <TitleComponent
         title="Novedades"
         description="Manténgase informado sobre las últimas noticias, eventos y novedades de Depósito Pakatnamú."

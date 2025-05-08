@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Pagination,
   PaginationContent,
@@ -27,11 +29,17 @@ export default function CustomPagination({
   };
 
   const handlePreviousClick = () => {
-    if (current_page > 1) handlePageClick(current_page - 1);
+    if (current_page > 1) {
+      handlePageClick(current_page - 1);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   const handleNextClick = () => {
-    if (current_page < last_page) handlePageClick(current_page + 1);
+    if (current_page < last_page) {
+      handlePageClick(current_page + 1);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
   };
 
   const generatePageNumbers = () => {

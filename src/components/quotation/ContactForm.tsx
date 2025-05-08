@@ -21,7 +21,14 @@ import {
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { BadgeCheck, LoaderPinwheel, Search, Send } from "lucide-react";
+import {
+  BadgeCheck,
+  Box,
+  LoaderPinwheel,
+  Search,
+  Send,
+  Trash,
+} from "lucide-react";
 import { Textarea } from "../ui/textarea";
 import { Separator } from "../ui/separator";
 import { useState } from "react";
@@ -32,6 +39,8 @@ import { sendQuotation } from "./lib/quotation.actions";
 import useProductCartStore from "./lib/quotation.store";
 import { Skeleton } from "../ui/skeleton";
 import { useSedes } from "../sedes/lib/sedes.hook";
+import Link from "next/link";
+
 const FormSchema = z.object({
   sedeId: z.string().nonempty("Debes seleccionar una sede"),
   document: z
@@ -67,7 +76,7 @@ export default function ContactForm() {
     criteriaMode: "all",
   });
 
-  const { products, updateProduct } = useProductCartStore();
+  const { products, updateProduct, removeProduct } = useProductCartStore();
 
   const [loadingSearch, setLoadingSearch] = useState(false);
   const [loadgingSubmit, setLoadingSubmit] = useState(false);
@@ -152,7 +161,7 @@ export default function ContactForm() {
     <Form {...form}>
       <form
         action=""
-        className="container max-w-(--breakpoint-xl) flex items-center justify-center w-full"
+        className="max-w-(--breakpoint-xl) flex items-center justify-center w-full"
         onSubmit={form.handleSubmit(onSubmit)}
       >
         <div className="w-full flex flex-col justify-center max-w-(--breakpoint-md)">
@@ -319,6 +328,24 @@ export default function ContactForm() {
               )}
             />
             <Separator className="w-full my-4" />
+            {products.length === 0 && (
+              <div className="flex justify-between items-center w-full">
+                <div className="text-muted-foreground text-sm">
+                  No hay productos seleccionados para la cotización.
+                </div>
+                <Link href="/productos">
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    className="flex gap-2 cursor-pointer"
+                  >
+                    <Box className="w-4 h-4" />
+                    Ir a Productos
+                  </Button>
+                </Link>
+              </div>
+            )}
+
             {products.length > 0 && (
               <div className="space-y-4">
                 <h3 className="font-semibold">Productos seleccionados</h3>
@@ -338,23 +365,34 @@ export default function ContactForm() {
                           {product.unit}
                         </span>
                       </div>
-                      <Input
-                        type="number"
-                        placeholder="Cantidad"
-                        min="1"
-                        required
-                        value={product.quantity || ""}
-                        onChange={(e) => {
-                          const quantity = parseInt(e.target.value, 10);
-                          if (quantity > 0) {
-                            updateProduct({
-                              ...product,
-                              quantity,
-                            });
-                          }
-                        }}
-                        className="ml-2 w-28 h-7 text-center"
-                      />
+                      <div className="flex gap-2 items-center">
+                        <Input
+                          type="number"
+                          placeholder="Cantidad"
+                          min="1"
+                          required
+                          value={product.quantity || ""}
+                          onChange={(e) => {
+                            const quantity = parseInt(e.target.value, 10);
+                            if (quantity > 0) {
+                              updateProduct({
+                                ...product,
+                                quantity,
+                              });
+                            }
+                          }}
+                          className="ml-2 w-28 h-7 text-center"
+                        />
+                        <Button
+                          variant="destructive"
+                          size="icon"
+                          className="h-7 w-7 p-0"
+                          onClick={() => removeProduct(product.id)}
+                        >
+                          <span className="sr-only">Eliminar</span>
+                          <Trash className="w-4 h-4" />
+                        </Button>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -365,7 +403,11 @@ export default function ContactForm() {
             <Button
               variant={"secondary"}
               className="flex gap-2 cursor-pointer"
-              disabled={loadgingSubmit || !form.formState.isValid}
+              disabled={
+                loadgingSubmit ||
+                !form.formState.isValid ||
+                products.length === 0
+              }
             >
               {loadgingSubmit ? (
                 <LoaderPinwheel className="w-4 h-4 animate-spin" />

@@ -35,7 +35,7 @@ const useProductsStore = create<ProductsState>((set) => ({
   },
   loadProducts: async (page: number, search?: string, category?: string) => {
     const data = await getProducts(page, search, category);
-    set((state) => ({
+    set(() => ({
       products: data.data,
       meta: data.meta,
       links: data.links,

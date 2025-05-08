@@ -7,7 +7,7 @@ import TitleComponent from "@/components/title";
 export const dynamic = "force-dynamic";
 export default function SeguridadSaludTrabajo() {
   return (
-    <div className="container mx-auto py-4 px-4 md:px-6">
+    <div className="max-w-(--breakpoint-xl) mx-auto py-4 px-4 md:px-6">
       <h1 className="text-4xl font-bold text-center text-secondary"></h1>
 
       <TitleComponent title=" Seguridad, Salud y Trabajo" description="" />

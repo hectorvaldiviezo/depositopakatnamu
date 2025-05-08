@@ -36,7 +36,7 @@ export default async function Home() {
       <SociosSection socios={socios} />
 
       <section className="py-10 md:py-20 px-4 md:px-6 bg-primary text-white">
-        <div className="container mx-auto text-center">
+        <div className="max-w-(--breakpoint-xl) mx-auto text-center">
           <AnimatedElement animation="zoom-in">
             <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4">
               ¿LISTO PARA LLEVAR TU NEGOCIO AL SIGUIENTE NIVEL?

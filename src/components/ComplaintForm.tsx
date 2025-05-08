@@ -302,7 +302,7 @@ export default function ComplaintForm() {
 
   return (
     <div className="w-full py-20 px-2 flex justify-center items-center bg-muted">
-      <div className="container max-w-(--breakpoint-xl) flex items-center justify-center">
+      <div className="max-w-(--breakpoint-xl) flex items-center justify-center">
         <Tabs
           value={activeTab}
           onValueChange={setActiveTab}
@@ -334,7 +334,7 @@ export default function ComplaintForm() {
           <Form {...formComplaint}>
             <form
               action=""
-              className="container max-w-(--breakpoint-xl) flex items-center justify-center"
+              className="max-w-(--breakpoint-xl) flex items-center justify-center"
               onSubmit={formComplaint.handleSubmit(onSubmit)}
             >
               <TabsContent value="complaint" className="w-full">
@@ -652,7 +652,7 @@ export default function ComplaintForm() {
           <Form {...formWell}>
             <form
               action=""
-              className="container max-w-(--breakpoint-xl) flex items-center justify-center"
+              className="max-w-(--breakpoint-xl) flex items-center justify-center"
               onSubmit={formWell.handleSubmit(onSubmit)}
             >
               <TabsContent value="well" className="w-full">
@@ -809,7 +809,7 @@ export default function ComplaintForm() {
           <Form {...formCustomer}>
             <form
               action=""
-              className="container max-w-(--breakpoint-xl) flex items-center justify-center"
+              className="max-w-(--breakpoint-xl) flex items-center justify-center"
               onSubmit={formCustomer.handleSubmit(onSubmit)}
             >
               <TabsContent value="customer" className="w-full">
