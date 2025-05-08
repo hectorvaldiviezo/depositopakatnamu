@@ -20,7 +20,7 @@ export default function QuienesSomos() {
     historia: {
       title: "¿Quiénes Somos?",
       value: "historia",
-      image: "/storage/webImages/2/quienes-somos.png",
+      image: "/storage/webImages/2/quienes-somos-quienes-somos.png",
       content: (
         <div className="text-sm md:text-lg text-justify">
           <p className="mb-6">
@@ -49,7 +49,7 @@ export default function QuienesSomos() {
     mision: {
       title: "Misión",
       value: "mision",
-      image: "/storage/webImages/2/mision.png",
+      image: "/storage/webImages/2/quienes-somos-mision.png	",
       content: (
         <div>
           <Quote className="size-10 fill-secondary text-secondary mb-2 mx-auto" />
@@ -68,7 +68,7 @@ export default function QuienesSomos() {
     vision: {
       title: "Visión",
       value: "vision",
-      image: "/storage/webImages/2/vision.png",
+      image: "/storage/webImages/2/quienes-somos-vision.png	",
       content: (
         <div>
           <Quote className="size-10 fill-secondary text-secondary mb-2 mx-auto" />
@@ -86,7 +86,7 @@ export default function QuienesSomos() {
     principios: {
       title: "Principios",
       value: "principios",
-      image: "/storage/webImages/2/valores.png",
+      image: "/storage/webImages/2/quienes-somos-valores.png",
       content: (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-lg">
           {[
@@ -95,42 +95,42 @@ export default function QuienesSomos() {
               description:
                 "Miramos el negocio desde el campo, buscando oportunidades de crecimiento en todo tipo de terreno.",
               image:
-                "https://milla.grupopakatnamu.com/storage/webImages/2/somos-todo-terreno.png",
+                "https://milla.grupopakatnamu.com/storage/webImages/2/principios-somos-todo-terreno.png",
             },
             {
               title: "Mentalidad de dueño",
               description:
                 "Asumimos el negocio como propio haciéndonos cargo, logrando que las cosas sucedan y gestionando las consecuencias de nuestras decisiones.",
               image:
-                "https://milla.grupopakatnamu.com/storage/webImages/2/mentalidad-de-dueno.png",
+                "https://milla.grupopakatnamu.com/storage/webImages/2/principios-mentalidad-de-dueno.png",
             },
             {
               title: "Me apasiona conocer mi negocio",
               description:
                 "Nos apasiona conocer profundamente sobre nuestro negocio para aportar desde nuestro rol en su crecimiento y desarrollo.",
               image:
-                "https://milla.grupopakatnamu.com/storage/webImages/2/me-apasiona-conocer-mi-negocio.png",
+                "https://milla.grupopakatnamu.com/storage/webImages/2/principios-me-apasiona-conocer-mi-negocio.png",
             },
             {
               title: "Tomamos la delantera",
               description:
                 "En Pakatnamu nos anticipamos a los hechos manteniéndonos proactivos, dinámicos y enérgicos en el cumplimiento de nuestro propósito.",
               image:
-                "https://milla.grupopakatnamu.com/storage/webImages/2/tomamos-la-delantera.png",
+                "https://milla.grupopakatnamu.com/storage/webImages/2/principios-tomamos-la-delantera.png",
             },
             {
               title: "Fomento con el ejemplo nuestras normativas",
               description:
                 "Somos respetuosos y cuidadores de nuestras políticas y procedimientos, fomentamos el cumplimiento de las mismas y nunca nos desviamos de los lineamientos.",
               image:
-                "https://milla.grupopakatnamu.com/storage/webImages/2/fomento-con-el-ejemplo-nuestras-normativas.png",
+                "https://milla.grupopakatnamu.com/storage/webImages/2/principios-fomento-con-el-ejemplo-nuestras-normativas.png",
             },
             {
               title: "El cliente es primero",
               description:
                 "Adaptamos ágilmente nuestros procesos y protocolos de atención para generar una experiencia placentera en nuestros clientes.",
               image:
-                "https://milla.grupopakatnamu.com/storage/webImages/2/el-cliente-es-primero.png",
+                "https://milla.grupopakatnamu.com/storage/webImages/2/principios-el-cliente-es-primero.png",
             },
           ].map((value, index) => (
             <div
@@ -196,7 +196,7 @@ export default function QuienesSomos() {
       </div>
 
       <div className="flex flex-col lg:flex-row gap-12 mb-16 items-center">
-        <div className="flex relative aspect-1/1 rounded-lg overflow-hidden shadow-lg order-last lg:order-first w-2/5">
+        <div className="flex relative aspect-1/1 rounded-lg overflow-hidden shadow-lg order-last lg:order-first w-full lg:w-2/5">
           <Image
             src={MILLA_BASE + sections[section].image}
             alt="Depósito Pakatnamú"
@@ -205,7 +205,7 @@ export default function QuienesSomos() {
             priority={true}
           />
         </div>
-        <div className="flex items-center justify-center w-3/5">
+        <div className="flex items-center justify-center w-full lg:w-3/5">
           {sections[section].content}
         </div>
       </div>
