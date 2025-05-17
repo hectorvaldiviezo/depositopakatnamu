@@ -1,4 +1,3 @@
-
 import * as LucideReact from "lucide-react";
 import React from "react";
 import { AnimatedElement } from "../animated-element";
@@ -40,7 +39,7 @@ export function StatsSection({ stats }: StatsSectionProps) {
                   {Icon && <Icon className="h-12 w-12 text-primary" />}
                 </div>
                 <AnimatedCounter end={stat.number} suffix={stat.symbol} />
-                <h3 className="text-xl font-semibold mt-2 mb-1">
+                <h3 className="text-xl font-extrabold mt-2 mb-1 text-secondary">
                   {stat.title}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300">

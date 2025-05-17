@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { ReactQueryClientProvider } from "@/components/Provider";
@@ -17,10 +17,10 @@ export const metadata: Metadata = {
   },
 };
 
-const roboto = Roboto({
-  variable: "--font-roboto",
-  weight: ["100", "300", "400", "500", "700", "900"],
+const poppins = Poppins({
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-poppins",
 });
 
 export default function RootLayout({
@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <ReactQueryClientProvider>
       <html className="hiddenScroll" lang="es" suppressHydrationWarning>
-        <body className={`${roboto.variable}`}>
+        <body className={`${poppins.variable} bg-background`}>
           <ThemeProvider
             attribute="class"
             defaultTheme="light"

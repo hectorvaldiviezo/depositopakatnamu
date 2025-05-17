@@ -21,7 +21,7 @@ interface CarouselProps {
 export default function Carousel({
   slides,
   autoPlay = true,
-  interval = 2000,
+  interval = 6000,
 }: CarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -80,7 +80,7 @@ export default function Carousel({
             />
             <div className="absolute pt-36 inset-0 bg-linear-to-t from-black/80 to-black/20 flex items-center justify-center">
               <div className="text-center flex flex-col items-center text-white p-4 max-w-4xl">
-                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in-up">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 animate-fade-in-up">
                   {slide.title}
                 </h2>
                 <p className="text-xl md:text-2xl mb-8 animate-fade-in-up animation-delay-300 bg-secondary/50 backdrop-blur-lg w-fit px-4 rounded-lg">

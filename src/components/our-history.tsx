@@ -36,21 +36,26 @@ export default function OurHistory() {
           </div>
 
           <AnimatedElement animation="fade-left">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-secondary">
-              DESCUBRE <span className="text-primary">NUESTRA HISTORIA</span> DE
-              ÉXITO
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-6 text-secondary">
+              DESCUBRE LO QUE NOS <span className="text-primary">MUEVE</span>
             </h2>
-            <p className="text-lg mb-6">
-              Nacida con el afán de proveer a nuestros clientes de los mejores
-              productos a los precios más accesibles,{" "}
-              <strong>DEPOSITO PAKATNAMU</strong>
-              {""} apuesta por la calidad, el buen hacer y por las nuevas
-              tecnologías.
+            <p className="text-lg mb-6 text-justify">
+              <strong>Depósito Pakatnamu</strong> nació con un propósito claro:
+              ser el impulso que transforma el esfuerzo de miles de peruanos en
+              progreso real. No solo ofrecemos materiales de construcción,
+              ofrecemos soporte, confianza y compromiso con cada persona que
+              decide construir su camino con nosotros.
             </p>
-            <p className="text-lg mb-6">
-              Brindamos productos que exceden las expectativas y requerimientos
-              establecidos por normas oficiales, con un fuerte compromiso por el
-              cuidado del medio ambiente y la responsabilidad social.
+            <p className="text-lg mb-6 text-justify">
+              Acompañamos el desarrollo de familias, ferreterías y constructoras
+              a través de soluciones sostenibles, atención personalizada y
+              productos de calidad respaldados por marcas reconocidas.
+            </p>
+            <p className="text-lg mb-6 text-justify">
+              Creemos en el crecimiento a largo plazo, en el trabajo bien hecho
+              y en generar oportunidades que impacten positivamente en la
+              calidad de vida. Esa es nuestra historia, y queremos seguir
+              construyéndola contigo.
             </p>
             <Button asChild className="bg-primary hover:bg-primary/90 group">
               <Link href="/quienes-somos" className="flex items-center">

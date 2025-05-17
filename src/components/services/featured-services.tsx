@@ -11,10 +11,18 @@ interface FeaturedServicesProps {
 
 export function FeaturedServices({ services }: FeaturedServicesProps) {
   return (
-    <section className="py-20 bg-background dark:bg-background">
+    <section
+      className="py-20 bg-background dark:bg-background relative"
+      style={{
+        backgroundImage: "url('/pattern.svg')",
+        backgroundSize: "contain",
+        backgroundPosition: "center",
+        backgroundRepeat: "repeat",
+      }}
+    >
       <div className="max-w-(--breakpoint-xl) mx-auto px-4 md:px-6">
         <AnimatedElement animation="fade-up" className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-4">
             <span className="text-secondary">NUESTROS</span>{" "}
             <span className="text-primary">SERVICIOS</span>
           </h2>
@@ -37,12 +45,14 @@ export function FeaturedServices({ services }: FeaturedServicesProps) {
                 delay={index * 100}
                 className="group"
               >
-                <div className="bg-gray-50 dark:bg-gray-800 p-8 rounded-lg shadow-lg h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border-b-4 border-transparent hover:border-primary">
-                  <div className="text-primary mb-6 group-hover:scale-110 transition-transform duration-300">
+                <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-lg h-full flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border-b-4 border-transparent hover:border-primary">
+                  <div className="text-primary mb-6 group-hover:scale-110 transition-transform duration-300 flex justify-center">
                     {Icon && <Icon className="h-12 w-12 text-primary" />}
                   </div>
-                  <h3 className="text-xl font-bold mb-4">{service.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6 grow">
+                  <h3 className="text-xl font-bold mb-4 text-center">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-6 grow text-justify">
                     {service.description}
                   </p>
                   <Button

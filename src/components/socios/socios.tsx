@@ -12,7 +12,7 @@ export default function SociosSection({ socios }: SociosSectionProps) {
           animation="fade-up"
           className="text-center mb-4 md:mb-16"
         >
-          <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4 text-secondary">
+          <h2 className="text-2xl md:text-4xl font-extrabold mb-2 md:mb-4 text-secondary">
             NUESTROS <span className="text-primary">SOCIOS ESTRATÉGICOS</span>
           </h2>
           <p className="md:text-lg max-w-3xl mx-auto text-gray-600 dark:text-gray-300">

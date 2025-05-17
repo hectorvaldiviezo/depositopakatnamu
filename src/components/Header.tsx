@@ -55,8 +55,9 @@ export default function Header() {
               DP
             </AvatarFallback>
           </Avatar>
-          <div className="text-base sm:text-xl tracking-tight font-bold bg-linear-to-r from-primary dark:from-primary to-secondary dark:to-blue-600 bg-clip-text text-transparent flex flex-col">
-            DEPÓSITO PAKATNAMU
+          <div className="text-base sm:text-xl tracking-tight font-extrabold flex flex-col">
+            <span className="text-primary">DEPÓSITO</span>{" "}
+            <span className="text-secondary -mt-2">PAKATNAMU</span>
           </div>
         </Link>
         <nav className="hidden md:flex gap-6 justify-end items-center">
@@ -66,10 +67,10 @@ export default function Header() {
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="link"
-                    className={`text-sm font-medium ${
+                    className={`text-sm ${
                       route.dropdown.some((item) => isActive(item.path))
-                        ? "text-secondary"
-                        : "text-foreground"
+                        ? "text-secondary font-extrabold"
+                        : "text-foreground font-medium"
                     }`}
                   >
                     {route.name}
@@ -80,7 +81,11 @@ export default function Header() {
                     <DropdownMenuItem key={item.name} asChild>
                       <Link
                         href={item.path}
-                        className={isActive(item.path) ? "text-secondary" : ""}
+                        className={
+                          isActive(item.path)
+                            ? "text-secondary font-extrabold"
+                            : ""
+                        }
                       >
                         {item.name}
                       </Link>
@@ -92,8 +97,10 @@ export default function Header() {
               <Link
                 key={route.name}
                 href={route.path}
-                className={`text-sm font-medium transition-colors hover:text-secondary ${
-                  isActive(route.path) ? "text-secondary" : "text-foreground"
+                className={`text-sm transition-colors hover:text-secondary ${
+                  isActive(route.path)
+                    ? "text-secondary font-extrabold"
+                    : "text-foreground font-medium"
                 }`}
               >
                 {route.name}

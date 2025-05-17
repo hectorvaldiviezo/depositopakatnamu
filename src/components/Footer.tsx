@@ -12,6 +12,99 @@ import Image from "next/image";
 import { BASE_PATH } from "@/lib/config";
 import { Button } from "./ui/button";
 
+// Constantes para sucursales
+const BRANCHES = [
+  {
+    name: "Lambayeque",
+    address: "Carretera a Lambayeque Mz. A, Lote 6, Km. 4.5",
+  },
+  {
+    name: "Chiclayo",
+    address: "Av. Augusto B. Leguía, 1050 | Urb. San Lorenzo",
+  },
+  {
+    name: "Piura",
+    address: "Carretera a Sullana Km. 1009 | 26 de Octubre",
+  },
+  {
+    name: "Pacasmayo",
+    address: "Avenida Enrique Valenzuela, 419",
+  },
+  {
+    name: "Trujillo",
+    address: "Avenida Nicolás de Piérola, 1721",
+  },
+  {
+    name: "Chimbote",
+    address:
+      "Pasaje. Tres de Octubre | Mz.A Lt.7 - Sector Industrial | Nuevo Chimbote",
+  },
+];
+
+// Constantes para teléfonos
+const PHONES = [
+  {
+    city: "Lambayeque",
+    numbers: ["981 604 288"],
+  },
+  {
+    city: "Chiclayo",
+    numbers: ["978 185 795"],
+  },
+  {
+    city: "Piura",
+    numbers: ["981 698 001"],
+  },
+  {
+    city: "Cajamarca",
+    numbers: ["942 671 801"],
+  },
+  {
+    city: "Pacasmayo",
+    numbers: ["949 801 047", "924 119 386", "976 716 082"],
+  },
+  {
+    city: "Trujillo",
+    numbers: ["958 018 295", "044-251700"],
+  },
+  {
+    city: "Chimbote",
+    numbers: ["946 371 324"],
+  },
+];
+
+// Constantes para enlaces
+const LINKS = [
+  { href: "/quienes-somos", label: "Quienes Somos" },
+  { href: "/novedades", label: "Novedades" },
+  { href: "/productos", label: "Productos" },
+];
+
+// Constantes para redes sociales
+const SOCIALS = [
+  {
+    href: "https://www.facebook.com/depositopakatnamuadm",
+    icon: Facebook,
+    label: "@depositopakatnamuadm",
+    iconClass:
+      "w-4 h-4 stroke-transparent fill-secondary dark:fill-white dark:stroke-trannsparent",
+  },
+  {
+    href: "https://www.instagram.com/depositopakatnamu/",
+    icon: Instagram,
+    label: "@depositopakatnamu",
+    iconClass:
+      "w-4 h-4 fill-transparent stroke-secondary dark:fill-transparent dark:stroke-white",
+  },
+  {
+    href: "https://pe.linkedin.com/company/depositopakatnamu",
+    icon: Linkedin,
+    label: "@depositopakatnamu",
+    iconClass:
+      "w-4 h-4 fill-secondary stroke-transparent dark:fill-white dark:stroke-transparent",
+  },
+];
+
 export default function Footer() {
   return (
     <footer className="bg-secondary text-white">
@@ -23,48 +116,15 @@ export default function Footer() {
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary"></span>
             </h3>
             <ul className="space-y-3 text-sm">
-              <li className="flex items-start group">
-                <MapPin className="h-5 w-5 mr-2 mt-0.5 text-primary group-hover:scale-110 transition-transform" />
-                <span>
-                  <span className="font-semibold">Lambayeque:</span> Carretera a
-                  Lambayeque Mz. A, Lote 6, Km. 4.5
-                </span>
-              </li>
-              <li className="flex items-start group">
-                <MapPin className="h-5 w-5 mr-2 mt-0.5 text-primary group-hover:scale-110 transition-transform" />
-                <span>
-                  <span className="font-semibold">Chiclayo:</span> Av. Augusto
-                  B. Leguía, 1050 | Urb. San Lorenzo
-                </span>
-              </li>
-              <li className="flex items-start group">
-                <MapPin className="h-5 w-5 mr-2 mt-0.5 text-primary group-hover:scale-110 transition-transform" />
-                <span>
-                  <span className="font-semibold">Piura:</span> Carretera a
-                  Sullana Km. 1009 | 26 de Octubre
-                </span>
-              </li>
-              <li className="flex items-start group">
-                <MapPin className="h-5 w-5 mr-2 mt-0.5 text-primary group-hover:scale-110 transition-transform" />
-                <span>
-                  <span className="font-semibold">Pacasmayo:</span> Avenida
-                  Enrique Valenzuela, 419
-                </span>
-              </li>
-              <li className="flex items-start group">
-                <MapPin className="h-5 w-5 mr-2 mt-0.5 text-primary group-hover:scale-110 transition-transform" />
-                <span>
-                  <span className="font-semibold">Trujillo:</span> Avenida
-                  Nicolás de Piérola, 1721
-                </span>
-              </li>
-              <li className="flex items-start group">
-                <MapPin className="h-5 w-5 mr-2 mt-0.5 text-primary group-hover:scale-110 transition-transform" />
-                <span>
-                  <span className="font-semibold">Chimbote:</span> Pasaje. Tres
-                  de Octubre | Mz.A Lt.7 - Sector Industrial | Nuevo Chimbote
-                </span>
-              </li>
+              {BRANCHES.map((branch) => (
+                <li className="flex items-start group" key={branch.name}>
+                  <MapPin className="size-5 min-w-5 mr-2 mt-0.5 text-terciary group-hover:scale-110 transition-transform" />
+                  <span>
+                    <span className="font-semibold">{branch.name}:</span>{" "}
+                    {branch.address}
+                  </span>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -79,66 +139,42 @@ export default function Footer() {
                   href="/contactenos"
                   className="hover:text-primary transition-colors flex items-center"
                 >
-                  <Mail className="h-4 w-4 mr-2 text-primary" />
+                  <Mail className="size-5 min-w-5 mr-2 text-terciary" />
                   Formulario de Contacto
                 </Link>
               </li>
               <li className="flex items-start">
-                <Mail className="h-5 w-5 mr-2 mt-0.5 text-primary" />
+                <Mail className="size-5 min-w-5 mr-2 text-terciary" />
                 <span>informes@depositopakatnamu.com</span>
               </li>
               <h3 className="text-lg font-bold mb-4 relative inline-block">
                 Teléfonos
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary"></span>
               </h3>
-              <li className="flex items-start">
-                <Phone className="h-5 w-5 mr-2 mt-0.5 text-primary" />
-                <div>
-                  <p>
-                    <span className="font-medium">Lambayeque:</span> 981 604 288
-                  </p>
-                  <p>
-                    <span className="font-medium">Chiclayo:</span> 978 185 795
-                  </p>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <Phone className="h-5 w-5 mr-2 mt-0.5 text-primary" />
-                <div>
-                  <p>
-                    <span className="font-medium">Piura:</span> 981 698 001
-                  </p>
-                  <p>
-                    <span className="font-medium">Cajamarca:</span> 942 671 801
-                  </p>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <Phone className="h-5 w-5 mr-2 mt-0.5 text-primary" />
-                <div>
-                  <p>
-                    <span className="font-medium">Pacasmayo:</span> 949 801 047
-                    / 924 119 386 / 976 716 082
-                  </p>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <Phone className="h-5 w-5 mr-2 mt-0.5 text-primary" />
-                <div>
-                  <p>
-                    <span className="font-medium">Trujillo:</span> 958 018 295 /
-                    044-251700
-                  </p>
-                </div>
-              </li>
-              <li className="flex items-start">
-                <Phone className="h-5 w-5 mr-2 mt-0.5 text-primary" />
-                <div>
-                  <p>
-                    <span className="font-medium">Chimbote:</span> 946 371 324
-                  </p>
-                </div>
-              </li>
+              {[
+                // Agrupar teléfonos por ciudad
+                { cities: ["Lambayeque", "Chiclayo"] },
+                { cities: ["Piura", "Cajamarca"] },
+                { cities: ["Pacasmayo"] },
+                { cities: ["Trujillo"] },
+                { cities: ["Chimbote"] },
+              ].map((group, idx) => (
+                <li className="flex items-start" key={idx}>
+                  <Phone className="size-5 min-w-5 mr-2 mt-0.5 text-terciary" />
+                  <div>
+                    {group.cities.map((city) => {
+                      const phone = PHONES.find((p) => p.city === city);
+                      if (!phone) return null;
+                      return (
+                        <p key={city}>
+                          <span className="font-medium">{city}:</span>{" "}
+                          {phone.numbers.join(" / ")}
+                        </p>
+                      );
+                    })}
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -148,30 +184,16 @@ export default function Footer() {
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary"></span>
             </h3>
             <ul className="space-y-3 mb-8 text-sm">
-              <li>
-                <Link
-                  href="/quienes-somos"
-                  className="hover:text-primary transition-colors"
-                >
-                  Quienes Somos
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/novedades"
-                  className="hover:text-primary transition-colors"
-                >
-                  Novedades
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/productos"
-                  className="hover:text-primary transition-colors"
-                >
-                  Productos
-                </Link>
-              </li>
+              {LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
 
             <h3 className="text-lg font-bold mb-4 relative inline-block">
@@ -198,45 +220,18 @@ export default function Footer() {
 
         <div className="mt-12 text-center">
           <div className="w-full flex flex-wrap justify-center gap-4 py-4">
-            <Link
-              href="https://www.facebook.com/depositopakatnamuadm"
-              target="_blank"
-            >
-              <Button
-                size="sm"
-                variant="default"
-                className="cursor-pointer flex w-fit gap-2 px-2 items-center text-xs font-medium font-roboto text-secondary rounded-full bg-muted hover:bg-muted/95 dark:text-white"
-              >
-                <Facebook className="w-4 h-4 stroke-transparent fill-secondary dark:fill-white dark:stroke-trannsparent" />
-                @depositopakatnamuadm
-              </Button>
-            </Link>
-            <Link
-              href="https://www.instagram.com/depositopakatnamu/"
-              target="_blank"
-            >
-              <Button
-                size="sm"
-                variant="default"
-                className="cursor-pointer flex w-fit gap-2 px-2 items-center text-xs font-medium font-roboto text-secondary rounded-full bg-muted hover:bg-muted/95 dark:text-white"
-              >
-                <Instagram className="w-4 h-4 fill-transparent stroke-secondary dark:fill-transparent dark:stroke-white" />
-                @depositopakatnamu
-              </Button>
-            </Link>
-            <Link
-              href="https://pe.linkedin.com/company/depositopakatnamu"
-              target="_blank"
-            >
-              <Button
-                size="sm"
-                variant="default"
-                className="cursor-pointer flex w-fit gap-2 px-2 items-center text-xs font-medium font-roboto text-secondary rounded-full bg-muted hover:bg-muted/95 dark:text-white"
-              >
-                <Linkedin className="w-4 h-4 fill-secondary stroke-transparent dark:fill-white dark:stroke-transparent" />
-                @depositopakatnamu
-              </Button>
-            </Link>
+            {SOCIALS.map((social) => (
+              <Link href={social.href} target="_blank" key={social.href}>
+                <Button
+                  size="sm"
+                  variant="default"
+                  className="cursor-pointer flex w-fit gap-2 px-2 items-center text-xs font-medium font-roboto text-secondary rounded-full bg-muted hover:bg-muted/95 dark:text-white"
+                >
+                  <social.icon className={social.iconClass} />
+                  {social.label}
+                </Button>
+              </Link>
+            ))}
           </div>
           <p>
             &copy; {new Date().getFullYear()} Depósito Pakatnamú EIRL. Todos los

@@ -38,7 +38,7 @@ export function Testimonials({ testimonials }: TestimonialProps) {
     <section className="py-20 bg-secondary text-white">
       <div className="max-w-(--breakpoint-xl) mx-auto px-4 md:px-6">
         <AnimatedElement animation="fade-up" className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4">
             LO QUE DICEN <span className="text-primary">NUESTROS CLIENTES</span>
           </h2>
           <p className="text-lg md:text-xl max-w-3xl mx-auto text-gray-200">

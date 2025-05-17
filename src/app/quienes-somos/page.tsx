@@ -6,9 +6,10 @@ import { Quote } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { MILLA_BASE } from "@/lib/config";
 import TitleComponent from "@/components/title";
+import { AnimatedElement } from "@/components/animated-element";
 
 export const dynamic = "force-dynamic";
-type Section = "historia" | "mision" | "vision" | "principios";
+type Section = "historia" | "proposito" | "vision" | "principios" | "valores";
 
 export default function QuienesSomos() {
   const [section, setSection] = useState<Section>("historia");
@@ -18,6 +19,7 @@ export default function QuienesSomos() {
 
   const sections = {
     historia: {
+      withImage: true,
       title: "¿Quiénes Somos?",
       value: "historia",
       image: "/storage/webImages/2/quienes-somos-quienes-somos.png",
@@ -25,33 +27,35 @@ export default function QuienesSomos() {
         <div className="text-sm md:text-lg text-justify">
           <p className="mb-6">
             <strong className="text-secondary">Depósito Pakatnamú</strong> es
-            una empresa líder en el mercado, dedicada a proporcionar soluciones
-            integrales para negocios de todos los tamaños. Desde nuestra
-            fundación, hemos trabajado incansablemente para construir una
-            reputación basada en la confianza, la calidad y la excelencia en el
-            servicio.
+            más que un proveedor de materiales: somos el {""}
+            <strong className="text-primary">impulso</strong> que transforma el
+            esfuerzo en progreso. Nacimos para acompañar el desarrollo de
+            quienes construyen.
           </p>
           <p className="mb-6">
-            Nuestro equipo está formado por <strong>profesionales</strong>{" "}
-            altamente capacitados y comprometidos con la satisfacción del
-            cliente. Entendemos que cada negocio es único, por lo que nos
-            esforzamos por ofrecer soluciones personalizadas que se adapten a
-            sus necesidades específicas.
+            Con productos de calidad, atención personalizada y compromiso real,
+            brindamos soluciones que impactan positivamente en la vida de
+            nuestros clientes. Desde el norte del Perú, fortalecemos a
+            constructoras, ferreterías y familias, ofreciendo un servicio
+            confiable, transparente y humano. Nuestro equipo trabaja con
+            honestidad, conocimiento y pasión para ayudarte a construir con
+            seguridad y visión de futuro.
           </p>
           <p>
-            En Depósito Pakatnamú, no solo vendemos productos; construimos
-            relaciones duraderas con nuestros clientes, basadas en la confianza
-            mutua y el compromiso con la excelencia.
+            Creemos en el desarrollo sostenible, en el trabajo bien hecho y en
+            relaciones basadas en la confianza. Por eso, cada día damos lo mejor
+            de nosotros para que tu proyecto avance, crezca y perdure.
           </p>
         </div>
       ),
     },
-    mision: {
-      title: "Misión",
-      value: "mision",
-      image: "/storage/webImages/2/quienes-somos-mision.png	",
+    proposito: {
+      withImage: true,
+      title: "Propósito",
+      value: "proposito",
+      image: "/storage/webImages/2/quienes-somos-proposito.png",
       content: (
-        <div>
+        <AnimatedElement animation="fade-up" delay={100} className="h-full">
           <Quote className="size-10 fill-secondary text-secondary mb-2 mx-auto" />
           <blockquote className="p-4 my-4 border-s-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-800">
             <p className="text-base md:text-xl italic font-medium leading-relaxed text-gray-900 dark:text-white">
@@ -62,15 +66,16 @@ export default function QuienesSomos() {
               honestidad, responsabilidad y lealtad."
             </p>
           </blockquote>
-        </div>
+        </AnimatedElement>
       ),
     },
     vision: {
+      withImage: true,
       title: "Visión",
       value: "vision",
       image: "/storage/webImages/2/quienes-somos-vision.png	",
       content: (
-        <div>
+        <AnimatedElement animation="fade-up" delay={100} className="h-full">
           <Quote className="size-10 fill-secondary text-secondary mb-2 mx-auto" />
           <blockquote className="p-4 my-4 border-s-4 border-gray-300 bg-gray-50 dark:border-gray-500 dark:bg-gray-800">
             <p className="text-base md:text-xl italic font-medium leading-relaxed text-gray-900 dark:text-white">
@@ -80,15 +85,16 @@ export default function QuienesSomos() {
               una atención personalizada."
             </p>
           </blockquote>
-        </div>
+        </AnimatedElement>
       ),
     },
     principios: {
+      withImage: false,
       title: "Principios",
       value: "principios",
       image: "/storage/webImages/2/quienes-somos-valores.png",
       content: (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm md:text-lg">
+        <div className="grid grid-cols-1 md:grid-cols-3 max-w-(--breakpoint-lg) gap-6 text-sm md:text-lg auto-rows-fr">
           {[
             {
               title: "Somos todo terreno",
@@ -133,29 +139,107 @@ export default function QuienesSomos() {
                 "https://milla.grupopakatnamu.com/storage/webImages/2/principios-el-cliente-es-primero.png",
             },
           ].map((value, index) => (
-            <div
+            <AnimatedElement
               key={index}
-              className="max-w-sm w-full border-none bg-gray-100 p-4 rounded-lg shadow flex gap-2 items-center"
+              animation="fade-up"
+              delay={index * 100}
+              className="h-full"
             >
-              <div className="relative aspect-square rounded-full overflow-hidden w-1/3">
+              <div
+                key={index}
+                className="max-w-sm h-full w-full bg-gray-100 p-4 rounded-lg shadow flex flex-col gap-4 items-center hover:shadow-xl transition-shadow border-t-4 border-t-primary"
+              >
+                <div className="relative aspect-square rounded-full overflow-hidden w-2/5">
+                  <Image
+                    src={value.image}
+                    fill
+                    alt="Depósito Pakatnamú"
+                    quality={100}
+                    className="rounded-lg object-cover"
+                    priority={true}
+                  />
+                </div>
+                <div className="flex flex-col w-full">
+                  <strong className="text-secondary">{value.title}</strong>
+                  <p className="text-muted-foreground text-sm text-justify">
+                    {value.description}
+                  </p>
+                </div>
+              </div>
+            </AnimatedElement>
+          ))}
+        </div>
+      ),
+    },
+    valores: {
+      withImage: false,
+      title: "Valores",
+      value: "valores",
+      image: "/storage/webImages/2/quienes-somos-valores.png",
+      content: (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm md:text-lg w-full">
+          {[
+            {
+              title: "Calidad de servicio",
+              image:
+                "https://milla.grupopakatnamu.com/storage/webImages/2/valores-calidad-de-servicio.png",
+            },
+            {
+              title: "Transparencia",
+              image:
+                "https://milla.grupopakatnamu.com/storage/webImages/2/valores-transparencia.png",
+            },
+            {
+              title: "Orientación al cliente",
+              image:
+                "https://milla.grupopakatnamu.com/storage/webImages/2/valores-orientacion-al-cliente.png",
+            },
+            {
+              title: "Mejora continua",
+              image:
+                "https://milla.grupopakatnamu.com/storage/webImages/2/valores-mejora-continua.png",
+            },
+            {
+              title: "Innovación y escalabilidad",
+              image:
+                "https://milla.grupopakatnamu.com/storage/webImages/2/valores-innovacion-y-escalabilidad.png",
+            },
+            {
+              title: "Proactividad",
+              image:
+                "https://milla.grupopakatnamu.com/storage/webImages/2/valores-proactividad.png",
+            },
+          ].map((value, index) => (
+            <AnimatedElement
+              key={index}
+              animation="fade-up"
+              delay={index * 100}
+              className="h-full"
+            >
+              <div
+                className={
+                  "w-full border-none bg-gray-100 p-4 rounded-lg shadow flex gap-2 items-center relative min-h-52 overflow-hidden"
+                }
+              >
                 <Image
-                  src={value.image}
                   fill
-                  alt="Depósito Pakatnamú"
-                  quality={100}
-                  className="rounded-lg object-cover"
-                  priority={true}
-                />
+                  src={value.image}
+                  alt="title"
+                  className="object-cover"
+                ></Image>
+                <div
+                  className={cn(
+                    "absolute inset-0 z-10 rounded-lg",
+                    index % 2 === 0 ? "bg-primary/70" : "bg-secondary/70"
+                  )}
+                ></div>
+                <div className="flex flex-col w-full relative z-20">
+                  <strong className="text-white md:text-3xl font-extrabold lowercase text-center">
+                    {value.title}
+                  </strong>
+                </div>
               </div>
-              <div className="flex flex-col w-2/3">
-                <strong className="text-secondary text-sm md:text-base">
-                  {value.title}
-                </strong>
-                <p className="text-muted-foreground text-xs text-justify">
-                  {value.description}
-                </p>
-              </div>
-            </div>
+            </AnimatedElement>
           ))}
         </div>
       ),
@@ -170,7 +254,7 @@ export default function QuienesSomos() {
       />
 
       <div className="mb-8">
-        <div className="bg-muted rounded-full flex max-w-2xl mx-auto overflow-auto hiddenScroll transparentScroll">
+        <div className="bg-muted rounded-full flex max-w-3xl mx-auto overflow-auto hiddenScroll transparentScroll">
           {Object.entries(sections).map(([key, { title }], index) => (
             <Button
               key={key}
@@ -195,8 +279,13 @@ export default function QuienesSomos() {
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-12 mb-16 items-center">
-        <div className="flex relative aspect-1/1 rounded-lg overflow-hidden shadow-lg order-last lg:order-first w-full lg:w-2/5">
+      <div className={"flex flex-col lg:flex-row gap-12 mb-16 items-center"}>
+        <div
+          className={cn(
+            "flex relative aspect-1/1 rounded-lg overflow-hidden shadow-lg order-last lg:order-first w-full lg:w-2/5",
+            sections[section].withImage ? "h-full" : "hidden"
+          )}
+        >
           <Image
             src={MILLA_BASE + sections[section].image}
             alt="Depósito Pakatnamú"
@@ -205,7 +294,12 @@ export default function QuienesSomos() {
             priority={true}
           />
         </div>
-        <div className="flex items-center justify-center w-full lg:w-3/5">
+        <div
+          className={cn(
+            "flex items-center justify-center w-full",
+            sections[section].withImage ? "lg:w-3/5" : "lg:w-full"
+          )}
+        >
           {sections[section].content}
         </div>
       </div>
