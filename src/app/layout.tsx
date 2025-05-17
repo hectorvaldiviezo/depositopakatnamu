@@ -7,6 +7,7 @@ import ButtonWhatsapp from "@/components/button-whatsapp";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/theme-provider";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Depósito Pakatnamú",
@@ -31,7 +32,26 @@ export default function RootLayout({
   return (
     <ReactQueryClientProvider>
       <html className="hiddenScroll" lang="es" suppressHydrationWarning>
-        <body className={`${poppins.variable} bg-background`}>
+        <body
+          className={`${poppins.variable} bg-background`}
+          style={{
+            backgroundImage: "url('/pattern.svg')",
+            backgroundSize: "contain",
+            backgroundPosition: "center",
+            backgroundRepeat: "repeat",
+            // backgroundColor: "rgba(223, 223, 223, 0.4)",
+          }}
+        >
+          <Image
+            src="/logo.png"
+            alt="Logo"
+            width={100}
+            height={100}
+            className="absolute top-0 left-0 z-10 w-20 h-20 md:w-32 md:h-32"
+            style={{
+              filter: "drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.5))",
+            }}
+          />
           <ThemeProvider
             attribute="class"
             defaultTheme="light"

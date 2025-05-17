@@ -11,15 +11,7 @@ interface FeaturedServicesProps {
 
 export function FeaturedServices({ services }: FeaturedServicesProps) {
   return (
-    <section
-      className="py-20 bg-background dark:bg-background relative"
-      style={{
-        backgroundImage: "url('/pattern.svg')",
-        backgroundSize: "contain",
-        backgroundPosition: "center",
-        backgroundRepeat: "repeat",
-      }}
-    >
+    <section className="py-20 relative bg-gradient-to-t from-background">
       <div className="max-w-(--breakpoint-xl) mx-auto px-4 md:px-6">
         <AnimatedElement animation="fade-up" className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-extrabold mb-4">

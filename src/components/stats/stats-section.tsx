@@ -12,7 +12,7 @@ interface StatsSectionProps {
 
 export function StatsSection({ stats }: StatsSectionProps) {
   return (
-    <section className="py-20 bg-linear-to-r from-secondary/10 to-primary/10">
+    <section className="py-20 bg-background bg-linear-to-r from-secondary/20 to-primary/20">
       <div className="max-w-(--breakpoint-xl) mx-auto px-4 md:px-6">
         <AnimatedElement animation="fade-up" className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-secondary">

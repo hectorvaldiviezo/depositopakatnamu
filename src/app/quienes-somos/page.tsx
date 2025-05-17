@@ -247,7 +247,7 @@ export default function QuienesSomos() {
   };
 
   return (
-    <div className="max-w-(--breakpoint-xl) mx-auto px-4 py-4 md:px-6 overflow-hidden">
+    <div className="max-w-(--breakpoint-xl) mx-auto px-4 py-4 md:px-6 overflow-hidden bg-background/40">
       <TitleComponent
         title={sections[section].title}
         description="Conoce más sobre nosotros"

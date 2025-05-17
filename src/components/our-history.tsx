@@ -6,7 +6,7 @@ import HeroVideoDialog from "./magicui/hero-video-dialog";
 
 export default function OurHistory() {
   return (
-    <section className="py-20 px-4 md:px-6 bg-background dark:bg-gray-900">
+    <section className="py-20 px-4 md:px-6 bg-gradient-to-b from-background">
       <div className="max-w-(--breakpoint-xl) mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* <iframe

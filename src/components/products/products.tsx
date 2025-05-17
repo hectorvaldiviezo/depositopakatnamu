@@ -92,7 +92,7 @@ export default function Productos({ productsData, categorias }: ProductsProps) {
   };
 
   return (
-    <div className="max-w-(--breakpoint-xl) mx-auto pt-4 pb-8 px-4 md:px-6">
+    <div className="max-w-(--breakpoint-xl) mx-auto pt-4 pb-8 px-4 md:px-6 bg-gradient-to-b from-background">
       <TitleComponent
         title="Catálogo de Productos"
         description="Explora nuestra amplia variedad de productos y encuentra lo que necesitas."
@@ -104,7 +104,7 @@ export default function Productos({ productsData, categorias }: ProductsProps) {
           <Input
             type="text"
             placeholder="Buscar productos..."
-            className="pl-10 text-sm md:text-base"
+            className="pl-10 text-sm md:text-base bg-background"
             value={busqueda}
             onChange={(e) => setBusqueda(e.target.value)}
           />
@@ -116,7 +116,7 @@ export default function Productos({ productsData, categorias }: ProductsProps) {
             value={categoriaSeleccionada}
             onValueChange={setCategoriaSeleccionada}
           >
-            <SelectTrigger className="w-full">
+            <SelectTrigger className="w-full bg-background">
               <div className="flex items-center">
                 <Filter className="mr-2 h-4 w-4" />
                 <SelectValue placeholder="Categoría" />
